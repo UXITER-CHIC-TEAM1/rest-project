@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../layout/signUp.css">
+</head>
+<body>
+    <div class="signup-container">
+        <img src="../assets/text-logo.png" alt="text-logo" class="text-logo">
+        <h2 class="signup-text">회원가입</h2>  
+        <h3 class="nickname-text">닉네임</h3>
+        <input type="text" class="signup-input">
+        <h3 class="id-text">아이디</h3>
+        <input type="text" class="signup-input" placeholder="ex) localmark@naver.com">
+        <h3 class="password-text">비밀번호</h3>
+        <p>영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</p>
+        <div class="password-wrapper">
+            <input type="password" class="signup-input password-input" placeholder="비밀번호">
+            <button type="button" class="toggle-password">비밀번호 보기</button>
+        </div>
+        <h3 class="password-check-text">비밀번호 확인</h3>
+        <div class="password-wrapper">
+            <input type="password" class="signup-input password-check-input" placeholder="비밀번호 확인">
+            <button type="button" class="toggle-password"> 비밀번호 보기</button>
+        </div>
+        <label>
+            <input type="checkbox" class="terms-checkbox">
+            이용약관, 개인정보 수집 및 이용에 동의합니다.
+        </label>
+        <button class="signup-button">회원가입 하기</button>
+    </div> 
+    <script src="../components/signUp.js"></script>
+</body>
+</html>

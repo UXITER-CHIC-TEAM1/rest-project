@@ -1,0 +1,44 @@
+/* Reset 기본 스타일 */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #FFF7DC;
+}
+
+/* 컨테이너 스타일 */
+.container {
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 700px; /* 최대 너비 설정 */
+}
+
+/* 로고 이미지 스타일 */
+.logo {
+  width: 100%; /* 화면 너비의 100%로 설정 */
+  max-width: 700px; /* 최대 너비를 500px로 설정하여 더 크게 표시 */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.start-button:hover {
+  background-color: #00b30f;
+}
+
+/* 반응형 설정 */
+@media (max-width: 600px) {
+  .logo {
+    width: 100%; /* 작은 화면에서도 더 크게 보이도록 설정 */
+  }
+
+  .start-button {
+    font-size: 16px; /* 작은 화면에서는 폰트 크기 줄임 */
+    width: 70%; /* 작은 화면에서 버튼 너비도 줄임 */
+  }
+}

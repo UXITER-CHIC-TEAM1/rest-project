@@ -1,0 +1,143 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+/* 장소, 분위기 필터링 컨테이너 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* 태그 버튼 영역 */
+.tags {
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.tag-title {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0; 
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.tag {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    min-width: calc((100% / 5) - 20px);
+}
+
+/* 메인 콘텐츠 영역 */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    background-color: white;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    visibility: visible;
+    font-weight: bold;
+}
+
+/* 하단 네비게이션 바 */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 20px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .tag {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tag {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .main-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tag {
+        font-size: 12px;
+        padding: 6px 12px;
+        min-width: calc((100% / 2) - 20px);
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
