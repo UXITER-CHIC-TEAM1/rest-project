@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장소 리뷰 화면</title>
+    <link rel="stylesheet" href="place_review.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 리뷰 게시글 -->
+      <div class="post">
+        <h2 class="review-title">리뷰 게시글 제목</h2>
+        <!-- 리뷰 해당하는 장소, 필터 -->
+        <div class="review-place">
+          <h4>공덕역 투썸플레이스</h4>
+          <span class="tag">조용한</span>
+          <span class="tag">작업하기 좋은</span>
+        </div>
+        <!-- 게시글 정보 및 내용 -->
+        <div class="post-header">
+          <div class="post-user-info">
+            <div class="user-icon"></div>
+            <div class="post-details">
+              <div class="post-meta">
+                <span class="username">닉네임</span>
+              </div>
+              <div class="post-stats">
+                <span class="post-date">작성 날짜</span>
+                <span class="post-time">작성 시간</span>
+                <span class="post-views">조회수</span>
+              </div>
+            </div>
+          </div>
+          <button class="follow-button">팔로우</button>
+        </div>
+        <div class="post-content">
+          <div class="review-card">
+            <div class="card">
+              <div class="card-image"></div>
+              <p class="card-title">장소 이미지</p>
+            </div>
+            <div class="card">
+              <div class="card-image"></div>
+              <p class="card-title">장소 이미지</p>
+            </div>
+          </div>
+          <span class="post-like">좋아요</span>
+          <span class="post-comment">댓글</span>
+          <p>본문 내용</p>
+        </div>
+      </div>
+
+      <!-- 하단 네비게이션 바 -->
+      <div class="bottom-nav">
+        <span class="nav-item">추천</span>
+        <span class="nav-item">커뮤니티</span>
+        <span class="nav-item">내 쉼터</span>
+        <span class="nav-item">마이로그</span>
+      </div>
+    </div>
+    <script src="../components/place_review.js"></script>
+  </body>
+</html>
