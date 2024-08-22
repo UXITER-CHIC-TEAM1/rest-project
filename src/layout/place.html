@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장소 화면</title>
+    <link rel="stylesheet" href="place.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 상단의 장소 이름, 정보 영역 -->
+      <div class="place">
+        <h1 class="place-name">장소명</h1>
+        <div class="place-img">
+          <p>장소 사진 들어갈 부분</p>
+        </div>
+        <div class="place-address">
+          <h4>장소 상세 주소</h4>
+          <h5>가까운 지하철 역 000m</h5>
+        </div>
+        <div class="place-info">
+          <div class="place-time">
+            <h3>영업중 0:00~0:00</h3>
+          </div>
+          <div class="place-parking">
+            <h3>주차 가능</h3>
+          </div>
+          <div class="place-wifi">
+            <h3>와이파이 제공</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 장소 리뷰 영역 -->
+      <div class="place-review">
+        <h2 class="review">리뷰</h2>
+        <div class="review-card">
+          <div class="card">
+            <div class="card-image"></div>
+            <p class="card-title">장소 이미지</p>
+            <h5 class="review-title">타이틀</h5>
+            <h6 class="review-content">본문 내용</h6>
+          </div>
+          <div class="card">
+            <div class="card-image"></div>
+            <p class="card-title">장소 이미지</p>
+            <h5 class="review-title">타이틀</h5>
+            <h6 class="review-content">본문 내용</h6>
+          </div>
+          <div class="card">
+            <div class="card-image"></div>
+            <p class="card-title">장소 이미지</p>
+            <h5 class="review-title">타이틀</h5>
+            <h6 class="review-content">본문 내용</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- 하단 네비게이션 바 -->
+      <div class="bottom-nav">
+        <span class="nav-item">추천</span>
+        <span class="nav-item">커뮤니티</span>
+        <span class="nav-item">내 쉼터</span>
+        <span class="nav-item">마이로그</span>
+      </div>
+    </div>
+    <script src="../components/place.js"></script>
+  </body>
+</html>
