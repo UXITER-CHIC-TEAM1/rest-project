@@ -64,8 +64,29 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // 모든 조건이 충족되면 회원가입 완료 후 로그인 화면으로 이동
-        alert('회원가입이 완료되었습니다!');
-        window.location.href = 'login.html'; // 로그인 화면으로 이동
+        // 서버로 데이터 전송
+        fetch('/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nickname, email, password })
+        })
+        .then(response => {
+            return response.text().then(data => ({
+                data,
+                ok: response.ok
+            }));
+        })
+        .then(({ data, ok }) => {
+            alert(data);
+            if (ok) {
+                window.location.href = 'login.html'; // 로그인 화면으로 이동
+            }
+        })
+        .catch(error => {
+            alert('서버에 문제가 발생했습니다.');
+            console.error('Error:', error);
+        });
     });
 });
