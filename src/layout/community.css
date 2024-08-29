@@ -1,0 +1,292 @@
+/* 기본 스타일 설정 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+/* 전체 페이지의 높이 설정 및 스크롤바 숨기기 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 모든 div 요소의 넓이를 100%로 설정하여 레이아웃이 꽉 차도록 함 */
+div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.div {
+  padding-bottom: 85px; /* 하단 네비게이션 높이만큼 여백 추가 */
+}
+
+/* 상단 로고 이미지 스타일 */
+.text-logo-div {
+  height: 45px;
+  margin-bottom: 10px;
+}
+.text-logo {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 0;
+  object-fit: contain;
+}
+
+/* 검색창 스타일 */
+.search-div {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-input {
+  border: 1px solid #878787;
+  width: 95%;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0px 0px 0px 20px; /* 왼쪽 여백을 20px로 설정 */
+}
+
+/* placeholder 텍스트 스타일 */
+.search-input::placeholder {
+  color: #878787;
+  font-size: 14px;
+  opacity: 1;
+  margin-left: 10px; /* placeholder 텍스트 왼쪽 여백 설정 */
+}
+
+/* 검색 버튼 스타일 */
+.search-button {
+  background: none;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* 필터 버튼 스타일 */
+.filter-div {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  overflow-x: auto; /* 가로 스크롤 허용 */
+  overflow-y: hidden; /* 세로 스크롤 숨기기 */
+  white-space: nowrap;
+}
+
+/* 필터링 버튼 스타일 */
+.filter-div::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+.filter-div button {
+  background-color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: 1px solid #C5C5C5;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-icon {
+  margin-right: 10px;
+}
+
+/* 커뮤니티 게시물 스타일 */
+.community-post {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+/* 글 제목 스타일 */
+.post-title {
+  display: block; /* 링크 요소를 블록으로 설정 */
+  text-decoration: none;
+  color: black; /* 텍스트 색상 설정 */
+  padding: 0; /* 기본 패딩 제거 */
+}
+
+/* 글 제목 스타일 */
+.post-title > p:first-of-type {
+  font-size: 19px;
+  font-weight: 400; /* 얇은 글씨로 설정 */
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+/* 장소명 스타일 */
+.post-placename {
+  font-size: 16px;
+  font-weight: 900; /* 두꺼운 글씨로 설정 */
+  color: black;
+  margin: 0;
+}
+
+.post-placename::before {
+  content: "|"; /* 바 추가 */
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+/* user-likes-div */
+.user-likes-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.nickname {
+  margin-left: 5px;
+  font-size: 12px; /* 크기 조정 */
+  color: #666;
+}
+
+.likes-info {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  width: auto;
+}
+
+.likes-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 14px;
+}
+
+.likes-amount {
+  font-size: 12px; /* 크기 조정 */
+  color: #666;
+  margin-left: 5px;
+  line-height: 20px;
+}
+
+/* 글쓰기 버튼을 고정 */
+.create-div {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 100px;
+  width: 100%;
+  z-index: 1000;
+
+}
+
+/* 버튼 스타일 */
+.create-button {
+  background-color: #ffffff;
+  opacity: 0.8;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 이미지 슬라이드 컨테이너 */
+.nav-tab__inner {
+  position: relative;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+}
+
+/* 슬라이드 리스트 */
+.nav-tab__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.nav-tab__list::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+/* 슬라이드 아이템 정렬 */
+.nav-tab__item {
+  flex: none; /* 아이템이 늘어나지 않도록 설정 */
+  min-width: 0; /* 최소 너비 설정 */
+  display: flex; /* 플렉스 박스 레이아웃 */
+  align-items: stretch; /* 아이템을 늘려서 정렬 */
+  margin-right: 10px; /* 이미지 간격 조정 */
+}
+
+/* 이미지 크기 조정 */
+.nav-tab__item img {
+  max-width: 250px;
+  max-height: 300px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4; /* 이미지 비율 3:4 유지 */
+  object-fit: cover;
+}
+
+/* 하단 네비게이션 바 */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  opacity: 0.8;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border: none;
+  height: 85px;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* 네비게이션 아이템 */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+/* 아이콘 크기 */
+.nav-icon img {
+  margin-bottom: 4px;
+}
+
+/* 텍스트 스타일 */
+.nav-icon span {
+  font-size: 10px;
+  font-weight: bold;
+}

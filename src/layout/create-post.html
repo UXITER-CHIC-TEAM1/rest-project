@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성</title>
+    <link rel="stylesheet" href="../layout/create-post.css" />
+</head>
+<body>
+    <div class="div">
+        <!-- 글 등록 버튼 -->
+        <div class="create-div">
+            <button class="create">등록</button>
+        </div>
+
+        <!-- 글 내용 작성 -->
+        <div class="content">
+            <input class="title" type="text" placeholder="제목을 입력하세요.">
+            <div class="location-div">
+                <button class="location-icon"><img src="../assets/location.png"></button>
+                <button class="location">위치 추가</button>
+            </div>
+            <!--이미지 등록 슬라이드-->
+            <div class="nav-tab__inner">
+                <div class="nav-tab__scroller">
+                    <ul class="nav-tab__list">
+                        <li class="nav-tab__item on">
+                            <input type="file" id="file-input-1" class="image-upload" accept="image/*">
+                            <label for="file-input-1" class="image-label"></label>
+                        </li>
+                        <li class="nav-tab__item">
+                            <input type="file" id="file-input-2" class="image-upload" accept="image/*">
+                            <label for="file-input-2" class="image-label"></label>
+                        </li>
+                        <li class="nav-tab__item">
+                            <input type="file" id="file-input-3" class="image-upload" accept="image/*">
+                            <label for="file-input-3" class="image-label"></label>
+                        </li>
+                        <li class="nav-tab__item">
+                            <input type="file" id="file-input-4" class="image-upload" accept="image/*">
+                            <label for="file-input-4" class="image-label"></label>
+                        </li>
+                        <li class="nav-tab__item">
+                            <input type="file" id="file-input-5" class="image-upload" accept="image/*">
+                            <label for="file-input-5" class="image-label"></label>
+                        </li>
+                        <li class="nav-tab__item">
+                            <input type="file" id="file-input-6" class="image-upload" accept="image/*">
+                            <label for="file-input-6" class="image-label"></label>
+                        </li>
+                        <li class="nav-tab__item">
+                            <input type="file" id="file-input-7" class="image-upload" accept="image/*">
+                            <label for="file-input-7" class="image-label"></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>   
+            <textarea class="post-content" placeholder="내용을 입력하세요."></textarea>
+        </div>
+
+        <!-- 필터링 버튼 (장소 / 분위기) -->
+        <div class="filter-section">
+            <div class="filter-category">
+                <h3>장소</h3>
+                <button class="filter-button">공원</button>
+                <button class="filter-button">카페</button>
+                <button class="filter-button">도서관</button>
+                <button class="filter-button">문화</button>
+            </div>
+            <div class="filter-category">
+                <h3>분위기</h3>
+                <button class="filter-button">차분한</button>
+                <button class="filter-button">작업하기 좋은</button>
+                <button class="filter-button">자연</button>
+                <button class="filter-button">빈티지</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 네비게이션 바 -->
+    <div class="bottom-nav">
+        <button class="nav-icon">
+          <img src="../assets/nav-ellipse.png" alt="아이콘">
+          <span class="nav-item">추천</span>
+        </button>
+        <button class="nav-icon">
+          <img src="../assets/nav-logo.png" alt="아이콘">
+          <span class="nav-item">커뮤니티</span>
+        </button>
+        <button class="nav-icon">
+          <img src="../assets/nav-ellipse.png" alt="아이콘">
+          <span class="nav-item">내 쉼터</span>
+        </button>
+        <button class="nav-icon">
+          <img src="../assets/nav-ellipse.png" alt="아이콘">
+          <span class="nav-item">마이로그</span>
+        </button>
+      </div>
+    </div>
+</body>
+<script src="../components/create-post.js"></script>
+</html>

@@ -1,0 +1,256 @@
+.div {
+    padding-bottom: 85px;
+}
+
+/* 전역 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 글 등록 버튼 */
+.create-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: white;
+}
+
+.create {
+    padding: 10px 20px;
+    background-color: #D9D9D9;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.create:hover {
+    background-color: #b8b8b8;
+}
+
+
+/* 글 내용 작성 */
+.content {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.title {
+    color: black;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* title placeholder 텍스트 스타일 */
+.title::placeholder {
+    color: black;
+    font-size: 16px;
+    opacity: 1;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+
+/* 위치 추가 버튼 스타일 */
+.location-div {
+    display: flex;
+}
+
+.location-icon {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.location-icon img {
+    width: 14px;
+    height: 23px;
+}
+
+.location {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: inherit ;
+}
+
+.location:hover {
+    font-weight: bold;
+}
+
+/* 글 내용 입력 창 스타일 */
+.post-content {
+    font-size: 15px;
+}
+
+.post-content::placeholder {
+    color: black;
+    font-size: 16px;
+    opacity: 1;
+    margin-left: 10px;
+    padding-top: 20px;
+    font-weight: bold;
+  }
+
+/* 이미지 관련 */
+.image-upload {
+    display: none;
+}
+
+.image-label {
+    background-color: #f5f5f5;
+    display: block;
+    width: 250px;
+    height: 300px;
+    background-image: url(''); /* 예시 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+/* 이미지 슬라이드 컨테이너 */
+.nav-tab__inner {
+    position: relative;
+    border-bottom: 1px solid #eaeaea;
+    overflow: hidden;
+}
+
+/* 슬라이드 리스트 */
+.nav-tab__scroller {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.nav-tab__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+.nav-tab__list::-webkit-scrollbar {
+    display: none; /* 스크롤바 숨기기 */
+}
+
+/* 슬라이드 아이템 */
+.nav-tab__item {
+    flex: none;
+    min-width: 250px;  /* 슬라이드 아이템의 고정 너비 */
+    height: 300px; /* 슬라이드 아이템의 고정 높이 */
+    margin-right: 10px; /* 아이템 간격 조정 */
+    display: flex;
+    align-items: stretch;
+}
+
+/* 이미지 크기 조정 */
+.nav-tab__item img {
+    max-width: 250px;
+    max-height: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.post-content {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: none;
+    resize: none;
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+
+/* 필터링 버튼 */
+.filter-section {
+    padding: 20px;
+    background-color: #F5F5F5;
+    border-radius: 7px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.filter-category {
+    margin-bottom: 20px;
+}
+
+.filter-category h3 {
+    margin-bottom: 10px;
+}
+
+.filter-button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #CFCFCF;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 1px, 10px, 1px, 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filter-button:hover {
+    background-color: #d0d0d0;
+}
+
+/* 하단 네비게이션 바 */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    opacity: 0.8;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    height: 85px;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  /* 네비게이션 아이템 */
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+  }
+  
+  /* 아이콘 크기 */
+  .nav-icon img {
+    margin-bottom: 4px;
+  }
+  
+  /* 텍스트 스타일 */
+  .nav-icon span {
+    font-size: 10px;
+    font-weight: bold;
+  }
+  

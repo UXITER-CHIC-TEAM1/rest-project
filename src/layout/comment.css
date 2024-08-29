@@ -1,0 +1,206 @@
+.div {
+    padding-bottom: 85px;
+}
+
+/* 사용자 프로필, 닉네임 */
+.user-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%; /* 원 모양으로 만들기 */
+    display: inline-block; /* 다른 요소들과 함께 수평으로 배치하기 위해 사용 */
+}
+  
+.username {
+    font-size: 17px;
+    font-weight: bold;
+    margin-left: 10px;
+    position: relative;
+    top: 10px;
+}
+
+.post-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.content {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+    height: 15px;
+}
+
+.post-date {
+    margin-right: 10px;
+}
+
+.reply {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.likes-info {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.likes-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+}
+
+.likes-amount {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* 필터 버튼 */
+.filter-buttons {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    margin-bottom: 15px;
+}
+  
+.filter-btn {
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: inherit ;
+    font-weight: bold;
+}
+  
+.filter-btn:active {
+    font-weight: bolder;
+}
+  
+/* 댓글 전체 레이아웃 */
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 대댓글 스타일 */
+.reply-comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-left: 60px; /* 대댓글 들여쓰기 유지 */
+    padding-top: 10px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 댓글 입력창 */
+.comment-input {
+    position: fixed; /* 화면에 고정 */
+    bottom: 108px; /* 화면 아래에 위치 */
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 댓글 입력 텍스트 필드 */
+.input-comment {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    width: 70%;
+    background-color: #f2f2f2;
+}
+
+/* 댓글 입력 버튼 */
+.comment-button {
+    background: #384B60;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 20%;
+    margin-right: 15px;
+}
+
+/* placeholder 텍스트 스타일 */
+.input-comment::placeholder {
+    color: #384B60;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px; /* placeholder 텍스트 왼쪽 여백 설정 */
+  }
+
+/* 하단 네비게이션 바 */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    opacity: 0.8;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    height: 85px;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  /* 네비게이션 아이템 */
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+  }
+  
+  /* 아이콘 크기 */
+  .nav-icon img {
+    margin-bottom: 4px;
+  }
+  
+  /* 텍스트 스타일 */
+  .nav-icon span {
+    font-size: 10px;
+    font-weight: bold;
+  }
