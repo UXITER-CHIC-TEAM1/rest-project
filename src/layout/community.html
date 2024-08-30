@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community</title>
-  <link rel="stylesheet" href="../layout/community.css" />
+  <link rel="stylesheet" href="/src/layout/community.css" />
   <script src="https://kit.fontawesome.com/d0ef824827.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="div">
     <!--앱 로고-->
     <div class="text-logo-div">
-      <img src="../assets/communitty-text-logo.png" class="text-logo">
+      <img src="/src/assets/communitty-text-logo.png" class="text-logo">
     </div>
     <!--검색창-->
     <div class="search-div">
@@ -22,7 +22,7 @@
     <div class="filter-div">
       <button class="likes-toggle-button">좋아요 순</button>
       <button class="fileter-toggle-botton">
-        <img src="../assets/fileter-icon.png" class="filter-icon">필터
+        <img src="/src/assets/fileter-icon.png" class="filter-icon">필터
       </button>
       <button class="fileter-botton">공원</button>
       <button class="fileter-botton">카페</button>
@@ -32,7 +32,7 @@
 
     <!--게시물-->
     <div class="community-post">
-      <a href="./post.html" class="post-title">
+      <a href="/src/layout/post.html" class="post-title">
         <p>인테리어가 예쁜 합정 카페 추천</p>
         <p class="post-placename">티노마드</p>
       </a>
@@ -42,11 +42,12 @@
           <i class="fa-solid fa-circle-user"></i>
           <p class="nickname">닉네임</p>
         </div>
+        <!--좋아요 버튼-->
         <div class="likes-info">
-          <button class="likes-button">
-            <img src="../assets/likes-button.png">
+          <button class="likes-button" id="like-btn-1">
+            <img src="/src/assets/likes-button.png" id="like-img-1">
           </button>
-          <p class="likes-amount">10</p>
+          <p class="likes-amount" id="like-count-1">0</p>
         </div>
       </div>
 
@@ -55,10 +56,10 @@
         <div class="nav-tab__scroller">
           <ul class="nav-tab__list">
             <li class="nav-tab__item on">
-              <a href="./post.html"><img src="../assets/post-img.jpg" alt="post-img"></a>
+              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
             </li>
             <li class="nav-tab__item">
-              <a href="./post.html"><img src="../assets/post-img.jpg" alt="post-img"></a>
+              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
             </li>
             <!-- More items -->
           </ul>
@@ -68,7 +69,7 @@
 
     <!--게시물-->
     <div class="community-post">
-      <a href="./post.html" class="post-title">
+      <a href="/src/layout/post.html" class="post-title">
         <p>쉬는 시간에 잠깐 들린 공원 풍경</p>
         <p class="post-placename">한강공원</p>
       </a>
@@ -78,11 +79,12 @@
           <i class="fa-solid fa-circle-user"></i>
           <p class="nickname">닉네임</p>
         </div>
+        <!--좋아요 버튼-->
         <div class="likes-info">
-          <button class="likes-button">
-            <img src="../assets/likes-button.png">
+          <button class="likes-button" id="like-btn-1">
+            <img src="/src/assets/likes-button.png" id="like-img-1">
           </button>
-          <p class="likes-amount">10</p>
+          <p class="likes-amount" id="like-count-1">0</p>
         </div>
       </div>
       <!--이미지 슬라이드-->
@@ -90,16 +92,16 @@
         <div class="nav-tab__scroller">
           <ul class="nav-tab__list">
             <li class="nav-tab__item on">
-              <a href="./post.html"><img src="../assets/post-img.jpg" alt="post-img"></a>
+              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
             </li>
             <li class="nav-tab__item">
-              <a href="./post.html"><img src="../assets/post-img.jpg" alt="post-img"></a>
+              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
             </li>
             <li class="nav-tab__item">
-              <a href="./post.html"><img src="../assets/post-img.jpg" alt="post-img"></a>
+              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
             </li>
             <li class="nav-tab__item">
-              <a href="./post.html"><img src="../assets/post-img.jpg" alt="post-img"></a>
+              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
             </li>
           </ul>
         </div>
@@ -114,24 +116,24 @@
     <!-- 하단 네비게이션 바 -->
     <div class="bottom-nav">
       <button class="nav-icon">
-        <img src="../assets/nav-ellipse.png" alt="아이콘">
+        <img src="/src/assets/nav-ellipse.png" alt="아이콘">
         <span class="nav-item">추천</span>
       </button>
       <button class="nav-icon">
-        <img src="../assets/nav-logo.png" alt="아이콘">
+        <img src="/src/assets/nav-logo.png" alt="아이콘">
         <span class="nav-item">커뮤니티</span>
       </button>
       <button class="nav-icon">
-        <img src="../assets/nav-ellipse.png" alt="아이콘">
+        <img src="/src/assets/nav-ellipse.png" alt="아이콘">
         <span class="nav-item">내 쉼터</span>
       </button>
       <button class="nav-icon">
-        <img src="../assets/nav-ellipse.png" alt="아이콘">
+        <img src="/src/assets/nav-ellipse.png" alt="아이콘">
         <span class="nav-item">마이로그</span>
       </button>
     </div>
   </div>
 
-  <script src="../components/community.js"></script>
+  <script src="/src/components/community.js"></script>
 </body>
 </html>

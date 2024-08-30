@@ -182,6 +182,18 @@ div {
   line-height: 20px;
 }
 
+.liked {
+  background-image: url('/src/assets/filled-likes.png') !important; /* 경로 재확인 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 14px;
+  height: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+
 /* 글쓰기 버튼을 고정 */
 .create-div {
   display: flex;
