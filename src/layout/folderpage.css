@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  padding: 5px;
+  background-color: #fff;
+}
+
+header h1 {
+  font-family: "Jua", sans-serif;
+  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: 550;
+  color: #38536d;
+  padding-left: 5px;
+  letter-spacing: 7px;
+}
+
+header button {
+  font-weight: 550;
+  margin-bottom: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+header button i {
+  margin: 5px;
+  color: lightgray;
+  font-size: 24px;
+}
+
+.folder-container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  grid-auto-rows: 1fr;
+}
+
+.folder-item {
+  background-color: #fdf6e3;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  overflow-y: auto;
+}
+
+.map-button {
+  position: fixed;
+  bottom: 110px;
+  margin-top: 20px;
+  left: 2.5%;
+  background-color: #3f4a57;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 95%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top: 2px solid #e9ecef;
+  padding: 10px 0;
+}
+
+footer nav {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+footer nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  margin: 0px 10px;
+}
+
+footer nav a span {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38536d;
+}
+
+footer nav a::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+footer nav a:hover::before {
+    background-color: #38536d;
+  }
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 5px;
+    width: 50%;
+    margin-left: 25%;
+    display: flex;
+    border-radius: 5%;
+    justify-content: space-around;
+    background-color: #38536d;
+    padding: 2px 0;
+  }
