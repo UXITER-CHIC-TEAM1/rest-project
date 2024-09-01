@@ -1,13 +1,14 @@
 /* 기본 스타일 설정 */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: white;
 }
 
 /* 전체 페이지의 높이 설정 및 스크롤바 숨기기 */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -93,7 +94,7 @@ div {
   padding: 8px 12px;
   margin-right: 10px;
   border-radius: 20px;
-  border: 1px solid #C5C5C5;
+  border: 1px solid #c5c5c5;
   cursor: pointer;
   font-size: 14px;
 }
@@ -183,7 +184,7 @@ div {
 }
 
 .liked {
-  background-image: url('/src/assets/filled-likes.png') !important; /* 경로 재확인 */
+  background-image: url("/src/assets/filled-likes.png") !important; /* 경로 재확인 */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -193,7 +194,6 @@ div {
   cursor: pointer;
 }
 
-
 /* 글쓰기 버튼을 고정 */
 .create-div {
   display: flex;
@@ -202,7 +202,6 @@ div {
   bottom: 100px;
   width: 100%;
   z-index: 1000;
-
 }
 
 /* 버튼 스타일 */

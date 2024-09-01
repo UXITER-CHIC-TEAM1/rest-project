@@ -1,139 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Community</title>
-  <link rel="stylesheet" href="/src/layout/community.css" />
-  <script src="https://kit.fontawesome.com/d0ef824827.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <div class="div">
-    <!--앱 로고-->
-    <div class="text-logo-div">
-      <img src="/src/assets/communitty-text-logo.png" class="text-logo">
-    </div>
-    <!--검색창-->
-    <div class="search-div">
-      <input class="search-input" placeholder="장소명 검색" type="text" />
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community</title>
+    <link rel="stylesheet" href="/src/layout/community.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/d0ef824827.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="div">
+      <!--앱 로고-->
+      <div class="text-logo-div">
+        <img src="/src/assets/communitty-text-logo.png" class="text-logo" />
+      </div>
+      <!--검색창-->
+      <div class="search-div">
+        <input class="search-input" placeholder="장소명 검색" type="text" />
+      </div>
 
-    <!--필터링-->
-    <div class="filter-div">
-      <button class="likes-toggle-button">좋아요 순</button>
-      <button class="fileter-toggle-botton">
-        <img src="/src/assets/fileter-icon.png" class="filter-icon">필터
-      </button>
-      <button class="fileter-botton">공원</button>
-      <button class="fileter-botton">카페</button>
-      <button class="fileter-botton">도서관</button>
-      <button class="fileter-botton">문화</button>
-    </div>
+      <!--필터링-->
+      <div class="filter-div">
+        <button class="likes-toggle-button">좋아요 순</button>
+        <button class="fileter-toggle-botton">
+          <img src="/src/assets/fileter-icon.png" class="filter-icon" />필터
+        </button>
+        <button class="fileter-botton">공원</button>
+        <button class="fileter-botton">카페</button>
+        <button class="fileter-botton">도서관</button>
+        <button class="fileter-botton">문화</button>
+      </div>
 
-    <!--게시물-->
-    <div class="community-post">
-      <a href="/src/layout/post.html" class="post-title">
-        <p>인테리어가 예쁜 합정 카페 추천</p>
-        <p class="post-placename">티노마드</p>
-      </a>
-      <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
-      <div class="user-likes-div">
-        <div class="user-info">
-          <i class="fa-solid fa-circle-user"></i>
-          <p class="nickname">닉네임</p>
+      <!--게시물-->
+      <div class="community-post">
+        <a href="/src/layout/post.html" class="post-title">
+          <p>인테리어가 예쁜 합정 카페 추천</p>
+          <p class="post-placename">티노마드</p>
+        </a>
+        <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
+        <div class="user-likes-div">
+          <div class="user-info">
+            <i class="fa-solid fa-circle-user"></i>
+            <p class="nickname">닉네임</p>
+          </div>
+          <!--좋아요 버튼-->
+          <div class="likes-info">
+            <button class="likes-button" id="like-btn-1">
+              <img src="/src/assets/likes-button.png" id="like-img-1" />
+            </button>
+            <p class="likes-amount" id="like-count-1">0</p>
+          </div>
         </div>
-        <!--좋아요 버튼-->
-        <div class="likes-info">
-          <button class="likes-button" id="like-btn-1">
-            <img src="/src/assets/likes-button.png" id="like-img-1">
-          </button>
-          <p class="likes-amount" id="like-count-1">0</p>
+
+        <!--이미지 슬라이드-->
+        <div class="nav-tab__inner">
+          <div class="nav-tab__scroller">
+            <ul class="nav-tab__list">
+              <li class="nav-tab__item on">
+                <a href="/src/layout/post.html"
+                  ><img src="/src/assets/post-img.jpg" alt="post-img"
+                /></a>
+              </li>
+              <li class="nav-tab__item">
+                <a href="/src/layout/post.html"
+                  ><img src="/src/assets/post-img.jpg" alt="post-img"
+                /></a>
+              </li>
+              <!-- More items -->
+            </ul>
+          </div>
         </div>
       </div>
 
-      <!--이미지 슬라이드-->
-      <div class="nav-tab__inner">
-        <div class="nav-tab__scroller">
-          <ul class="nav-tab__list">
-            <li class="nav-tab__item on">
-              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
-            </li>
-            <li class="nav-tab__item">
-              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
-            </li>
-            <!-- More items -->
-          </ul>
+      <!--게시물-->
+      <div class="community-post">
+        <a href="/src/layout/post.html" class="post-title">
+          <p>쉬는 시간에 잠깐 들린 공원 풍경</p>
+          <p class="post-placename">한강공원</p>
+        </a>
+        <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
+        <div class="user-likes-div">
+          <div class="user-info">
+            <i class="fa-solid fa-circle-user"></i>
+            <p class="nickname">닉네임</p>
+          </div>
+          <!--좋아요 버튼-->
+          <div class="likes-info">
+            <button class="likes-button" id="like-btn-1">
+              <img src="/src/assets/likes-button.png" id="like-img-1" />
+            </button>
+            <p class="likes-amount" id="like-count-1">0</p>
+          </div>
         </div>
+        <!--이미지 슬라이드-->
+        <div class="nav-tab__inner">
+          <div class="nav-tab__scroller">
+            <ul class="nav-tab__list">
+              <li class="nav-tab__item on">
+                <a href="/src/layout/post.html"
+                  ><img src="/src/assets/post-img.jpg" alt="post-img"
+                /></a>
+              </li>
+              <li class="nav-tab__item">
+                <a href="/src/layout/post.html"
+                  ><img src="/src/assets/post-img.jpg" alt="post-img"
+                /></a>
+              </li>
+              <li class="nav-tab__item">
+                <a href="/src/layout/post.html"
+                  ><img src="/src/assets/post-img.jpg" alt="post-img"
+                /></a>
+              </li>
+              <li class="nav-tab__item">
+                <a href="/src/layout/post.html"
+                  ><img src="/src/assets/post-img.jpg" alt="post-img"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!--글 쓰기 버튼-->
+      <div class="create-div">
+        <button class="create-button">글 쓰기</button>
+      </div>
+
+      <!-- 하단 네비게이션 바 -->
+      <div class="bottom-nav">
+        <button class="nav-icon">
+          <img src="/src/assets/nav-ellipse.png" alt="아이콘" />
+          <span class="nav-item">추천</span>
+        </button>
+        <button class="nav-icon">
+          <img src="/src/assets/nav-logo.png" alt="아이콘" />
+          <span class="nav-item">커뮤니티</span>
+        </button>
+        <button class="nav-icon">
+          <img src="/src/assets/nav-ellipse.png" alt="아이콘" />
+          <span class="nav-item">내 쉼터</span>
+        </button>
+        <button class="nav-icon">
+          <img src="/src/assets/nav-ellipse.png" alt="아이콘" />
+          <span class="nav-item">마이로그</span>
+        </button>
       </div>
     </div>
 
-    <!--게시물-->
-    <div class="community-post">
-      <a href="/src/layout/post.html" class="post-title">
-        <p>쉬는 시간에 잠깐 들린 공원 풍경</p>
-        <p class="post-placename">한강공원</p>
-      </a>
-      <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
-      <div class="user-likes-div">
-        <div class="user-info">
-          <i class="fa-solid fa-circle-user"></i>
-          <p class="nickname">닉네임</p>
-        </div>
-        <!--좋아요 버튼-->
-        <div class="likes-info">
-          <button class="likes-button" id="like-btn-1">
-            <img src="/src/assets/likes-button.png" id="like-img-1">
-          </button>
-          <p class="likes-amount" id="like-count-1">0</p>
-        </div>
-      </div>
-      <!--이미지 슬라이드-->
-      <div class="nav-tab__inner">
-        <div class="nav-tab__scroller">
-          <ul class="nav-tab__list">
-            <li class="nav-tab__item on">
-              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
-            </li>
-            <li class="nav-tab__item">
-              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
-            </li>
-            <li class="nav-tab__item">
-              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
-            </li>
-            <li class="nav-tab__item">
-              <a href="/src/layout/post.html"><img src="/src/assets/post-img.jpg" alt="post-img"></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!--글 쓰기 버튼-->
-    <div class="create-div">
-      <button class="create-button">글 쓰기</button>
-    </div>
-
-    <!-- 하단 네비게이션 바 -->
-    <div class="bottom-nav">
-      <button class="nav-icon">
-        <img src="/src/assets/nav-ellipse.png" alt="아이콘">
-        <span class="nav-item">추천</span>
-      </button>
-      <button class="nav-icon">
-        <img src="/src/assets/nav-logo.png" alt="아이콘">
-        <span class="nav-item">커뮤니티</span>
-      </button>
-      <button class="nav-icon">
-        <img src="/src/assets/nav-ellipse.png" alt="아이콘">
-        <span class="nav-item">내 쉼터</span>
-      </button>
-      <button class="nav-icon">
-        <img src="/src/assets/nav-ellipse.png" alt="아이콘">
-        <span class="nav-item">마이로그</span>
-      </button>
-    </div>
-  </div>
-
-  <script src="/src/components/community.js"></script>
-</body>
+    <script src="/src/components/community.js"></script>
+  </body>
 </html>

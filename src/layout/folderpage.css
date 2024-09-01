@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
+body {
+  font-family: "Pretendard", Arial, sans-serif;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -126,17 +130,17 @@ footer nav a::before {
 }
 
 footer nav a:hover::before {
-    background-color: #38536d;
-  }
+  background-color: #38536d;
+}
 
-  .bottom-bar {
-    position: fixed;
-    bottom: 5px;
-    width: 50%;
-    margin-left: 25%;
-    display: flex;
-    border-radius: 5%;
-    justify-content: space-around;
-    background-color: #38536d;
-    padding: 2px 0;
-  }
+.bottom-bar {
+  position: fixed;
+  bottom: 5px;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: space-around;
+  background-color: #38536d;
+  padding: 2px 0;
+}

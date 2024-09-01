@@ -1,155 +1,156 @@
 /* 기본 스타일 초기화 */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pretendard", Arial, sans-serif;
+  background-color: #f0f0f0;
 }
 
 /* 텍스트 로고 스타일 */
 .text-logo {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    margin: 0 auto 20px auto;
-    padding: 10px 0;
-    object-fit: contain;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto 20px auto;
+  padding: 10px 0;
+  object-fit: contain;
 }
 
 /* 회원가입 텍스트 스타일 */
 .signup-text {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: left;
-    width: 100%;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
 }
 
 /* 회원가입 컨테이너 스타일 */
 .signup-container {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
 /* 제목 스타일 */
 .login-text {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* 서브텍스트 스타일 */
 .signup-container h4 {
-    margin: 10px 0 5px 0;
-    font-size: 14px;
-    color: #333;
+  margin: 10px 0 5px 0;
+  font-size: 14px;
+  color: #333;
 }
 
 /* 설명 텍스트 스타일 */
 .signup-container p {
-    font-size: 12px;
-    color: #555;
-    margin-bottom: 15px;
-    margin-top: 1px;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 15px;
+  margin-top: 1px;
 }
 
 /* 입력 필드 스타일 */
 .signup-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 /* 비밀번호 입력 필드와 버튼을 감싸는 컨테이너 스타일 */
 .password-wrapper {
-    position: relative;
-    width: 100%;
-    margin-bottom: 15px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 /* 비밀번호 보기/가리기 버튼 스타일 */
 .toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 38%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    font-size: 12px;
-    cursor: pointer;
-    color: #383B60;
-    padding: 5px;
+  position: absolute;
+  right: 10px;
+  top: 38%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  color: #383b60;
+  padding: 5px;
 }
 
 .toggle-password:hover {
-    color: #555;
+  color: #555;
 }
 
 /* 체크박스 스타일 */
 .terms-checkbox {
-    margin-right: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+  margin-right: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 /* 체크박스가 포함된 라벨 스타일 */
 .terms-container label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* 회원가입 버튼 스타일 */
 .signup-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
-    color: white;
-    background-color: #383B60;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: #383b60;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .signup-button:hover {
-    background-color: #383B60;
+  background-color: #383b60;
 }
 
 /* 반응형 설정 */
 @media (max-width: 600px) {
-    .signup-container {
-        padding: 15px;
-    }
+  .signup-container {
+    padding: 15px;
+  }
 
-    .login-text {
-        font-size: 20px;
-    }
+  .login-text {
+    font-size: 20px;
+  }
 
-    .signup-input {
-        font-size: 14px;
-    }
+  .signup-input {
+    font-size: 14px;
+  }
 
-    .signup-button {
-        font-size: 16px;
-    }
+  .signup-button {
+    font-size: 16px;
+  }
 }
