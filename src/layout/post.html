@@ -89,7 +89,77 @@
       <span class="nav-item">마이로그</span>
     </button>
   </div>
-</div>
+
+  <!-- 북마크 모달창 -->
+  <div id="bookmarkModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="folder-select-text">폴더 선택</p>
+        <button class="save-button"><img src="/src/assets/plus.png" alt="저장"></button>
+      </div>
+      <ul class="folder-list">
+        <li><input type="radio" id="folder1" name="folder"><label for="folder1">책 읽기 좋은 곳</label></li>
+        <li><input type="radio" id="folder2" name="folder"><label for="folder2">카공하기 좋은 카페</label></li>
+        <li><input type="radio" id="folder3" name="folder"><label for="folder3">산책하기 좋은 곳</label></li>
+        <li><input type="radio" id="folder4" name="folder"><label for="folder4">24시간 잠집합</label></li>
+      </ul>
+      <button class="add-folder-button"><img src="/src/assets/bookmark.png">쉼터 폴더 추가</button>
+      <div class="modal-actions">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 폴더 생성 -->
+  <div id="folderCreationModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="folder-create-header">
+        <h3>쉼터 폴더 추가</h3>
+      <button class="save-button"><img src="/src/assets/plus.png" alt="저장"></button>
+      </div>
+      <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+      <div class="color-options">
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#FBB5B5">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#ECBAA6">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#C1EFA5">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#B3DEEC">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#8FC28A">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#FDEE96">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#EBC3EB">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#E18383">
+          <span class="color-label"></span>
+        </label>
+        <label class="color-option">
+          <input type="radio" name="folderColor" value="#8E98F2">
+          <span class="color-label"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+
   <script src="../components/post.js"></script>
 </body>
 </html>
