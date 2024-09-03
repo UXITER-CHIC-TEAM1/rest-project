@@ -125,19 +125,63 @@ body {
   font-weight: bold;
 }
 
-/* 하단 네비게이션 바 */
-.bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  background-color: white;
-  padding: 20px 0;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+/* 하단 네비게이션 바 스타일 */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top: 2px solid #e9ecef;
+  padding: 10px 0;
 }
 
-.nav-item {
-  font-size: 14px;
-  color: #333;
-  font-weight: bold;
+footer nav {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+footer nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  margin: 0px 10px;
+}
+
+footer nav a span {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38536d;
+}
+
+footer nav a::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+footer nav a:hover::before {
+  background-color: #38536d;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 5px;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: space-around;
+  background-color: #38536d;
+  padding: 2px 0;
 }
 
 /* 반응형 디자인 */

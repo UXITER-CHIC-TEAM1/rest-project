@@ -266,48 +266,63 @@ div {
   color: #a9a9a9;
 }
 
-/* 하단 네비게이션 바 */
-.bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  background-color: white;
-  opacity: 0.8;
-  padding: 10px 0;
+/* 하단 네비게이션 바 스타일 */
+footer {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
-  border: none;
-  height: 85px;
+  background-color: #fff;
+  border-top: 2px solid #e9ecef;
+  padding: 10px 0;
 }
 
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-/* 네비게이션 아이템 */
-.nav-item {
+footer nav {
   display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+footer nav a {
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  margin: 0px 10px;
 }
 
-/* 아이콘 크기 */
-.nav-icon img {
-  margin-bottom: 4px;
+footer nav a span {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38536d;
 }
 
-/* 텍스트 스타일 */
-.nav-icon span {
-  font-size: 10px;
-  font-weight: bold;
+footer nav a::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+footer nav a:hover::before {
+  background-color: #38536d;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 5px;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: space-around;
+  background-color: #38536d;
+  padding: 2px 0;
 }
 
 /* 폴더 선택 스타일 */
