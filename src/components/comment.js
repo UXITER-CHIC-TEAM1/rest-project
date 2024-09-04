@@ -36,3 +36,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// 댓글 입력 창
+function openCommentInput() {
+    document.querySelector('.overlay').style.display = 'block'; /* 어두운 배경 표시 */
+    document.querySelector('.comment-input-container').style.display = 'block'; /* 댓글 입력창 표시 */
+    document.querySelector('.comment-write-btn').style.display = 'none'; /* 댓글 작성 버튼 숨김 */
+  }
+  
+  function closeCommentInput() {
+    document.querySelector('.overlay').style.display = 'none'; /* 어두운 배경 숨김 */
+    document.querySelector('.comment-input-container').style.display = 'none'; /* 댓글 입력창 숨김 */
+    document.querySelector('.comment-write-btn').style.display = 'flex'; /* 댓글 작성 버튼 표시 */
+  }
+  
+  

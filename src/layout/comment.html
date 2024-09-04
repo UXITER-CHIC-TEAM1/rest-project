@@ -135,11 +135,23 @@
           </div>
         </div>
       </div>
+
+      <!-- 어두운 배경 -->
+      <div class="overlay" onclick="closeCommentInput()"></div>
+
+      <!-- 댓글 작성 버튼 -->
+       <div class="create-div">
+        <button class="comment-write-btn" onclick="openCommentInput()">댓글 작성</button>
+       </div>
+
       <!-- 댓글 입력창 -->
-      <div class="comment-input">
-        <input class="input-comment" type="text" placeholder="댓글을 입력해주세요">
-        <button class="comment-button">등록</button>
-    </div>
+      <div class="comment-input-container">
+        <div class="comment-input">
+          <input type="text" class="input-comment" placeholder="댓글을 입력하세요...">
+          <button class="comment-button">작성</button>
+        </div>
+      </div>
+
       <!-- 하단 네비게이션 바 -->
       <footer>
         <nav>
