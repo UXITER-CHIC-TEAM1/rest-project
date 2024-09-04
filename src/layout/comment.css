@@ -1,9 +1,7 @@
+/* 전체 폰트 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
-}
-
-.div {
-
+  padding-bottom: 120px; /* 댓글 입력창과 하단 네비게이션 바에 의해 컨텐츠가 가려지지 않도록 여백 추가 */
 }
 
 /* 사용자 프로필, 닉네임 */
@@ -50,7 +48,7 @@ body {
 .reply {
   background-color: transparent;
   border: none;
-  color: #888;
+  color: #384b60;
   cursor: pointer;
   margin-left: 15px;
   font-size: 14px;
@@ -108,7 +106,7 @@ body {
   align-items: flex-start;
   margin-bottom: 15px;
   padding-top: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 50px; /* 댓글 입력창이 가리지 않도록 여백 추가 */
   border-bottom: 1px solid #ddd;
 }
 
@@ -118,35 +116,68 @@ body {
   align-items: flex-start;
   padding-left: 60px; /* 대댓글 들여쓰기 */
   padding-top: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 50px; /* 댓글 입력창이 가리지 않도록 여백 추가 */
   border-bottom: 1px solid #ddd;
 }
 
-/* 댓글 입력창 */
-.comment-input {
-  position: fixed; /* 화면에 고정 */
-  bottom: 80px; /* 화면 아래에 위치 */
-  left: 0;
+/* 댓글 작성 버튼 */
+.create-div {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 100px;
   width: 100%;
-  background-color: #f2f2f2;
-  padding: 10px 10px;
+  z-index: 1000;
+}
+
+.comment-write-btn {
+  background-color: #384b60;
+  opacity: 0.8;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.comment-write-btn:hover {
+  background-color: #384b60;
+}
+
+/* 댓글 입력창 */
+.comment-input-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  height: 170px;
+  display: none;
+  z-index: 1002;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.comment-input {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%; /* 높이 전체를 채우도록 설정 */
 }
 
-/* 댓글 입력 텍스트 필드 */
 .input-comment {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  border: none;
   width: 70%;
   background-color: #f2f2f2;
 }
 
-/* 댓글 입력 버튼 */
 .comment-button {
   background: #384b60;
   color: white;
@@ -155,16 +186,20 @@ body {
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
-  width: 20%;
-  margin-right: 15px;
+  width: 25%;
+  margin-left: 15px;
 }
 
-/* placeholder 텍스트 스타일 */
-.input-comment::placeholder {
-  color: #384b60;
-  font-weight: bold;
-  font-size: 14px;
-  margin-left: 10px; /* placeholder 텍스트 왼쪽 여백 설정 */
+/* 어두운 배경 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은색 */
+  display: none; /* 기본적으로 숨김 */
+  z-index: 1000; /* 다른 요소들보다 아래지만 댓글 입력창보다는 위에 표시되도록 설정 */
 }
 
 /* 하단 네비게이션 바 스타일 */
@@ -225,4 +260,3 @@ footer nav a:hover::before {
   background-color: #38536d;
   padding: 2px 0;
 }
-
