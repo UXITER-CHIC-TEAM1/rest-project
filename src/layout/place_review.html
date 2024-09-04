@@ -17,9 +17,15 @@
         <h2 class="review-title">리뷰 게시글 제목</h2>
         <!-- 리뷰 해당하는 장소, 필터 -->
         <div class="review-place">
-          <h4>공덕역 투썸플레이스</h4>
-          <span class="tag">조용한</span>
-          <span class="tag">작업하기 좋은</span>
+          <div class="place-title">
+            <h4>공덕역 투썸플레이스</h4>
+            <img src="/src/assets/review-icon.png" alt="쉬엄쉬엄아이콘">
+          </div>
+          <!--필터링-->
+          <div class="filter-div">
+            <button class="filter-button">자연</button>
+            <button class="filter-button">작업하기 좋은</button>
+          </div>
         </div>
         <!-- 게시글 정보 및 내용 -->
         <div class="post-header">
@@ -30,28 +36,44 @@
                 <span class="username">닉네임</span>
               </div>
               <div class="post-stats">
-                <span class="post-date">작성 날짜</span>
-                <span class="post-time">작성 시간</span>
-                <span class="post-views">조회수</span>
+                <span class="post-date">2024. 07. 28</span>
+                <span class="post-time">11:17</span>
+                <span class="post-views">조회</span>
+                <span class="post-views-amount">13</span>
               </div>
             </div>
           </div>
           <button class="follow-button">팔로우</button>
         </div>
         <div class="post-content">
-          <div class="review-card">
-            <div class="card">
-              <div class="card-image"></div>
-              <p class="card-title">장소 이미지</p>
-            </div>
-            <div class="card">
-              <div class="card-image"></div>
-              <p class="card-title">장소 이미지</p>
-            </div>
+          <!--이미지 슬라이드-->
+          <div class="nav-tab__inner">
+            <ul class="nav-tab__list">
+              <li class="nav-tab__item on">
+                <img src="../assets/post-img.jpg" alt="post-img">
+              </li>
+              <li class="nav-tab__item">
+                <img src="../assets/post-img.jpg" alt="post-img">
+              </li>
+            </ul>
           </div>
-          <span class="post-like">좋아요</span>
-          <span class="post-comment">댓글</span>
-          <p>본문 내용</p>
+          <!--좋아요, 댓글 -->
+          <div class="likes-comment-info">
+            <button class="likes-button" id="like-btn-1">
+              <img src="/src/assets/likes-button.png" id="like-img-1" />
+            </button>
+            <p class="likes-amount">10</p>
+            <button class="comment-button">
+                <img src="../assets/comment.png">
+            </button>
+            <p class="comment-amount">3</p>
+          </div>
+          <div class="text-div">
+            <p class="text-p">
+                오늘 소개해 드릴 장소는 합정 티노마드 카페입니다! 식물이 많고 채광이 잘 들어와서 사진 찍기에도 좋은 예쁜 카페였습니다. 오늘 소개해 드릴 장소는 합정 티노마드 카페입니다! 식물이 많고 채광이 잘 들어와서 사진 찍기에도 좋은 예쁜 카페였습니다.
+            </p>
+            <p class="post-date">2024.08.03</p>
+          </div>
         </div>
       </div>
 
@@ -67,6 +89,6 @@
     </footer>
     
     </div>
-    <script src="/place_review.js"></script>
+    <script src="/src/components/place_review.js"></script>
   </body>
 </html>

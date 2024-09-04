@@ -17,6 +17,20 @@ body {
   box-sizing: border-box;
 }
 
+/* 게시글 제목, 장소명 스타일 */
+.review-title {
+   height: 10px;
+}
+
+.place-title {
+  display: flex;
+  align-items: center;
+}
+
+.place-title img {
+  width: 24px;
+}
+
 /* 장소 정보 영역 */
 .post {
   display: flex;
@@ -25,16 +39,30 @@ body {
   padding: 30px;
 }
 
-.tag {
-  background-color: #d9d9d9;
+/* 필터 버튼 */
+.filter-div {
+  display: flex;
+  align-items: center;
+  overflow-x: auto; /* 가로 스크롤 허용 */
+  overflow-y: hidden; /* 세로 스크롤 숨기기 */
+  white-space: nowrap;
+  margin-top: 10px;
+  margin-left: 17px;
+}
+
+.filter-div::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+.filter-div button {
+  background: #384b60;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
   border-radius: 20px;
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
-  box-sizing: border-box;
-  flex: 1 1 auto;
-  min-width: calc((100% / 5) - 20px);
+  cursor: pointer;
+  font-size: 12px;
 }
 
 .post-header {
@@ -71,6 +99,7 @@ body {
 
 .post-stats {
   margin-top: 5px;
+  font-size: 12px;
 }
 
 .follow-button {
@@ -80,49 +109,114 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 .follow-button:hover {
   background-color: #d9d9d9;
 }
 
-.review-card {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding-bottom: 20px;
-  overflow-x: auto;
-  box-sizing: border-box;
-}
-
-.card {
+/* 이미지 슬라이드 컨테이너 */
+.nav-tab__inner {
   position: relative;
-  height: 400px;
-  min-width: 200px;
-  width: 100%;
-  background-color: white;
+  border-bottom: 1px solid #eaeaea;
   overflow: hidden;
 }
 
-.card-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ddd;
+/* 슬라이드 리스트 */
+.nav-tab__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.card-title {
-  position: absolute;
-  bottom: 0;
+.nav-tab__list::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+/* 슬라이드 아이템 정렬 */
+.nav-tab__item {
+  flex: none; /* 아이템이 늘어나지 않도록 설정 */
+  min-width: 0; /* 최소 너비 설정 */
+  display: flex; /* 플렉스 박스 레이아웃 */
+  align-items: stretch; /* 아이템을 늘려서 정렬 */
+  margin-right: 10px; /* 이미지 간격 조정 */
+}
+
+/* 이미지 크기 조정 */
+.nav-tab__item img {
+  max-width: 250px;
+  max-height: 300px;
   width: 100%;
-  padding: 10px;
+  height: auto;
+  aspect-ratio: 3 / 4; /* 이미지 비율 3:4 유지 */
+  object-fit: cover;
+}
+
+/* 좋아요 */
+.likes-comment-info {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  width: auto;
+  height: 10px;
+  margin-top: 20px;
+}
+
+.likes-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
   font-size: 14px;
-  text-align: center;
-  color: #333;
-  visibility: visible;
-  font-weight: bold;
+}
+
+.likes-button img {
+  width: 16px;
+}
+
+.likes-amount {
+  font-size: 12px; /* 크기 조정 */
+  color: #666;
+  margin-left: 5px;
+  margin-right: 10px;
+  line-height: 20px;
+}
+
+/* 좋아요 버튼 눌렸을때 스타일 */
+.liked {
+  background-image: url("/src/assets/filled-likes.png") !important; /* 경로 재확인 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 14px;
+  height: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 댓글 */
+.comment-button {
+  border: none;
+  background-color:transparent;
+}
+
+.comment-button img {
+  width: 16px;
+  height: 15px;
+}
+
+.comment-amount {
+  font-size: 12px;
+  color: #666;
+  margin-left: 5px;
+  margin-right: 12px;
+  line-height: 20px;
 }
 
 /* 하단 네비게이션 바 스타일 */
