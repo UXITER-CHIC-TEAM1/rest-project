@@ -3,7 +3,7 @@ body {
   font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: white;
 }
 
 /* 장소, 분위기 필터링 컨테이너 */
@@ -17,42 +17,32 @@ body {
   box-sizing: border-box;
 }
 
-/* 태그 버튼 영역 */
-.tags {
-  padding: 20px;
-  background-color: #ffedad;
-  box-sizing: border-box;
+/* 상단 로고 이미지 스타일 */
+.text-logo-div {
+  height: 45px;
+  margin-bottom: 10px;
 }
-
-.tag-title {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
-}
-
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.text-logo {
+  display: block;
   width: 100%;
-  margin: 10px 0;
-  box-sizing: border-box;
-  padding: 0 10px;
+  max-width: 500px;
+  object-fit: contain;
 }
 
-.tag {
-  background-color: #fffffd;
-  padding: 10px 20px;
+/* 필터링 버튼 영역 */
+.filter-div button {
+  background-color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
   border-radius: 20px;
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
-  margin: 5px;
-  box-sizing: border-box;
-  flex: 1 1 auto;
-  min-width: calc((100% / 5) - 20px);
+  border: 1px solid #c5c5c5;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-icon {
+  margin-right: 10px;
 }
 
 /* 메인 콘텐츠 영역 */
@@ -95,20 +85,65 @@ body {
   font-weight: bold;
 }
 
-/* 하단 네비게이션 바 */
-.bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  background-color: white;
-  padding: 20px 0;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+/* 하단 네비게이션 바 스타일 */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top: 2px solid #e9ecef;
+  padding: 10px 0;
 }
 
-.nav-item {
-  font-size: 14px;
-  color: #333;
-  font-weight: bold;
+footer nav {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
 }
+
+footer nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  margin: 0px 10px;
+}
+
+footer nav a span {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38536d;
+}
+
+footer nav a::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+footer nav a:hover::before {
+  background-color: #38536d;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 5px;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: space-around;
+  background-color: #38536d;
+  padding: 2px 0;
+}
+
 
 /* 반응형 디자인 */
 @media (max-width: 1024px) {
