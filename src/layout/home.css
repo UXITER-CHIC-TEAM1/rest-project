@@ -1,9 +1,13 @@
-/* 기본 스타일 */
+/* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: white;
+  width: 100%; /* 화면 전체 너비에 맞추기 */
+  max-width: 390px; /* 최대 너비를 390px로 설정 */
+  margin: 0 auto; /* 화면 중앙 정렬 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* 장소, 분위기 필터링 컨테이너 */

@@ -1,9 +1,13 @@
-/* 기본 스타일 */
+/* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: white;
+  width: 100%; /* 화면 전체 너비에 맞추기 */
+  max-width: 390px; /* 최대 너비를 390px로 설정 */
+  margin: 0 auto; /* 화면 중앙 정렬 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* 전체 컨테이너 */
@@ -93,49 +97,64 @@ body {
   text-align: justify;
 }
 
-/* 하단 네비게이션 바 */
-.bottom-nav {
+/* 하단 네비게이션 바 스타일 */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 390px;
+  background-color: #fff;
+  border-top: 2px solid #e9ecef;
+  padding: 10px 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer nav {
   display: flex;
   justify-content: space-around;
-  background-color: white;
-  padding: 20px 0;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.nav-item {
-  font-size: 14px;
-  color: #333;
-  font-weight: bold;
+footer nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
-/* 반응형 디자인 */
-@media (max-width: 1024px) {
-  .tag {
-    font-size: 14px;
-    padding: 10px 16px;
-  }
+footer nav a span {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38536d;
 }
 
-@media (max-width: 768px) {
-  .tag {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
-
-  .main-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+footer nav a::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightgray;
 }
 
-@media (max-width: 480px) {
-  .tag {
-    font-size: 12px;
-    padding: 6px 12px;
-    min-width: calc((100% / 2) - 20px);
-  }
+footer nav a:hover::before {
+  background-color: #38536d;
+}
 
-  .main-content {
-    grid-template-columns: 1fr;
-  }
+/* 하단 바 스타일 */
+.bottom-bar {
+  position: fixed;
+  bottom: 5px;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: space-around;
+  background-color: #38536d;
+  padding: 2px 0;
+  z-index: 1000;
 }
