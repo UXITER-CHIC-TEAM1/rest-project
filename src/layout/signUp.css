@@ -1,15 +1,13 @@
-/* 기본 스타일 초기화 */
-body,
-html {
+/* 기본 스타일 설정 */
+body {
+  font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Pretendard", Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: white;
+  width: 100%; /* 화면 전체 너비에 맞추기 */
+  max-width: 390px; /* 최대 너비를 390px로 설정 */
+  margin: 0 auto; /* 화면 중앙 정렬 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* 텍스트 로고 스타일 */
@@ -134,23 +132,4 @@ html {
 
 .signup-button:hover {
   background-color: #383b60;
-}
-
-/* 반응형 설정 */
-@media (max-width: 600px) {
-  .signup-container {
-    padding: 15px;
-  }
-
-  .login-text {
-    font-size: 20px;
-  }
-
-  .signup-input {
-    font-size: 14px;
-  }
-
-  .signup-button {
-    font-size: 16px;
-  }
 }

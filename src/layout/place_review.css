@@ -1,9 +1,13 @@
-/* 기본 스타일 */
+/* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: white;
+  width: 100%; /* 화면 전체 너비에 맞추기 */
+  max-width: 390px; /* 최대 너비를 390px로 설정 */
+  margin: 0 auto; /* 화면 중앙 정렬 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* 전체 컨테이너 */
@@ -224,16 +228,19 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 390px;
   background-color: #fff;
   border-top: 2px solid #e9ecef;
   padding: 10px 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 footer nav {
   display: flex;
-  width: 100%;
-  text-align: center;
   justify-content: space-around;
+  text-align: center;
 }
 
 footer nav a {
@@ -242,12 +249,10 @@ footer nav a {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  margin: 0px 10px;
 }
 
 footer nav a span {
   margin-top: 5px;
-  margin-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
@@ -266,6 +271,7 @@ footer nav a:hover::before {
   background-color: #38536d;
 }
 
+/* 하단 바 스타일 */
 .bottom-bar {
   position: fixed;
   bottom: 5px;
@@ -276,36 +282,5 @@ footer nav a:hover::before {
   justify-content: space-around;
   background-color: #38536d;
   padding: 2px 0;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 1024px) {
-  .tag {
-    font-size: 14px;
-    padding: 10px 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .tag {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
-
-  .main-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tag {
-    font-size: 12px;
-    padding: 6px 12px;
-    min-width: calc((100% / 2) - 20px);
-  }
-
-  .main-content {
-    grid-template-columns: 1fr;
-  }
+  z-index: 1000;
 }
