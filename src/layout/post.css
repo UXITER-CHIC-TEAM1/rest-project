@@ -31,9 +31,10 @@ div {
 .placename-and-filter {
   display: flex;
   flex-direction: column; /* 수직 배치 */
-  background-color: #f9f9f9;
+  background-color: #fcf0D9;
   padding: 10px 20px; /* 패딩 추가 */
   position: relative; /* 위치 조정을 위해 */
+  border-radius: 25px;
 }
 
 /* 바 스타일 */
@@ -84,12 +85,16 @@ div {
 /* 북마크 버튼 */
 .bookmark-button {
   position: absolute;
-  top: 50%; /* 상단에서 50% 위치 */
-  right: 20px; /* 오른쪽에서 20px 위치 */
-  transform: translateY(-50%); /* 수직 중앙 정렬 */
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.bookmark-button img {
+  width: 60px;
 }
 
 /* 커뮤니티 게시물 스타일 */
@@ -142,6 +147,7 @@ div {
   background: #fff7dc;
   font-weight: 400;
   border-radius: 3px;
+  border: none;
   font-size: 12px;
   padding: 2px 8px; /* 패딩 수정 */
 }
@@ -172,6 +178,10 @@ div {
   line-height: 20px;
 }
 
+.comment-button {
+  border: none;
+  background-color: white;
+}
 .comment-button img {
   width: 16px;
   height: 15px;
@@ -294,19 +304,6 @@ footer nav a span {
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
-}
-
-footer nav a::before {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: lightgray;
-}
-
-footer nav a:hover::before {
-  background-color: #38536d;
 }
 
 /* 하단 바 스타일 */
