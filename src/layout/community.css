@@ -239,25 +239,23 @@ header h1 {
 
 /* 글쓰기 버튼 스타일 */
 .create-div {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
+  position: relative;
 }
 
 .create-button {
-  background: none; 
-  border: none; 
+  background: none;
+  border: none;
   cursor: pointer;
   position: fixed;
   bottom: 70px;
-  right: 760px;
+  right: calc((100vw - 390px) / 2 + 3px); /* 화면 너비에 맞게 오른쪽 정렬 */
+  z-index: 1000;
 }
 
 .create-button img {
-  width: 70px; /* 아이콘 크기 설정 */
+  width: 70px;
   height: auto;
 }
-
 
 /* 하단 네비게이션 바 스타일 */
 footer {
