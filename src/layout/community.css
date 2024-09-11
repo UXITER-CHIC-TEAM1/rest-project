@@ -8,6 +8,7 @@ body {
   max-width: 390px; /* 최대 너비를 390px로 설정 */
   margin: 0 auto; /* 화면 중앙 정렬 */
   overflow-x: hidden; /* 가로 스크롤 방지 */
+  min-height: 100vh;
 }
 
 /* 전체 페이지 높이 설정 */

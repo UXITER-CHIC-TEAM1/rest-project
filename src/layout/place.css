@@ -9,27 +9,44 @@ body {
   margin: 0 auto; 
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
+  height: 100vh; /* 전체 높이 설정 */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 /* 전체 컨테이너 */
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+  flex-grow: 1; 
+  padding-bottom: 60px; 
 }
 
 /* 장소 정보 영역 */
 .place {
   display: flex;
   flex-direction: column;
-  align-items: right;
   padding: 0px;
 }
 
+/* 장소명과 북마크 버튼 스타일 */
+.place-and-bookmark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.bookmark-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.bookmark-button img {
+  width: 35px;
+}
+
+/* 장소 이미지 */
 .place-img {
   background-color: #ddd;
   height: 250px;
@@ -38,64 +55,121 @@ body {
   text-align: center;
 }
 
-.place-name {
-  padding: 10px 0px 0px 20px;
-}
-
+/* 장소 상세 주소, 위치 아이콘, 복사 버튼 가로 정렬 */
 .place-address {
-  padding-left: 20px;
-}
-
-.place-info {
-  padding-left: 20px;
-}
-
-.review {
-  padding: 10px 0px 0px 20px;
-}
-
-.review-card {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.place-address button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.place-address h4 {
+  margin: 0;
+}
+
+/* 장소 상세 정보 (영업중, 주차 가능, 와이파이 제공) 가로 정렬 */
+.place-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  gap: 10px;
+}
+
+.place-info > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.place-info button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.place-info h4 {
+  margin: 0;
+}
+
+/* 리뷰 슬라이드 수정 */
+.review {
+  margin-top: 50px;
+}
+
+.review h3 {
+  padding-left: 20px;
+}
+
+.review a {
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+/* 리뷰 헤더 스타일 */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-header h3 {
+  margin: 0;
+}
+
+.review-header .view-all {
+  margin: 0;
+  color: #38536d; /* 원하는 색상으로 설정 */
+  cursor: pointer;
+}
+
+.nav-tab__list {
+  display: flex;
   gap: 10px;
   padding: 10px;
   overflow-x: auto;
   box-sizing: border-box;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
-.card {
-  position: relative;
-  height: 200px;
-  min-width: 200px;
-  width: 100%;
-  background-color: white;
+.nav-tab__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px; /* 정사각형 이미지 고정 */
+}
+
+.nav-tab__item img {
+  width: 150px; /* 정사각형 고정 */
+  height: 150px;
+  object-fit: cover; /* 이미지 비율 유지하면서 자르기 */
+}
+
+.review-title {
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+  padding-right: 100px;
+}
+
+.nav-tab__inner {
   overflow: hidden;
 }
 
-.card-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+.nav-tab__scroller {
+  display: flex;
   width: 100%;
-  height: 100%;
-  background-color: #ddd;
-}
-
-.card-title {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  text-align: center;
-  color: #333;
-  visibility: visible;
-  font-weight: bold;
-}
-
-.review-title,
-.review-content {
-  text-align: justify;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 하단 네비게이션 바 스타일 */
@@ -110,6 +184,7 @@ footer {
   z-index: 1000;
   left: 50%;
   transform: translateX(-50%);
+  height: 60px;
 }
 
 footer nav {
