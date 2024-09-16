@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-body {
-  font-family: "Pretendard", Arial, sans-serif;
-}
-
 * {
   margin: 0px;
   padding: 0px;
@@ -133,9 +129,44 @@ footer nav a:hover::before {
   background-color: #38536d;
 }
 
-.bottom-bar {
+#overlay {
+  display: none;
   position: fixed;
-  bottom: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 90px; /* 푸터를 제외한 화면을 덮도록 조정 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
+  z-index: 1; /* 오버레이가 모달 아래로 가도록 */
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  z-index: 2; /* 오버레이 위에 표시 */
+}
+
+#modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  font-family: "Jua", sans-serif;
+  font-size: 16px;
+  height: 100%;
+}
+
+#modal-bar {
+  position: fixed;
   width: 50%;
   margin-left: 25%;
   display: flex;
@@ -143,4 +174,47 @@ footer nav a:hover::before {
   justify-content: space-around;
   background-color: #38536d;
   padding: 2px 0;
+  cursor: pointer;
+}
+
+#modal-body {
+  padding: 20px;
+  text-align: center;
+  height: calc(100% - 50px);
+}
+
+#modal-placeholder {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#modal-placeholder label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+#modal-placeholder input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #38536d;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  color: #38536d;
+}
+
+#modal-placeholder input::placeholder {
+  color: #c1c1c1;
+  font-size: 14px;
 }
