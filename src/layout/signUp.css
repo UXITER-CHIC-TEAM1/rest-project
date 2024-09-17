@@ -1,17 +1,16 @@
-/* 기본 스타일 초기화 */
-body,
-html {
+/* 기본 스타일 설정 */
+body {
+  font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100%;
+  background-color: white;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Pretendard", Arial, sans-serif;
-  background-color: #f0f0f0;
+  max-width: 390px; 
+  margin: 0 auto; 
+  overflow-x: hidden;
+  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
+  min-height: 100vh;
 }
-
 /* 텍스트 로고 스타일 */
 .text-logo {
   display: block;
@@ -134,23 +133,4 @@ html {
 
 .signup-button:hover {
   background-color: #383b60;
-}
-
-/* 반응형 설정 */
-@media (max-width: 600px) {
-  .signup-container {
-    padding: 15px;
-  }
-
-  .login-text {
-    font-size: 20px;
-  }
-
-  .signup-input {
-    font-size: 14px;
-  }
-
-  .signup-button {
-    font-size: 16px;
-  }
 }

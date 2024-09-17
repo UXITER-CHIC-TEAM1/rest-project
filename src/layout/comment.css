@@ -1,7 +1,15 @@
-/* 전체 폰트 설정 */
+/* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
-  padding-bottom: 120px; /* 댓글 입력창과 하단 네비게이션 바에 의해 컨텐츠가 가려지지 않도록 여백 추가 */
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  width: 100%;
+  max-width: 390px; 
+  margin: 0 auto; 
+  overflow-x: hidden;
+  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
+  min-height: 100vh;
 }
 
 /* 사용자 프로필, 닉네임 */
@@ -125,9 +133,12 @@ body {
   display: flex;
   justify-content: center;
   position: fixed;
-  bottom: 100px;
+  bottom: 80px;
   width: 100%;
+  max-width: 390px;
   z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .comment-write-btn {
@@ -139,11 +150,16 @@ body {
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
+  width: 40%; 
+  max-width: 300px; 
+  text-align: center;
 }
 
 .comment-write-btn:hover {
   background-color: #384b60;
 }
+
+
 
 /* 댓글 입력창 */
 .comment-input-container {
@@ -207,16 +223,19 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 390px;
   background-color: #fff;
   border-top: 2px solid #e9ecef;
   padding: 10px 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 footer nav {
   display: flex;
-  width: 100%;
-  text-align: center;
   justify-content: space-around;
+  text-align: center;
 }
 
 footer nav a {
@@ -225,30 +244,16 @@ footer nav a {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  margin: 0px 10px;
 }
 
 footer nav a span {
   margin-top: 5px;
-  margin-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
 }
 
-footer nav a::before {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: lightgray;
-}
-
-footer nav a:hover::before {
-  background-color: #38536d;
-}
-
+/* 하단 바 스타일 */
 .bottom-bar {
   position: fixed;
   bottom: 5px;
@@ -259,4 +264,5 @@ footer nav a:hover::before {
   justify-content: space-around;
   background-color: #38536d;
   padding: 2px 0;
+  z-index: 1000;
 }

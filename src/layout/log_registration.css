@@ -35,8 +35,8 @@ header {
 }
 
 header img {
-  height: 40px; 
-  margin-right: 10px; 
+  height: 40px;
+  margin-right: 10px;
 }
 
 header h1 {
@@ -50,153 +50,85 @@ header h1 {
   letter-spacing: 7px;
 }
 
-/* 검색창 스타일 */
-.search-div {
-  position: relative;
-  padding: 10px;
-  background-color: white;
-}
-
-/* 버튼 스타일 */
-.search-div button {
-  position: absolute;
-  left: 15px; 
-  top: 54%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0; 
-  cursor: pointer;
-}
-
-/* 버튼 안 아이콘 스타일 */
-.search-div button img {
-  height: 20px;
-}
-
-/* 검색창 스타일 */
-.search-input {
-  border: none;
+/* 전체 컨테이너 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
   width: 100%;
-  height: 40px;
-  padding-left: 40px;
-  background-color: #EAEEF2;
-  border-radius: 4px;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
-/* placeholder 텍스트 스타일 */
-.search-input::placeholder {
-  color: #878787;
-  font-size: 14px;
-  opacity: 1;
+/* 쉬엄 기록, 날짜, 감정 아이콘 */
+.record-title {
+  text-align: center;
+  padding-top: 10px;
 }
 
-/* 필터 버튼 스타일 */
-.filter-div {
-  display: flex;
-  padding: 10px;
-  background-color: white;
-  overflow-x: auto; /* 가로 스크롤 허용 */
-  white-space: nowrap;
+.record-date {
+  color: #797979;
 }
 
-/* 필터 버튼 숨김 스크롤바 */
-.filter-div::-webkit-scrollbar {
-  display: none;
+/* 감정 아이콘 크기 조정 */
+.record-title img {
+  max-width: 150px;
+  max-height: 150px;
+  width: 20%;
+  padding: 20px;
+  height: auto;
+  object-fit: cover;
 }
 
-.filter-div button {
-  background-color: white;
-  border: none;
-  padding: 8px 12px;
-  margin-right: 10px;
-  border-radius: 20px;
-  border: 1px solid #c5c5c5;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* 커뮤니티 게시물 스타일 */
-.community-post {
-  background-color: white;
-  margin: 10px;
-  padding: 10px;
-  width: 100%; /* 게시물 너비를 고정 */
-}
-
-/* 글 제목 스타일 */
-.post-title {
-  display: block;
-  text-decoration: none;
-  color: black;
-  padding: 0;
-}
-
-/* 글 제목 스타일 */
-.post-title > p:first-of-type {
-  font-size: 19px;
-  font-weight: 400;
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-/* 장소명 스타일 */
-.post-placename {
-  font-size: 16px;
-  font-weight: 900;
-  color: black;
-  margin: 0;
-}
-
-.post-placename::before {
-  content: "|"; /* 바 추가 */
-  margin-right: 5px;
-  font-weight: bold;
-  font-size: x-large;
-}
-
-/* user-likes-div */
-.user-likes-div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 10px;
+/* 장소 이미지 크기 조정 */
+.place img {
+  max-width: 450px;
+  max-height: 300px;
   width: 100%;
+  aspect-ratio: 3 / 2; /* 이미지 비율 3:2 유지 */
+  height: auto;
+  object-fit: cover;
 }
 
-.user-info {
+/* 마이로그 장소 정보 */
+.log-place {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  background-color: #fcf0d9;
+  margin: 15px;
+  border-radius: 15px;
 }
 
-.nickname {
-  margin-left: 5px;
-  font-size: 12px;
-  color: #666;
+.location-img {
+  width: 30px; /* 이미지 크기 조정 */
+  height: auto;
+  margin-left: 10px;
 }
 
-.likes-info {
+.text-info {
   display: flex;
-  align-items: center;
-  margin-right: 10px;
-  width: auto;
+  flex-direction: column; /* 수직으로 정렬 */
+  margin-left: 20px; /* 이미지와 텍스트 사이에 간격 추가 */
+  padding: 10px;
 }
 
-.likes-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #666;
-  font-size: 14px;
+.text-info h4,
+.text-info p {
+  margin: 5px;
 }
 
-.likes-amount {
-  font-size: 12px;
-  color: #666;
-  margin-left: 5px;
-  line-height: 20px;
+.bookmark-img {
+  width: 50px; /* bookmark 이미지 크기 조정 */
+  height: auto;
+  margin-left: auto; /* 오른쪽 끝으로 밀어내기 */
+  padding-right: 5px;
+}
+
+.place-title img {
+  padding-left: 15px;
+  width: 24px;
 }
 
 /* 이미지 슬라이드 컨테이너 */
@@ -204,6 +136,7 @@ header h1 {
   position: relative;
   border-bottom: 1px solid #eaeaea;
   overflow: hidden;
+  margin-left: 15px;
 }
 
 .nav-tab__list {
@@ -238,24 +171,50 @@ header h1 {
   object-fit: cover;
 }
 
-/* 글쓰기 버튼 스타일 */
-.create-div {
-  position: relative;
+/* 마이로그 기록 영역 */
+.log-record {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 15px;
 }
 
-.create-button {
-  background: none;
+.log-record textarea {
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  padding: 20px 15px;
+  font-size: 14px;
+  color: #938e8e;
+  background-color: #dfdfdf;
+  resize: none;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* 텍스트 영역과 버튼 사이의 간격 */
+}
+
+/* 텍스트 영역의 placeholder 스타일 */
+.log-record textarea::placeholder {
+  color: #938e8e; /* placeholder 텍스트 색상 */
+  font-family: "Pretendard", Arial, sans-serif; /* 글씨체 설정 */
+  font-size: 14px; /* 글씨 크기 설정 */
+}
+
+.submit-btn {
+  align-self: center; /* 버튼을 오른쪽에 배치 */
+  background-color: #384b60;
+  color: white;
   border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
   cursor: pointer;
-  position: fixed;
-  bottom: 70px;
-  right: calc((100vw - 390px) / 2 + 3px); /* 화면 너비에 맞게 오른쪽 정렬 */
-  z-index: 1000;
+  font-size: 14px;
 }
 
-.create-button img {
-  width: 70px;
-  height: auto;
+.submit-btn:hover {
+  background-color: #2d3f56; /* 마우스를 올렸을 때 버튼 색상 변경 */
 }
 
 /* 하단 네비게이션 바 스타일 */

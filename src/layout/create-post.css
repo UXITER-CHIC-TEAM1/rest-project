@@ -1,17 +1,21 @@
+/* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  width: 100%;
+  max-width: 390px; 
+  margin: 0 auto; 
+  overflow-x: hidden;
+  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
+  min-height: 100vh;
 }
 
 .div {
   padding-bottom: 85px;
-}
-
-/* 전역 스타일 */
-body {
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  width: 100%; /* div가 화면 너비에 맞도록 설정 */
+  box-sizing: border-box; /* padding 포함한 전체 너비 계산 */
 }
 
 /* 글 등록 버튼 */
@@ -24,14 +28,10 @@ body {
 
 .create {
   padding: 10px 20px;
-  background-color: #d9d9d9;
+  background-color: #fcf0d9;
   color: black;
   border: none;
   cursor: pointer;
-}
-
-.create:hover {
-  background-color: #b8b8b8;
 }
 
 /* 글 내용 작성 */
@@ -46,7 +46,7 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid gray;
   border-radius: 0;
   font-size: 20px;
   font-weight: bold;
@@ -54,26 +54,11 @@ body {
 
 /* title placeholder 텍스트 스타일 */
 .title::placeholder {
-  color: black;
+  color: #757575;
   font-size: 16px;
   opacity: 1;
   margin-left: 10px;
   font-weight: bold;
-}
-
-/* 위치 추가 버튼 스타일 */
-.location-div {
-  display: flex;
-}
-
-.location-icon {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.location-icon img {
-  width: 14px;
-  height: 23px;
 }
 
 .location {
@@ -88,22 +73,17 @@ body {
   background-color: inherit;
 }
 
-.location:hover {
-  font-weight: bold;
-}
-
 /* 글 내용 입력 창 스타일 */
 .post-content {
   font-size: 15px;
 }
 
 .post-content::placeholder {
-  color: black;
+  color: #757575;
   font-size: 16px;
   opacity: 1;
   margin-left: 10px;
   padding-top: 20px;
-  font-weight: bold;
 }
 
 /* 이미지 관련 */
@@ -178,55 +158,24 @@ body {
   color: black;
 }
 
-/* 필터링 버튼 */
-.filter-section {
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 7px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.filter-category {
-  margin-bottom: 20px;
-}
-
-.filter-category h3 {
-  margin-bottom: 10px;
-}
-
-.filter-button {
-  padding: 10px 15px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  background-color: #cfcfcf;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  padding: 1px, 10px, 1px, 10px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.filter-button:hover {
-  background-color: #d0d0d0;
-}
-
 /* 하단 네비게이션 바 스타일 */
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 390px;
   background-color: #fff;
   border-top: 2px solid #e9ecef;
   padding: 10px 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 footer nav {
   display: flex;
-  width: 100%;
-  text-align: center;
   justify-content: space-around;
+  text-align: center;
 }
 
 footer nav a {
@@ -235,30 +184,16 @@ footer nav a {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  margin: 0px 10px;
 }
 
 footer nav a span {
   margin-top: 5px;
-  margin-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
 }
 
-footer nav a::before {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: lightgray;
-}
-
-footer nav a:hover::before {
-  background-color: #38536d;
-}
-
+/* 하단 바 스타일 */
 .bottom-bar {
   position: fixed;
   bottom: 5px;
@@ -269,5 +204,6 @@ footer nav a:hover::before {
   justify-content: space-around;
   background-color: #38536d;
   padding: 2px 0;
+  z-index: 1000;
 }
 

@@ -1,28 +1,21 @@
-.div {
-  padding-bottom: 85px;
-}
-
-/* 기본 스타일 설정 */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: white;
-}
-
-/* 전체 페이지의 높이 설정 및 스크롤바 숨기기 */
-html,
-body {
-  font-family: "Pretendard", Arial, sans-serif;
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* 모든 div 요소의 넓이를 100%로 설정하여 레이아웃이 꽉 차도록 함 */
-div {
+/* 기본 스타일 설정 */
+body {
+  font-family: "Pretendard", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
   width: 100%;
-  box-sizing: border-box;
+  max-width: 390px; 
+  margin: 0 auto; 
+  overflow-x: hidden;
+  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
+  min-height: 100vh;
 }
 
 /* 글 제목 스타일 */
@@ -36,9 +29,10 @@ div {
 .placename-and-filter {
   display: flex;
   flex-direction: column; /* 수직 배치 */
-  background-color: #f9f9f9;
+  background-color: #fcf0D9;
   padding: 10px 20px; /* 패딩 추가 */
   position: relative; /* 위치 조정을 위해 */
+  border-radius: 25px;
 }
 
 /* 바 스타일 */
@@ -89,12 +83,16 @@ div {
 /* 북마크 버튼 */
 .bookmark-button {
   position: absolute;
-  top: 50%; /* 상단에서 50% 위치 */
-  right: 20px; /* 오른쪽에서 20px 위치 */
-  transform: translateY(-50%); /* 수직 중앙 정렬 */
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.bookmark-button img {
+  width: 60px;
 }
 
 /* 커뮤니티 게시물 스타일 */
@@ -147,6 +145,7 @@ div {
   background: #fff7dc;
   font-weight: 400;
   border-radius: 3px;
+  border: none;
   font-size: 12px;
   padding: 2px 8px; /* 패딩 수정 */
 }
@@ -177,6 +176,10 @@ div {
   line-height: 20px;
 }
 
+.comment-button {
+  border: none;
+  background-color: white;
+}
 .comment-button img {
   width: 16px;
   height: 15px;
@@ -271,16 +274,19 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 390px;
   background-color: #fff;
   border-top: 2px solid #e9ecef;
   padding: 10px 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 footer nav {
   display: flex;
-  width: 100%;
-  text-align: center;
   justify-content: space-around;
+  text-align: center;
 }
 
 footer nav a {
@@ -289,30 +295,16 @@ footer nav a {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  margin: 0px 10px;
 }
 
 footer nav a span {
   margin-top: 5px;
-  margin-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
 }
 
-footer nav a::before {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: lightgray;
-}
-
-footer nav a:hover::before {
-  background-color: #38536d;
-}
-
+/* 하단 바 스타일 */
 .bottom-bar {
   position: fixed;
   bottom: 5px;
@@ -323,6 +315,7 @@ footer nav a:hover::before {
   justify-content: space-around;
   background-color: #38536d;
   padding: 2px 0;
+  z-index: 1000;
 }
 
 /* 폴더 선택 스타일 */
