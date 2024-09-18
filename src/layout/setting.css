@@ -1,0 +1,138 @@
+/* 배경 이미지 스타일 */
+.background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px; /* 이미지 크기 */
+  height: 150px; /* 이미지 크기 */
+  background-image: url("/src/assets/back-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%); /* 이미지 가운데 정렬 */
+  z-index: -1; /* 이미지가 컨텐츠 아래에 위치 */
+}
+
+/* 기본 스타일 설정 */
+body {
+  font-family: "Pretendard", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* 배경 색상 추가 */
+  min-height: 100vh;
+  color: black;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  overflow: hidden; /* 상하 스크롤 방지 */
+  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
+  padding-bottom: 50px; /* 네비바에 화면 잘리는 것 방지 */
+  position: relative; /* 배경 이미지에 대해 상대적 위치 */
+}
+
+/* 상단바 스타일 */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.back-btn {
+  position: absolute;
+  left: 12px;
+  background: none;
+  border: none;
+  width: 20px; /* 버튼 크기 */
+  height: 20px; /* 버튼 크기 */
+  background-image: url(/src/assets/left-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  color: black;
+}
+
+/* 설정 리스트 스타일 */
+.settings-container {
+  display: flex;
+  justify-content: start;
+}
+
+.settings-list {
+  list-style-type: none;
+  padding: 0;
+  width: 80%;
+}
+
+.settings-list li {
+  margin: 10px 0;
+  padding: 15px;
+  text-align: start;
+}
+
+.settings-list li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.settings-list li a:hover {
+  color: #38536d; /* 링크 호버 시 색상 변경 */
+}
+
+/* 하단 네비게이션 바 스타일 */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 390px;
+  background-color: #fff;
+  border-top: 2px solid #e9ecef;
+  padding: 10px 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer nav {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+footer nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+footer nav a span {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38536d;
+}
+
+/* 하단 바 스타일 */
+.bottom-bar {
+  position: fixed;
+  bottom: 5px;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: space-around;
+  background-color: #38536d;
+  padding: 2px 0;
+  z-index: 1000;
+}
