@@ -1,4 +1,3 @@
-// map.js
 window.onload = function () {
     var container = document.getElementById('map');
     var options = {
