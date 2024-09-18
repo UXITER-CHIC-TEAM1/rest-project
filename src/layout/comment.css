@@ -10,6 +10,7 @@ body {
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
+  padding-bottom: 100px;
 }
 
 /* 사용자 프로필, 닉네임 */
@@ -154,11 +155,6 @@ body {
   max-width: 300px; 
   text-align: center;
 }
-
-.comment-write-btn:hover {
-  background-color: #384b60;
-}
-
 
 
 /* 댓글 입력창 */

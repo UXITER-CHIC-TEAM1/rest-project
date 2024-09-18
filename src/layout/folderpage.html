@@ -17,23 +17,28 @@
 
   <body>
     <header>
+      <!--앱 로고-->
+      <!--TODO: 로고 추가-->
       <h1>쉬엄쉬엄</h1>
-      <button>
-        <i class="fas fas fas fas fa-plus-circle"></i>쉼터 폴더 추가하기
+      <button class="bookmark-button">
+        <i class="fas fa-plus-circle"></i> 쉼터 폴더 추가하기
       </button>
     </header>
 
-    <main>
-      <div class="folder-container">
-        <div class="folder-item">최근 조회한 장소</div>
-        <div class="folder-item">카공하기 좋은 카페</div>
-        <div class="folder-item">산책하기 좋은 곳</div>
-        <div class="folder-item">24시간 찜질방</div>
-        <div class="folder-item">가까운 전시장</div>
-        <div class="folder-item">책 읽기 좋은 곳</div>
-      </div>
-      <a href="map.html"><button class="map-button">지도에서 보기</button></a>
-    </main>
+    <div class="folder-container">
+      <div class="folder-item">최근 조회한 장소</div>
+      <div class="folder-item">카공하기 좋은 카페</div>
+      <div class="folder-item">산책하기 좋은 곳</div>
+      <div class="folder-item">24시간 찜질방</div>
+      <div class="folder-item">가까운 전시장</div>
+      <div class="folder-item">책 읽기 좋은 곳</div>
+      <div class="folder-item">책 읽기 좋은 곳</div>
+      <div class="folder-item">책 읽기 좋은 곳</div>
+      <div class="folder-item">책 읽기 좋은 곳</div>
+    </div>
+    <div class="create-div">
+      <a href="map.html" class="map-button">지도에서 보기</a>
+    </div>
 
     <footer>
       <nav>
@@ -44,5 +49,58 @@
       </nav>
       <div class="bottom-bar"></div>
     </footer>
+
+    <!-- 폴더 생성 -->
+    <div id="folderCreationModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="folder-create-header">
+          <h3>쉼터 폴더 추가</h3>
+          <button class="save-button">
+            <img src="/src/assets/plus.png" alt="저장" />
+          </button>
+        </div>
+        <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+        <div class="color-options">
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#FBB5B5" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#ECBAA6" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#C1EFA5" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#B3DEEC" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#8FC28A" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#FDEE96" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#EBC3EB" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#E18383" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#8E98F2" />
+            <span class="color-label"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <script src="/src/components/folderpage.js"></script>
   </body>
 </html>
