@@ -9,5 +9,3 @@ window.onload = function () {
     var map = new kakao.maps.Map(container, options);
 }
 
-//하단 드래그
-

@@ -101,7 +101,7 @@ function endDrag() {
     document.removeEventListener('mouseup', endDrag);
     document.removeEventListener('touchend', endDrag);
 
-    // 화면의 절반 이상으로 드래그하면 모달 닫기
+    // 화면의 절반 이상으로 드래그 모달 닫기
     if (parseInt(modal.style.transform.replace('translateY(', '')) > window.innerHeight / 4) {
         overlay.style.display = 'none';
         modal.style.display = 'none';

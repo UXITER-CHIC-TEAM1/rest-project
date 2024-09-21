@@ -71,7 +71,7 @@ header button i {
   overflow-y: auto;
 }
 
-/* Chrome, Safari 스크롤바 숨기기 기능*/
+/* Chrome 스크롤바 숨기기 기능*/
 .folder-container::-webkit-scrollbar {
   display: none; 
 }
