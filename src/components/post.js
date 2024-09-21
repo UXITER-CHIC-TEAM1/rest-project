@@ -1,4 +1,4 @@
-// 커뮤니티 게시글 이미지 슬라이드와 필터링 버튼 스크롤 적용
+// 이미지 슬라이드 js 코드
 function row_scroll() {
   // 모든 .nav-tab__list 요소를 선택
   document.querySelectorAll(".nav-tab__list").forEach((list) => {
@@ -13,7 +13,7 @@ function row_scroll() {
     });
   });
 
-  // .filter-div 요소에 대해서도 동일한 스크롤 로직 적용
+  // 필터링 슬라이드 js 코드
   document.querySelectorAll(".filter-div").forEach((filter) => {
     filter.addEventListener("wheel", (e) => {
       e.preventDefault();
@@ -30,7 +30,7 @@ function row_scroll() {
 // 스크롤 기능 초기화
 row_scroll();
 
-// 모든 '좋아요' 버튼을 선택하여 likeButtons에 저장
+// 좋아요 버튼 js 코드
 const likeButtons = document.querySelectorAll('.likes-button');
 
 // 각 '좋아요' 버튼에 대해 반복 처리
@@ -66,114 +66,120 @@ likeButtons.forEach((button) => {
         countElement.textContent = likesCount;
     });
 });
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById("bookmarkModal");
-    const bookmarkButton = document.querySelector(".bookmark-button");
-    const saveButton = document.querySelector(".save-button");
-    const addFolderButton = document.querySelector(".add-folder-button");
-    const maxFolders = 9;
-  
-    // 북마크 버튼을 클릭하면 모달 열기
-    bookmarkButton.addEventListener("click", function() {
-      modal.classList.remove("hidden");
-    });
-  
-    // 모달 바깥을 클릭했을 때 모달 닫기
-    window.addEventListener("click", function(event) {
-      if (event.target === modal) {
-        modal.classList.add("hidden");
-      }
-    });
-  
-    // 모달 내용 클릭 시 이벤트 중지
-    document.querySelector(".modal-content").addEventListener("click", function(event) {
-      event.stopPropagation();
-    });
-  
-    // 폴더 추가 버튼 클릭 시 폴더 추가
-    addFolderButton.addEventListener("click", function() {
-      const folderList = document.querySelector(".folder-list");
-      const folderCount = folderList.children.length;
-  
-      if (folderCount < maxFolders) {
-        const newFolder = document.createElement("li");
-        newFolder.innerHTML = `<input type="radio" name="folder"><label>새 폴더 ${folderCount + 1}</label>`;
-        folderList.appendChild(newFolder);
-      } else {
-        alert("폴더는 최대 9개까지 추가할 수 있습니다.");
-      }
-    });
-  
-    // 저장 버튼 클릭 시 모달 닫기
-    saveButton.addEventListener("click", function() {
-      modal.classList.add("hidden");
+
+// 북마크 버튼 js 코드
+document.addEventListener("DOMContentLoaded", function() {
+  const bookmarkModal = document.getElementById("bookmarkModal");
+  const folderCreationModal = document.getElementById("folderCreationModal");
+  const bookmarkButton = document.querySelector(".bookmark-button"); // 북마크 버튼
+  const addFolderButton = document.querySelector(".add-folder-button"); // 폴더 생성 모달 열기 버튼
+  const createFolderButton = document.querySelector(".create-folder-button"); // 폴더 생성 버튼
+  const colorRadios = document.querySelectorAll('input[name="folderColor"]'); // 색상 선택 라디오 버튼
+  const folderNameInput = document.getElementById("folderName"); // 폴더 이름 입력 필드
+  const folderList = document.querySelector(".folder-list"); // 폴더 리스트
+  const maxFolders = 9; // 최대 폴더 수
+  let selectedColor = ''; // 선택된 색상
+  let isBookmarked = false; // 북마크 상태를 저장하는 변수
+
+  // 북마크 버튼을 클릭하면 폴더 선택 모달 열기 (이미 북마크 되어 있으면 모달 뜨지 않고 이미지 변경)
+  bookmarkButton.addEventListener("click", function() {
+    const img = this.querySelector("img");
+    
+    if (isBookmarked) {
+      // 북마크가 이미 되어 있으면, 다시 북마크 해제 이미지로 변경하고, 모달을 띄우지 않음
+      img.src = "/src/assets/bookmark.png";
+      isBookmarked = false;
+
+      img.style.width = "60px";
+      img.style.height = "60px";
+      img.style.margin = "1px"; 
+    } else {
+      bookmarkModal.classList.remove("hidden");
+    }
+  });
+
+  // 모달 바깥을 클릭했을 때 폴더 선택 모달 닫기
+  window.addEventListener("click", function(event) {
+    if (event.target === bookmarkModal) {
+      bookmarkModal.classList.add("hidden");
+    } else if (event.target === folderCreationModal) {
+      folderCreationModal.classList.add("hidden");
+    }
+  });
+
+  // 폴더 추가 버튼 클릭 시 폴더 생성 모달 열기
+  addFolderButton.addEventListener("click", function() {
+    folderCreationModal.classList.remove("hidden");
+  });
+
+  // 폴더 색상 선택 처리
+  colorRadios.forEach(radio => {
+    radio.addEventListener("change", function() {
+      selectedColor = this.value;
     });
   });
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const bookmarkModal = document.getElementById("bookmarkModal");
-    const folderCreationModal = document.getElementById("folderCreationModal");
-    const bookmarkButton = document.querySelector(".bookmark-button");
-    const addFolderButton = document.querySelector(".add-folder-button");
-    const saveButton = document.querySelector(".save-button");
-    const createFolderButton = document.querySelector(".create-folder-button");
-    const colorRadios = document.querySelectorAll('input[name="folderColor"]');
-    let selectedColor = '';
-  
-    const maxFolders = 9;
-  
-    // 북마크 버튼을 클릭하면 모달 열기
-    bookmarkButton.addEventListener("click", function() {
-      bookmarkModal.classList.remove("hidden");
-    });
-  
-    // 모달 바깥을 클릭했을 때 모달 닫기
-    window.addEventListener("click", function(event) {
-      if (event.target === bookmarkModal) {
-        bookmarkModal.classList.add("hidden");
-      } else if (event.target === folderCreationModal) {
-        folderCreationModal.classList.add("hidden");
-      }
-    });
-  
-    // 모달 내용 클릭 시 이벤트 전파 중지
-    document.querySelector(".modal-content").addEventListener("click", function(event) {
-      event.stopPropagation();
-    });
-  
-    // 폴더 추가 버튼 클릭 시 폴더 생성 모달 열기
-    addFolderButton.addEventListener("click", function() {
-      folderCreationModal.classList.remove("hidden");
-    });
-  
-    // 색상 선택 처리
-    colorRadios.forEach(radio => {
-      radio.addEventListener("change", function() {
-        selectedColor = this.value;
-      });
-    });
-  
-    // 폴더 생성 버튼 클릭 시 폴더 생성
-    createFolderButton.addEventListener("click", function() {
-      const folderName = document.getElementById("folderName").value;
-  
-      if (folderName && selectedColor) {
-        const folderList = document.querySelector(".folder-list");
+  // 폴더 생성 버튼 클릭 시 폴더 추가
+  createFolderButton.addEventListener("click", function() {
+    const folderName = folderNameInput.value.trim();
+
+    if (folderName && selectedColor) {
+      const folderCount = folderList.children.length;
+
+      if (folderCount < maxFolders) {
         const newFolder = document.createElement("li");
-        newFolder.innerHTML = `<input type="radio" name="folder" id="${folderName}"><label for="${folderName}" style="background-color:${selectedColor};">${folderName}</label>`;
-        folderList.appendChild(newFolder);
-        
-        folderCreationModal.classList.add("hidden"); // 폴더 생성 후 폴더 생성 모달 닫기
+        const newFolderId = `folder${folderCount + 1}`; // 유일한 폴더 ID 생성
+        newFolder.innerHTML = `
+          <div style="background-color: ${selectedColor}; width: 20px; height: 20px; border-radius: 50%; display: inline-block; margin-right: 10px;"></div>
+          <input type="radio" id="${newFolderId}" name="folder" />
+          <label for="${newFolderId}">${folderName}</label>
+        `;
+        folderList.appendChild(newFolder); // 폴더 리스트에 새로운 폴더 추가
+
+        // 폴더 생성 완료 후 폴더 생성 모달 닫기
+        folderCreationModal.classList.add("hidden");
+
+        // 입력 필드 초기화
+        folderNameInput.value = '';
+        selectedColor = ''; // 색상 선택 초기화
       } else {
-        alert("폴더 이름과 색상을 선택하세요.");
+        alert("폴더는 최대 9개까지 추가할 수 있습니다.");
       }
-    });
-  
-    // 저장 버튼 클릭 시 북마크 모달 닫기
-    saveButton.addEventListener("click", function() {
-      bookmarkModal.classList.add("hidden");
-    });
+    } else {
+      alert("폴더 이름과 색상을 선택하세요.");
+    }
   });
+
+  // 저장 버튼 클릭 시 북마크 버튼 이미지 변경 및 폴더 선택 모달 닫기
+  document.querySelector(".save-button").addEventListener("click", function() {
+    const selectedFolder = document.querySelector("input[name='folder']:checked");
+
+    if (!selectedFolder) {
+      alert("폴더를 선택해주세요");
+    } else {
+      // 폴더 선택 모달을 숨김
+      bookmarkModal.classList.add("hidden");
+
+      // 북마크 버튼의 이미지 요소 선택
+      const img = bookmarkButton.querySelector('img');
+
+      // 이미지 소스를 변경
+      img.src = "/src/assets/add-bookmark.png";
+
+      // 이미지 크기 조절
+      img.style.width = "38px";  
+      img.style.height = "46px";
+      img.style.margin = "13px";
+
+      // 북마크 상태 업데이트
+      isBookmarked = true;
+    }
+  });
+});
+
+
+
+
+
   
 

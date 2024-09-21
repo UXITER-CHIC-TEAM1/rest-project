@@ -9,6 +9,7 @@ body {
   margin: 0 auto; /* 화면 중앙 정렬 */
   overflow-x: hidden; /* 가로 스크롤 방지 */
   min-height: 100vh;
+  padding-bottom: 100px;
 }
 
 /* 전체 컨테이너 */

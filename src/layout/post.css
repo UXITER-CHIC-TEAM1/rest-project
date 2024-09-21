@@ -378,6 +378,20 @@ footer nav a span {
   width: 19px;
 }
 
+.create-folder-button {
+  background-color: white;
+  border: 1px solid #D8D8D8;
+  color: black; /* 텍스트 색상 */
+  padding: 7px 10px; /* 패딩 */
+  border-radius: 5px; /* 둥근 모서리 */
+  font-size: 16px; /* 글꼴 크기 */
+  font-weight: 500; /* 글꼴 두께 */
+  cursor: pointer; /* 마우스 커서 포인터로 변경 */
+}
+
+.create-folder-button img {
+  width: 19px;
+}
 /* 기존 폴더 리스트 스타일 */
 .folder-list {
   list-style: none;

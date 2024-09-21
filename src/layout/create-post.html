@@ -19,7 +19,7 @@
 
       <!-- 글 내용 작성 -->
       <div class="content">
-        <input class="title" type="text" placeholder="제목을 입력하세요." />
+        <input class="title" type="text" placeholder="제목을 입력하세요. (40자 이내)" maxlength="40" />
         <!--이미지 등록 슬라이드-->
         <div class="nav-tab__inner">
           <div class="nav-tab__scroller">
@@ -33,66 +33,19 @@
                 />
                 <label for="file-input-1" class="image-label"></label>
               </li>
+              <!-- 이미지 추가 버튼 -->
               <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-2"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-2" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-3"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-3" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-4"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-4" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-5"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-5" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-6"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-6" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-7"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-7" class="image-label"></label>
+                <button class="add-image-button">
+                  <img src="/src/assets/add.png" alt="이미지 추가">
+                </button>
               </li>
             </ul>
           </div>
         </div>
         <textarea
           class="post-content"
-          placeholder="내용을 입력하세요."
+          placeholder="내용을 입력하세요. (1000자 이내)"
+          maxlength="1000"
         ></textarea>
       </div>
     </div>
