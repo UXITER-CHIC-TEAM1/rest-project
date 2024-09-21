@@ -39,11 +39,13 @@ header {
 header h1 {
   font-family: "Jua", sans-serif;
   margin-bottom: 15px;
-  font-size: 28px;
+  margin-top: 15px;
+  margin-left: 3px;
   font-weight: 550;
   color: #38536d;
   padding-left: 5px;
   letter-spacing: 7px;
+  font-size: 20px;
 }
 
 header button {

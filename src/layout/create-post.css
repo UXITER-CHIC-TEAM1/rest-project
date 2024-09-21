@@ -18,20 +18,34 @@ body {
   box-sizing: border-box; /* padding 포함한 전체 너비 계산 */
 }
 
-/* 글 등록 버튼 */
-.create-div {
+/* 화면 상단 바 스타일 */
+header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10px;
   background-color: white;
 }
 
+header a {
+  text-decoration: none;
+  color: #38536d;
+  font-weight: 600;
+  font-size: 16px;
+}
+
 .create {
-  padding: 10px 20px;
   background-color: #fcf0d9;
-  color: black;
+  padding: 4px 16px;
+  margin-right: 10px;
   border: none;
-  cursor: pointer;
+  color: #38536d;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.back-button {
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 /* 글 내용 작성 */

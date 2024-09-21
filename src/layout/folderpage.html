@@ -12,7 +12,9 @@
 
 <body>
     <header>
-        <h1>쉬엄쉬엄</h1>
+        <!--앱 로고-->
+        <a href="home.html"><h1>쉬엄쉬엄</h1></a>
+        <!--폴더 추가하기 버튼 -->
         <button id="addfolder"><i class="fas fa-plus-circle"></i>쉼터 폴더 추가하기</button> 
     </header>
 
@@ -25,14 +27,16 @@
         <a href="map.html"><button class="map-button">지도에서 보기</button></a>
     </main>
 
+    <!-- 하단 네비게이션 바 -->
     <footer>
         <nav>
-            <a href="1.html"><img src="/src/assets/nav-filled-recommend.png" alt="."><span>추천</span></a>
-            <a href="2.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
-            <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
-            <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
+          <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
+          <a href="community.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
+          <a href="folderpage.html"><img src="/src/assets/nav-filled-myplace.png" alt="."><span>내 쉼터</span></a>
+          <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
         </nav>
-    </footer>
+        <div class="bottom-bar"></div>
+      </footer>
 
     <div id="overlay"></div>
     <div id="modal">
@@ -67,7 +71,6 @@
                 <button id="createFolderButton">폴더 생성하기</button>
             </div>
         </div>
-
     </div>
 
     <script src="../components/folderpage.js"></script>
