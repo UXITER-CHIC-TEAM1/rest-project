@@ -1,178 +1,193 @@
-/* 기본 스타일 설정 */
+/* 전체 컨테이너 스타일 */
 body {
-  font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: "Pretendard", Arial, sans-serif;
   background-color: white;
-  width: 100%; /* 화면 전체 너비에 맞추기 */
-  max-width: 390px; /* 최대 너비를 390px로 설정 */
-  margin: 0 auto; /* 화면 중앙 정렬 */
-  overflow-x: hidden; /* 가로 스크롤 방지 */
-  min-height: 100vh;
-}
-
-/* 전체 페이지 높이 설정 */
-html,
-body {
-  height: 100%;
-}
-
-/* 모든 div 요소의 넓이를 100%로 설정하여 레이아웃이 꽉 차도록 함 */
-div {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.div {
-  padding-bottom: 85px; /* 하단 네비게이션 높이만큼 여백 추가 */
-}
-
-a {
-  text-decoration: none;
-}
-
-/* 상단 로고 이미지 스타일 */
-header {
+  color: #333;
   display: flex;
-  align-items: center;
-  padding: 10px;
+  justify-content: center;
 }
 
-header img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-header h1 {
-  font-family: "Jua", sans-serif;
-  margin-bottom: 0px;
-  font-size: 20px;
-  height: 13px;
-  font-weight: 550;
-  color: #38536d;
-  padding-left: 5px;
-  letter-spacing: 7px;
-}
-
-/* 전체 컨테이너 */
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100vh;
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* 쉬엄 기록, 날짜, 감정 아이콘 */
-.record-title {
-  text-align: center;
-  padding-top: 10px;
-}
-
-.record-date {
-  color: #797979;
-}
-
-/* 감정 아이콘 크기 조정 */
-.record-title img {
-  max-width: 150px;
-  max-height: 150px;
-  width: 20%;
+  max-width: 390px;
   padding: 20px;
-  height: auto;
-  object-fit: cover;
 }
 
-/* 장소 이미지 크기 조정 */
-.place img {
-  max-width: 450px;
-  max-height: 300px;
-  width: 100%;
-  aspect-ratio: 3 / 2; /* 이미지 비율 3:2 유지 */
-  height: auto;
-  object-fit: cover;
+/* 상단바 스타일 */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
 }
 
-/* 마이로그 장소 정보 */
-.log-place {
+.back-btn {
+  position: absolute;
+  left: 15px;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-image: url(/src/assets/left-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.submit-btn {
+  position: absolute;
+  right: 15px;
+  background-color: #fcf0d9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.log-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fcf0d9;
-  margin: 15px;
-  border-radius: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.location-img {
-  width: 30px; /* 이미지 크기 조정 */
+/* 감정 선택 아이콘 */
+.log-icon {
+  width: 75px;
   height: auto;
-  margin-left: 10px;
+  margin-left: auto;
+  margin-right: auto; /* 아이콘을 가운데로 배치 */
+  padding-bottom: 20px;
+  display: block;
+}
+
+/* 음악 추가 버튼을 감싸는 컨테이너 */
+.add-music-container {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 끝으로 배치 */
+  margin-bottom: 20px; /* 버튼 아래 여백 */
+}
+
+/* 음악 추가 버튼 스타일 */
+.add-music-btn {
+  background-color: #38536d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 이미지와 텍스트 사이 간격 */
+}
+
+/* 버튼 내 이미지 스타일 */
+.music-icon {
+  width: 18px;
+  height: auto;
+}
+
+/* 장소 정보 */
+.log-place {
+  display: flex;
+  align-items: center;
+  background-color: #ffebd5;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* 텍스트 앞에 바 추가 */
+.log-place::before {
+  content: "";
+  display: block;
+  width: 4px; /* 바의 너비 */
+  height: 60%; /* 바의 높이 */
+  background-color: #384b60; /* 바의 색상 */
+  position: absolute;
+  left: 10px; /* 좌우 위치 조정 */
+  top: 50%;
+  transform: translateY(-50%); /* 바를 세로 중앙 정렬 */
+  border-radius: 2px; /* 둥근 모서리 */
 }
 
 .text-info {
-  display: flex;
-  flex-direction: column; /* 수직으로 정렬 */
-  margin-left: 20px; /* 이미지와 텍스트 사이에 간격 추가 */
-  padding: 10px;
+  margin-left: 5px; /* 바와 텍스트 사이 간격 */
+  margin-right: auto;
+  padding: 5px;
 }
 
-.text-info h4,
+.text-info h4 {
+  font-size: 17px;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
 .text-info p {
-  margin: 5px;
+  font-size: 14px;
+  color: #999;
+  margin: 0;
 }
 
 .bookmark-img {
-  width: 50px; /* bookmark 이미지 크기 조정 */
+  width: 40px;
   height: auto;
   margin-left: auto; /* 오른쪽 끝으로 밀어내기 */
-  padding-right: 5px;
 }
 
-.place-title img {
-  padding-left: 15px;
-  width: 24px;
-}
-
-/* 이미지 슬라이드 컨테이너 */
-.nav-tab__inner {
-  position: relative;
-  border-bottom: 1px solid #eaeaea;
-  overflow: hidden;
-  margin-left: 15px;
-}
-
-.nav-tab__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* 사진 추가 섹션 */
+.photo-section {
   display: flex;
-  align-items: stretch;
-  box-sizing: border-box;
-  overflow-x: auto;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.nav-tab__list::-webkit-scrollbar {
-  display: none; /* 스크롤바 숨기기 */
-}
-
-.nav-tab__item {
-  flex: none;
-  min-width: 0;
+.photo-box {
+  width: 48%;
+  background-color: #eaeef2;
+  height: 250px;
+  border-radius: 0px;
   display: flex;
-  align-items: stretch;
-  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-/* 이미지 크기 조정 */
-.nav-tab__item img {
-  max-width: 250px;
-  max-height: 300px;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+.add-photo {
+  text-align: center;
+}
+
+.add-photo p {
+  font-size: 14px;
+  color: #999;
+}
+
+.add-photo-btn {
+  background-color: #f9f0de;
+  border: none;
+  font-size: 36px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* 마이로그 기록 영역 */
@@ -181,44 +196,26 @@ header h1 {
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  margin: 15px;
-  padding: 10px;
-  border-radius: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 .log-record textarea {
   width: 100%;
-  border: 1px solid #dfdfdf;
+  border: 1px solid white;
   border-radius: 10px;
-  padding: 20px 15px;
+  padding: 5px 5px;
+  font-family: "Pretendard", Arial, sans-serif;
   font-size: 14px;
-  color: #938e8e;
-  background-color: #dfdfdf;
   resize: none;
   box-sizing: border-box;
-  margin-bottom: 20px; /* 텍스트 영역과 버튼 사이의 간격 */
 }
 
 /* 텍스트 영역의 placeholder 스타일 */
 .log-record textarea::placeholder {
-  color: #938e8e; /* placeholder 텍스트 색상 */
-  font-family: "Pretendard", Arial, sans-serif; /* 글씨체 설정 */
-  font-size: 14px; /* 글씨 크기 설정 */
-}
-
-.submit-btn {
-  align-self: center; /* 버튼을 오른쪽에 배치 */
-  background-color: #384b60;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 30px;
-  cursor: pointer;
+  color: #938e8e;
+  font-family: "Pretendard", Arial, sans-serif;
   font-size: 14px;
-}
-
-.submit-btn:hover {
-  background-color: #2d3f56; /* 마우스를 올렸을 때 버튼 색상 변경 */
 }
 
 /* 하단 네비게이션 바 스타일 */
