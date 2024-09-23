@@ -17,30 +17,34 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.querySelector(".login-button").addEventListener("click", function () {
-  const username = document.querySelector('.login-input[type="text"]').value;
+  const email = document.querySelector('.login-input[type="text"]').value;
   const password = document.querySelector(
     '.login-input[type="password"]'
   ).value;
 
-  if (username === "" || password === "") {
-    alert("아이디와 비밀번호를 입력해주세요.");
+  if (email === "" || password === "") {
+    alert("이메일과 비밀번호를 입력해주세요.");
   } else {
-    // 서버에 로그인 요청을 보냄
     fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         if (data.success) {
-          // 로그인 성공 시 처리
+          localStorage.setItem("jwt", data.token);
+          console.log("JWT saved to localStorage:", data.token);
           alert("로그인 성공!");
-          window.location.href = "home.html"; // 로그인 후 홈 페이지로 이동
+          window.location.href = "home.html";
         } else {
-          // 로그인 실패 시 처리
           alert("로그인 실패: " + data.message);
         }
       })
