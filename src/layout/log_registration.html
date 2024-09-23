@@ -15,13 +15,60 @@
         <button class="submit-btn">등록</button>
       </header>
 
-      <!-- 기록 아이콘 및 버튼 -->
+      <!-- 감정 선택 모달 트리거 버튼 -->
       <div class="log-header">
         <img
+          id="openEmotionModal"
           src="/src/assets/emotion-icon.png"
           alt="감정 아이콘"
           class="log-icon"
         />
+      </div>
+
+      <!-- 감정 선택 모달창 -->
+      <div id="emotionModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h4>오늘의 기분</h4>
+          <div class="emotion-grid">
+            <div class="emotion-item" data-emotion="calm">
+              <img src="/src/assets/icon_calm.png" alt="덤덤" />
+              <p>덤덤</p>
+            </div>
+            <div class="emotion-item" data-emotion="shy">
+              <img src="/src/assets/icon_shy.png" alt="부끄" />
+              <p>부끄</p>
+            </div>
+            <div class="emotion-item" data-emotion="happy">
+              <img src="/src/assets/icon_happy.png" alt="행복" />
+              <p>행복</p>
+            </div>
+            <div class="emotion-item" data-emotion="sensitive">
+              <img src="/src/assets/icon_sensitive.png" alt="예민" />
+              <p>예민</p>
+            </div>
+            <div class="emotion-item" data-emotion="annoy">
+              <img src="/src/assets/icon_annoy.png" alt="짜증" />
+              <p>짜증</p>
+            </div>
+            <div class="emotion-item" data-emotion="sad">
+              <img src="/src/assets/icon_sad.png" alt="슬픔" />
+              <p>슬픔</p>
+            </div>
+            <div class="emotion-item" data-emotion="love">
+              <img src="/src/assets/icon_love.png" alt="반함" />
+              <p>반함</p>
+            </div>
+            <div class="emotion-item" data-emotion="electrifying">
+              <img src="/src/assets/icon_electrifying.png" alt="짜릿" />
+              <p>짜릿</p>
+            </div>
+            <div class="emotion-item" data-emotion="surprise">
+              <img src="/src/assets/icon_surprise.png" alt="놀람" />
+              <p>놀람</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- 음악 추가 버튼 -->
