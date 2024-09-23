@@ -143,13 +143,9 @@ body {
   padding: 10px;
   font-size: 18px;
   color: white;
-  background-color: #383b60;
+  background-color: #384b60;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 15px;
-}
-
-.signup-button:hover {
-  background-color: #383b60;
 }
