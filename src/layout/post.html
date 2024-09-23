@@ -100,9 +100,9 @@
     <div id="bookmarkModal" class="modal hidden">
       <div class="modal-content">
         <div class="modal-header">
-          <p class="">폴더 선택</p>
+          <h2>폴더 선택</h2>
           <button class="save-button">
-            <img src="/src/assets/plus.png" alt="저장" />
+            선택하기
           </button>
         </div>
         <ul class="folder-list">
@@ -119,12 +119,13 @@
     <div id="folderCreationModal" class="modal hidden">
       <div class="modal-content">
         <div class="folder-create-header">
-          <h3>쉼터 폴더 추가</h3>
-          <button class="create-folder-button">
-            <img src="/src/assets/plus.png" alt="저장" />
-          </button>
+          <h2>쉼터 폴더 추가</h2>
         </div>
-        <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+
+        <div id="folder-preview" class="folder-preview">
+          <span id="folder-preview-name">폴더명</span>
+        </div>
+        
         <div class="color-options">
           <label class="color-option">
             <input type="radio" name="folderColor" value="#FBB5B5" />
@@ -163,6 +164,11 @@
             <span class="color-label"></span>
           </label>
         </div>
+
+        <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+        <button class="create-folder-button">
+          폴더 생성하기
+        </button>
       </div>
     </div>
 

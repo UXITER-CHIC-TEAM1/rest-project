@@ -67,7 +67,6 @@ likeButtons.forEach((button) => {
     });
 });
 
-// 북마크 버튼 js 코드
 document.addEventListener("DOMContentLoaded", function() {
   const bookmarkModal = document.getElementById("bookmarkModal");
   const folderCreationModal = document.getElementById("folderCreationModal");
@@ -77,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const colorRadios = document.querySelectorAll('input[name="folderColor"]'); // 색상 선택 라디오 버튼
   const folderNameInput = document.getElementById("folderName"); // 폴더 이름 입력 필드
   const folderList = document.querySelector(".folder-list"); // 폴더 리스트
+  const folderPreview = document.getElementById("folder-preview"); // 폴더 미리보기 요소
   const maxFolders = 9; // 최대 폴더 수
   let selectedColor = ''; // 선택된 색상
   let isBookmarked = false; // 북마크 상태를 저장하는 변수
@@ -112,10 +112,13 @@ document.addEventListener("DOMContentLoaded", function() {
     folderCreationModal.classList.remove("hidden");
   });
 
-  // 폴더 색상 선택 처리
+  // 폴더 색상 선택 처리 및 folder-preview의 border-top 색상 변경
   colorRadios.forEach(radio => {
     radio.addEventListener("change", function() {
       selectedColor = this.value;
+      
+      // folder-preview의 border-top 색상 변경
+      folderPreview.style.borderTopColor = selectedColor;
     });
   });
 
@@ -142,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // 입력 필드 초기화
         folderNameInput.value = '';
         selectedColor = ''; // 색상 선택 초기화
+        folderPreview.style.borderTopColor = "#e08282"; // 초기 색상으로 되돌림
       } else {
         alert("폴더는 최대 9개까지 추가할 수 있습니다.");
       }
@@ -176,10 +180,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
-
-
-
-
-  
-

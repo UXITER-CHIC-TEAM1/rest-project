@@ -67,7 +67,7 @@ createFolderButton.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-// 모달 드래그하여 닫기 기능 (기존 코드 유지)
+// 모달 드래그하여 닫기 기능
 let isDragging = false;
 let startY = 0;
 

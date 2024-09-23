@@ -31,6 +31,7 @@ a {
   text-decoration: none;
 }
 
+
 /* 상단 로고 이미지 스타일 */
 header {
   display: flex;
@@ -309,4 +310,74 @@ footer nav a span {
   background-color: #38536d;
   padding: 2px 0;
   z-index: 1000;
+}
+
+/* 모달 창 스타일 */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  z-index: 1000;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+  max-width: 390px;
+  height: 40vh;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.array-modal, .feel-modal {
+  padding: 20px;
+  text-align: center;
+  font-family: "Jua", sans-serif;
+  font-size: 16px;
+  height: 100%;
+  position: relative;
+  z-index: 1000;
+  padding-bottom: 60px; /* 결과보기 버튼 공간 확보 */
+}
+
+/* 버튼 스타일 */
+.button {
+  background-color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: 1px solid #c5c5c5;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #e9e9e9;
+}
+
+/* 결과보기 버튼 스타일 */
+.result-button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+  width: 80%;
+  padding: 15px;
+  background-color: #38536d;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
