@@ -3,22 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>로그인</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
-    <link rel="stylesheet" href="/login.css" />
+    <link rel="stylesheet" href="/src/layout/login.css" />
   </head>
   <body>
+    <!-- 상단바 -->
+    <header class="header">
+      <button class="back-btn"></button>
+      <h1 class="title">로그인/회원가입</h1>
+    </header>
     <div class="login-container">
-      <img src="/src/assets/text-logo.png" alt="text-logo" class="text-logo" />
-      <h2 class="login-text">로그인</h2>
       <input type="text" class="login-input" placeholder="아이디" />
-      <input type="password" class="login-input" placeholder="비밀번호" />
+      <div class="password-wrapper">
+        <input
+          type="password"
+          class="signup-input password-input"
+          placeholder="비밀번호"
+        />
+        <button type="button" class="toggle-password">비밀번호 보기</button>
+      </div>
       <button class="login-button">로그인</button>
-      <a class="signup" href="/signUp.html">회원가입</a>
+      <button class="signup-button" href="/src/layout/signUp.html">
+        회원가입
+      </button>
     </div>
-    <script src="/login.js"></script>
+    <script src="/src/components/login.js"></script>
   </body>
 </html>
