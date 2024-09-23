@@ -53,6 +53,47 @@ function setupImageUpload(input, index) {
   // 커뮤니티 게시글 이미지 슬라이드
   function row_scroll() {
     document.querySelectorAll(".nav-tab__list").forEach((list) => {
+});
+
+// 게시글 등록 버튼 클릭 시 서버로 데이터를 전송
+document.querySelector('.create').addEventListener('click', async function() {
+    const title = document.querySelector('.title').value;  // 제목 입력값
+    const content = document.querySelector('.post-content').value;  // 내용 입력값
+    
+    // JWT 토큰을 localStorage에서 가져옴
+    const token = localStorage.getItem('jwt');
+    
+    // 서버로 게시글 데이터를 전송
+    try {
+        const response = await fetch('/create-post', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // JWT를 Authorization 헤더에 포함
+            },
+            body: JSON.stringify({
+                title: title,
+                content: content
+                // 위치 정보를 제거
+            })
+        });
+    
+        const result = await response.json();
+        if (result.success) {
+            alert('게시글이 성공적으로 등록되었습니다!');
+            // 성공 후 페이지 이동 등 추가 로직 구현
+        } else {
+            alert('게시글 등록에 실패했습니다.');
+        }
+    } catch (error) {
+        console.error('게시글 등록 오류:', error);
+        alert('게시글 등록 중 오류가 발생했습니다.');
+    }
+});
+
+// 커뮤니티 게시글 이미지 슬라이드
+function row_scroll() {
+  document.querySelectorAll(".nav-tab__list").forEach((list) => {
       list.addEventListener("wheel", (e) => {
         e.preventDefault();
   

@@ -10,8 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "eslint-plugin-prettier": "^5.2.1",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.3"
   },
   "devDependencies": {
