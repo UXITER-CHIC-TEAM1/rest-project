@@ -54,3 +54,7 @@ document.querySelector(".login-button").addEventListener("click", function () {
       });
   }
 });
+
+document.querySelector(".signup-button").addEventListener("click", function () {
+  window.location.href = "/src/layout/signUp.html";
+});
