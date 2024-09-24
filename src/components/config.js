@@ -3,9 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); // 비밀번호 해시화 라이브러리
+const User = require('../models/user'); // 사용자 모델 임포트
+const Post = require('../models/post'); // 게시글 모델 임포트
 const jwt = require('jsonwebtoken'); // JWT 패키지 추가
 const session = require('express-session'); // 세션 관리 패키지 추가
+
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -16,35 +19,6 @@ const port = process.env.PORT || 3000; // 환경 변수에서 포트 번호 가�
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('MongoDB 연결 성공'))
     .catch(err => console.error('MongoDB 연결 실패:', err));
-
-// 데이터베이스 스키마 및 모델
-const userSchema = new mongoose.Schema({
-    nickname: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-});
-
-// 비밀번호를 저장하기 전에 해시화
-userSchema.pre('save', async function (next) {
-    if (this.isModified('password')) {
-        this.password = await bcrypt.hash(this.password, 10);
-    }
-    next();
-});
-
-const User = mongoose.model('User', userSchema);
-
-// 데이터베이스 스키마 및 모델 추가 (게시글)
-const postSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    content: { type: String, required: true },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    images: [String]
-    // 위치 정보 필드를 제거
-});
-
-const Post = mongoose.model('Post', postSchema);
-
 
 // 미들웨어 설정
 app.use(bodyParser.json());
@@ -87,7 +61,8 @@ function authenticateToken(req, res, next) {
 
 // 회원가입 요청 처리
 app.post('/signup', async (req, res) => {
-    const { nickname, email, password } = req.body;
+    console.log(req.body) // 이게 콘솔창에 뜨는 json형태 데이터 정보인듯? 확인해보셈
+    const { nickname, email, password } = req.body; // → JS 문법 中 '구조 분해 할당' 구문
     try {
         const newUser = new User({ nickname, email, password });
         await newUser.save();
@@ -99,6 +74,7 @@ app.post('/signup', async (req, res) => {
 });
 
 // 로그인 요청 처리 수정
+// 사용자가 입력한 이메일과 비밀번호를 검증 -> 인증 성공 시 JWT 토큰을 생성하여 반환
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -121,6 +97,8 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// JWT 토큰을 검증하는 미들웨어 함수
+// 요청 헤더에 포함된 JWT 토큰을 확인, 유효할 경우 요청을 진행
 function authenticateToken(req, res, next) {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];
@@ -167,13 +145,15 @@ app.post('/create-post', async (req, res) => {
     }
 });
 
-
 // 에러 핸들링 미들웨어
 app.use((err, req, res, next) => {
     console.error('서버 오류:', err);
     res.status(500).send('서버에서 오류가 발생했습니다.');
 });
 
+
 app.listen(port, () => {
     console.log(`서버가 http://localhost:${port}에서 실행 중입니다.`);
 });
+
+
