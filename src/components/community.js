@@ -109,3 +109,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// 검색 기능 구현
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.search-input');
+  const searchButton = document.querySelector('.search-button');
+
+  // 필터링 함수
+  function filterPosts() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const posts = document.querySelectorAll('.community-post');
+
+    posts.forEach(post => {
+      // 장소명을 찾기
+      const placename = post.querySelector('.post-placename').textContent.toLowerCase();
+
+      if (placename.includes(searchTerm)) {
+        post.style.display = ''; // 표시
+      } else {
+        post.style.display = 'none'; // 숨김
+      }
+    });
+  }
+
+  // 검색 버튼 클릭 이벤트
+  searchButton.addEventListener('click', function() {
+    filterPosts();
+  });
+
+  // 엔터 키 입력 이벤트
+  searchInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      filterPosts();
+    }
+  });
+});
