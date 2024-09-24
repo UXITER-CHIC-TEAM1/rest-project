@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     nickname: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],  // 나를 팔로우한 사람들
+    following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]   // 내가 팔로우하는 사람들
 });
 
 // 비밀번호를 저장하기 전에 해시화
