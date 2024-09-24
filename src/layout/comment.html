@@ -16,65 +16,32 @@
 </head>
 <body>
     <div class="div">
-      <!-- 최신순 / 등록순 필터링 버튼 -->
-      <div class="filter-buttons">
-        <button class="filter-btn">최신순</button>
-        <button class="filter-btn">등록순</button>
-      </div>
-
-      <div class="comment">
-        <!-- 사용자 프로필 아이콘 -->
-        <div class="user-icon"></div>
-        <div class="post-details">
-          <div class="post-meta">
-            <!-- 댓글 작성자의 닉네임 -->
-            <span class="username">닉네임</span>
-            <!-- 댓글 내용 -->
-            <p class="content">가 나 다 라 마 바 사</p>
-          </div>
-          <div class="post-actions">
-            <!-- 댓글 작성 날짜 -->
-            <span class="post-date">2024.07.28</span>
-            <!-- 댓글 작성 시간 -->
-            <span class="post-time">12:27</span>
-            <!-- 답글 달기 버튼 -->
-            <button class="reply">답글달기</button>
-            <!--좋아요 버튼-->
-            <div class="likes-info">
-              <button class="likes-button" id="like-btn-1">
-                <img src="/src/assets/likes-button.png" id="like-img-1" />
-              </button>
-              <p class="likes-amount" id="like-count-1">0</p>
+      <!-- 댓글이 추가될 섹션 -->
+      <div class="comment-section">
+        <div class="comment">
+          <!-- 사용자 프로필 아이콘 -->
+          <div class="user-icon"></div>
+          <div class="post-details">
+            <div class="post-meta">
+              <!-- 댓글 작성자의 닉네임 -->
+              <span class="username">닉네임</span>
+              <!-- 댓글 내용 -->
+              <p class="content">가 나 다 라 마 바 사</p>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!--답글-->
-      <div class="reply-comment">
-        <!-- 사용자 프로필 아이콘 -->
-        <div class="user-icon"></div>
-        <div class="post-details">
-          <div class="post-meta">
-            <!-- 댓글 작성자의 닉네임 -->
-            <span class="username">닉네임</span>
-            <!-- 댓글 내용 -->
-            <p class="content">가 나 다 라 마 바 사</p>
-          </div>
-          <div class="post-actions">
-            <!-- 댓글 작성 날짜 -->
-            <span class="post-date">2024.07.28</span>
-            <!-- 댓글 작성 시간 -->
-            <span class="post-time">12:27</span>
-            <!-- 답글 달기 버튼 -->
-            <button class="reply">답글달기</button>
-            <!--좋아요 버튼-->
-            <div class="likes-info">
-              <button class="likes-button" id="like-btn-1">
-                <img src="/src/assets/likes-button.png" id="like-img-1" />
-              </button>
-              <p class="likes-amount" id="like-count-1">0</p>
-            </div>
+            <div class="post-actions">
+              <!-- 댓글 작성 날짜 -->
+              <span class="post-date">2024.07.28</span>
+              <!-- 댓글 작성 시간 -->
+              <span class="post-time">12:27</span>
+              <!-- 답글 달기 버튼 -->
+              <button class="reply">답글달기</button>
+              <!--좋아요 버튼-->
+              <div class="likes-info">
+                <button class="likes-button" id="like-btn-1">
+                  <img src="/src/assets/likes-button.png" id="like-img-1" />
+                </button>
+                <p class="likes-amount" id="like-count-1">0</p>
+              </div>
             </div>
           </div>
         </div>
@@ -84,10 +51,10 @@
       <div class="overlay" onclick="closeCommentInput()"></div>
 
       <!-- 댓글 입력 창 -->
-        <div class="comment-input">
-          <input type="text" class="input-comment" placeholder="댓글을 입력하세요...">
-          <button class="comment-button">작성</button>
-        </div>
+      <div class="comment-input">
+        <input type="text" class="input-comment" placeholder="댓글을 입력하세요...">
+        <button class="comment-button">등록</button>
+      </div>
 
       <!-- 하단 네비게이션 바 -->
       <footer>
@@ -99,7 +66,6 @@
         </nav>
         <div class="bottom-bar"></div>
       </footer>
-  </div>
   </div>
 </body>
 <script src="/src/components/comment.js"></script>
