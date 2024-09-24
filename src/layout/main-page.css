@@ -74,7 +74,7 @@ header h1 {
 }
 
 .user-details p:first-child {
-    font-weight: bold;  /
+    font-weight: bold;
 }
 
 .user-details p:last-child {
@@ -107,14 +107,16 @@ header h1 {
     margin: 3px 0;
 }
 
-
 .edit-icon {
     width: 14px;
     height: 14px;
-    background-color: transparent;
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
-/*쉬엄로그, 커뮤니티 선택*/
+/* 쉬엄로그, 커뮤니티 선택 */
 .navigation {
     display: flex;
     justify-content: space-around;
@@ -123,19 +125,74 @@ header h1 {
 }
 
 .navigation p {
-    cursor: pointer;  
-    color: #38536d;  
-    font-size: 16px;  
+    cursor: pointer;
+    color: #38536d;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .navigation p:hover {
-    text-decoration: underline;  
+    text-decoration: underline;
 }
 
 #selected-date:hover {
-    text-decoration: underline;  
+    text-decoration: underline;
 }
+
+#log-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; 
+    justify-items: center; 
+    margin-top: 20px;
+}
+
+.emoticon-item {
+    text-align: center;
+}
+
+.emoticon-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.location {
+    font-size: 12px;
+    color: #38536d;
+    margin-top: 1px;
+}
+
+.date {
+    font-size: 10px;
+    color: #999;
+}
+
+#add-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#add-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#content-area {
+    max-height: 500px; 
+    overflow-y: auto;  
+    padding-right: 10px; 
+    margin-bottom: 20px; 
+}
+
+#content-area::-webkit-scrollbar {
+    display: none; 
+  }
 
 /* 하단 네비게이션 바 스타일 */
 footer {
@@ -170,4 +227,124 @@ footer nav a span {
     font-size: 12px;
     font-weight: 600;
     color: #38536d;
+}
+
+/* 커뮤니티 게시물 스타일 */
+.community-post {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  width: 100%; /* 게시물 너비를 고정 */
+}
+
+/* 글 제목 스타일 */
+.post-title {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 0;
+}
+
+/* 글 제목 스타일 */
+.post-title > p:first-of-type {
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+/* 장소명 스타일 */
+.post-placename {
+  font-size: 16px;
+  font-weight: 900;
+  color: black;
+  margin: 0;
+}
+
+.post-placename::before {
+  content: "|"; /* 바 추가 */
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+/* user-likes-div */
+.user-likes-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.user-info-community {
+  display: flex;
+  align-items: center;
+}
+
+.nickname {
+  margin-left: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.likes-info {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  width: auto;
+}
+
+.likes-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 14px;
+}
+
+.likes-amount {
+  font-size: 12px;
+  color: #666;
+  margin-left: 5px;
+  line-height: 20px;
+}
+
+/* 이미지 슬라이드 컨테이너 */
+.nav-tab__inner {
+  position: relative;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+}
+
+.nav-tab__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.nav-tab__list::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+.nav-tab__item {
+  flex: none;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  margin-right: 10px;
+}
+
+/* 이미지 크기 조정 */
+.nav-tab__item img {
+  max-width: 250px;
+  max-height: 300px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
 }
