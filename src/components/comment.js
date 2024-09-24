@@ -37,17 +37,81 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// 댓글 입력 창
-function openCommentInput() {
-    document.querySelector('.overlay').style.display = 'block'; /* 어두운 배경 표시 */
-    document.querySelector('.comment-input-container').style.display = 'block'; /* 댓글 입력창 표시 */
-    document.querySelector('.comment-write-btn').style.display = 'none'; /* 댓글 작성 버튼 숨김 */
-  }
-  
-  function closeCommentInput() {
-    document.querySelector('.overlay').style.display = 'none'; /* 어두운 배경 숨김 */
-    document.querySelector('.comment-input-container').style.display = 'none'; /* 댓글 입력창 숨김 */
-    document.querySelector('.comment-write-btn').style.display = 'flex'; /* 댓글 작성 버튼 표시 */
-  }
-  
-  
+// 댓글 & 달기 기능 (수정필요)
+document.addEventListener('DOMContentLoaded', () => {
+    const commentInput = document.querySelector('.input-comment');
+    const commentButton = document.querySelector('.comment-button');
+    const commentSection = document.querySelector('.div'); // 댓글이 추가될 부모 요소
+
+    // 기본 placeholder 설정
+    commentInput.placeholder = '댓글을 입력하세요...';
+
+    commentButton.addEventListener('click', () => {
+        const commentText = commentInput.value.trim();
+        
+        if (commentText === '') {
+            alert('댓글을 입력하세요.');
+            return;
+        }
+
+        // 댓글 생성
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        
+        newComment.innerHTML = `
+            <div class="user-icon"></div>
+            <div class="post-details">
+                <div class="post-meta">
+                    <span class="username">닉네임</span>
+                    <p class="content">${commentText}</p>
+                </div>
+                <div class="post-actions">
+                    <span class="post-date">2024.07.28</span>
+                    <span class="post-time">12:27</span>
+                    <button class="reply">답글달기</button>
+                    <div class="likes-info">
+                        <button class="likes-button" id="like-btn-1">
+                            <img src="/src/assets/likes-button.png" id="like-img-1" />
+                        </button>
+                        <p class="likes-amount" id="like-count-1">0</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // 새로운 댓글을 댓글 섹션에 추가
+        commentSection.appendChild(newComment);
+        
+        // 입력창 비우기 및 기본 placeholder로 설정
+        commentInput.value = '';
+        commentInput.placeholder = '댓글을 입력하세요...';
+    });
+
+    // 답글 달기 버튼 클릭 시
+    commentSection.addEventListener('click', (event) => {
+        if (event.target.classList.contains('reply')) {
+            const username = event.target.closest('.comment').querySelector('.username').textContent;
+            commentInput.placeholder = `${username}님에게 답글달기: `;
+            commentInput.focus();
+        }
+    });
+});
+
+// 최신순 / 등록순 필터링 버튼 (현재는 버튼 클릭하면 배경색 변하는 이벤트만 구현 됨.)
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 모든 버튼의 스타일 초기화
+            filterButtons.forEach(btn => {
+                btn.style.backgroundColor = 'white';
+                btn.style.color = 'black'; // 원래 글자색으로 복원
+            });
+
+            // 클릭된 버튼의 스타일 변경
+            button.style.backgroundColor = '#384b60';
+            button.style.color = 'white';
+        });
+    });
+});

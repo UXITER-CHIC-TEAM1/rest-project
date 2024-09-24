@@ -5,8 +5,8 @@ body {
   padding: 0;
   background-color: white;
   width: 100%;
-  max-width: 390px; 
-  margin: 0 auto; 
+  max-width: 390px;
+  margin: 0 auto;
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
@@ -15,43 +15,32 @@ body {
 /* 상단 로고 이미지 스타일 */
 header {
   display: flex;
-  align-items: flex-start; /* 로고와 글씨 사이 마진 없애기 */
-  padding: 10px;
   background-color: #fcf0d9;
 }
 
 header img {
-  height: 40px; 
-  margin-right: 10px; 
-}
-
-header h1 {
-  font-family: "Jua", sans-serif;
-  margin-bottom: 0px;
-  font-size: 20px;
-  height: 20px;
-  font-weight: 550;
-  color: #38536d;
-  padding-left: 5px;
-  letter-spacing: 7px;
+  height: 50px;
+  padding: 5px 0px;
 }
 
 /* 필터링 버튼 영역 */
 .filter-div {
   background-color: #fcf0d9; /* 전체 필터 영역 배경색 적용 */
   border-radius: 0px 0px 20px 20px;
-  padding: 10px 0; /* 필터 영역 내부 상하 여백 */
+  padding: 5px 0; /* 필터 영역 내부 상하 여백 */
+  margin-bottom: 5px;
 }
 
-.feel-filter, .place-filter {
+.feel-filter,
+.place-filter {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-start; 
-  gap: 10px; 
-  margin-bottom: 10px; 
-  padding: 10px; 
-  background-color: #fcf0d9; 
-  overflow-x: scroll; 
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  background-color: #fcf0d9;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   align-items: center;
@@ -59,15 +48,19 @@ header h1 {
 }
 
 .feel-filter h4 {
-  color: #384B60;
+  padding-left: 3px;
+  color: #384b60;
 }
 
 .place-filter h4 {
-  color: #384B60;
+  padding-left: 3px;
+  color: #384b60;
+  padding-right: 15px;
 }
 
 /* 필터링 버튼 스크롤바 숨기기 */
-.feel-filter::-webkit-scrollbar, .place-filter::-webkit-scrollbar {
+.feel-filter::-webkit-scrollbar,
+.place-filter::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
@@ -76,15 +69,17 @@ header h1 {
 }
 
 .filter-div button {
+  font-family: "Pretendard", Arial, sans-serif;
   background-color: white;
-  border: 1px solid #c5c5c5;
+  border: 1px solid #e3e3e3;
   cursor: pointer;
+  font-weight: 400;
   font-size: 14px;
-  padding: 0 20px;
-  margin-right: 10px;
+  padding: 0 15px;
+  margin-right: 2px;
   border-radius: 100px;
-  height: 40px;
-  line-height: 40px;
+  height: 32px;
+  line-height: 32px;
 }
 
 .container {
@@ -94,10 +89,14 @@ header h1 {
 /* 메인 콘텐츠 영역 */
 .main-content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개씩 배치 */
   gap: 10px;
   padding: 10px;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration-line: none;
 }
 
 /* 카드 스타일 */
@@ -111,8 +110,9 @@ header h1 {
 /* 카드 이미지 */
 .card-image {
   width: 100%;
-  height: 200px; /* 이미지 높이 설정 */
+  height: 218px; /* 이미지 높이 설정 */
   background-color: #ddd; /* 이미지 배경색 설정 */
+  padding: 5px;
 }
 
 /* 카드 내용 영역 */
@@ -127,14 +127,28 @@ header h1 {
 .card-title {
   font-size: 14px;
   color: #333;
-  margin: 0; /* 기본 마진 제거 */
+  margin: 0;
+  padding-top: 5px;
 }
 
 /* 카드 영업 중 */
 .card-hours {
   font-size: 12px;
-  color: #666;
+  color: #388bff;
   margin: 0;
+  padding-top: 3px;
+}
+
+.card-hours.open {
+  color: #388bff;
+}
+
+.card-hours.closed {
+  color: #f54b4b;
+}
+
+.card-hours.preparing {
+  color: #1fc43a;
 }
 
 /* 카드 주소 */
@@ -142,6 +156,8 @@ header h1 {
   font-size: 12px;
   color: #666;
   margin: 0;
+  padding-top: 3px;
+  padding-bottom: 8px;
 }
 
 /* 하단 네비게이션 바 스타일 */

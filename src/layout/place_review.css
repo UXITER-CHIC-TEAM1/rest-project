@@ -7,9 +7,11 @@ body {
   width: 100%;
   max-width: 390px; 
   margin: 0 auto; 
-  overflow-x: hidden;
+  overflow-x: hidden; /* 가로 스크롤 X */
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
+  overflow-y: scroll; /* 세로 스크롤 O */
+  padding-bottom: 50px; /* 네비바에 화면 잘리는 것 방지 */
 }
 
 /* 전체 컨테이너 */

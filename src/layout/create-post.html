@@ -12,14 +12,15 @@
   </head>
   <body>
     <div class="div">
-      <!-- 글 등록 버튼 -->
-      <div class="create-div">
+      <!-- 이전 페이지 버튼 / 글 등록 버튼 -->
+      <header>
+        <a href="create-post-filter.html" class="back-button"><img src="/src/assets/back-button.png" alt="<"></a>
         <button class="create">등록</button>
-      </div>
+      </header>
 
       <!-- 글 내용 작성 -->
       <div class="content">
-        <input class="title" type="text" placeholder="제목을 입력하세요." />
+        <input class="title" type="text" placeholder="제목을 입력하세요. (40자 이내)" maxlength="40" />
         <!--이미지 등록 슬라이드-->
         <div class="nav-tab__inner">
           <div class="nav-tab__scroller">
@@ -33,66 +34,19 @@
                 />
                 <label for="file-input-1" class="image-label"></label>
               </li>
+              <!-- 이미지 추가 버튼 -->
               <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-2"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-2" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-3"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-3" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-4"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-4" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-5"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-5" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-6"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-6" class="image-label"></label>
-              </li>
-              <li class="nav-tab__item">
-                <input
-                  type="file"
-                  id="file-input-7"
-                  class="image-upload"
-                  accept="image/*"
-                />
-                <label for="file-input-7" class="image-label"></label>
+                <button class="add-image-button">
+                  <img src="/src/assets/add.png" alt="이미지 추가">
+                </button>
               </li>
             </ul>
           </div>
         </div>
         <textarea
           class="post-content"
-          placeholder="내용을 입력하세요."
+          placeholder="내용을 입력하세요. (1000자 이내)"
+          maxlength="1000"
         ></textarea>
       </div>
     </div>
@@ -100,9 +54,9 @@
     <!-- 하단 네비게이션 바 -->
     <footer>
       <nav>
-        <a href="1.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
-        <a href="2.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
-        <a href="3.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
+        <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
+        <a href="community.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
+        <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
         <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
       </nav>
       <div class="bottom-bar"></div>

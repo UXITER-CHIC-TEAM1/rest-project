@@ -18,20 +18,34 @@ body {
   box-sizing: border-box; /* padding 포함한 전체 너비 계산 */
 }
 
-/* 글 등록 버튼 */
-.create-div {
+/* 화면 상단 바 스타일 */
+header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10px;
   background-color: white;
 }
 
+header a {
+  text-decoration: none;
+  color: #38536d;
+  font-weight: 600;
+  font-size: 16px;
+}
+
 .create {
-  padding: 10px 20px;
   background-color: #fcf0d9;
-  color: black;
+  padding: 4px 16px;
+  margin-right: 10px;
   border: none;
-  cursor: pointer;
+  color: #38536d;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.back-button {
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 /* 글 내용 작성 */
@@ -76,6 +90,10 @@ body {
 /* 글 내용 입력 창 스타일 */
 .post-content {
   font-size: 15px;
+  width: calc(100% - 20px); 
+  min-height: 400px; 
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .post-content::placeholder {
@@ -92,20 +110,48 @@ body {
 }
 
 .image-label {
+  position: relative; /* 문구와 아이콘의 위치를 제어하기 위해 relative 사용 */
   background-color: #f5f5f5;
-  display: block;
+  display: flex; /* Flexbox로 문구와 아이콘 중앙 정렬 */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* 문구와 아이콘을 수직으로 배치 */
   width: 250px;
   height: 300px;
-  background-image: url(""); /* 예시 이미지 경로 */
   background-size: cover;
   background-position: center;
   cursor: pointer;
 }
 
+.image-label::before {
+  content: '사진을 추가해주세요';
+  color: #757575;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.image-label::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('/src/assets/add.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 이미지가 업로드된 후 문구와 아이콘 숨기기 */
+.image-label.image-uploaded::before,
+.image-label.image-uploaded::after {
+  display: none;
+}
+
 /* 이미지 슬라이드 컨테이너 */
 .nav-tab__inner {
   position: relative;
-  border-bottom: 1px solid #eaeaea;
   overflow: hidden;
 }
 
@@ -123,6 +169,25 @@ body {
   align-items: stretch;
   box-sizing: border-box;
   overflow-x: auto;
+  align-items: center;
+}
+
+/* 이미지 추가 버튼 스타일 */
+.add-image-button {
+  width: 30%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-image-button img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .nav-tab__list::-webkit-scrollbar {
@@ -136,7 +201,7 @@ body {
   height: 300px; /* 슬라이드 아이템의 고정 높이 */
   margin-right: 10px; /* 아이템 간격 조정 */
   display: flex;
-  align-items: stretch;
+  align-items: center;
 }
 
 /* 이미지 크기 조정 */

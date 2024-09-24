@@ -24,8 +24,8 @@
         <div class="place-img"><img></div>
         <div class="place-address">
           <button><img src="/src/assets/place-icon.png" alt="*"></button>
-          <h4>장소 상세 주소</h4>
-          <button><img src="/src/assets/copy-icon.png" alt="주소 복사하기"></button>
+          <h4 id="textToCopy">장소 상세 주소</h4>
+          <button><img src="/src/assets/copy-icon.png" alt="주소 복사하기" id="copyButton"></button>
         </div>
         <div class="place-info">              
           <div class="place-time">
@@ -76,12 +76,82 @@
       </div>
     </div>
 
+    <!-- 북마크 모달창 -->
+    <div id="bookmarkModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="">폴더 선택</p>
+          <button class="save-button">
+            <img src="/src/assets/plus.png" alt="저장" />
+          </button>
+        </div>
+        <ul class="folder-list">
+          <!--동적으로 폴더 추가 될 곳-->
+        </ul>
+        <button class="add-folder-button">
+          <img src="/src/assets/bookmark.png" />쉼터 폴더 추가
+        </button>
+        <div class="modal-actions"></div>
+      </div>
+    </div>
+
+    <!-- 폴더 생성 -->
+    <div id="folderCreationModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="folder-create-header">
+          <h3>쉼터 폴더 추가</h3>
+          <button class="create-folder-button">
+            <img src="/src/assets/plus.png" alt="저장" />
+          </button>
+        </div>
+        <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+        <div class="color-options">
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#FBB5B5" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#ECBAA6" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#C1EFA5" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#B3DEEC" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#8FC28A" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#FDEE96" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#EBC3EB" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#E18383" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#8E98F2" />
+            <span class="color-label"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
     <!-- 하단 네비게이션 바 -->
     <footer>
       <nav>
-        <a href="1.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
-        <a href="2.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
-        <a href="3.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
+        <a href="home.html"><img src="/src/assets/nav-filled-recommend.png" alt="."><span>추천</span></a>
+        <a href="community.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
+        <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
         <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
       </nav>
       <div class="bottom-bar"></div>

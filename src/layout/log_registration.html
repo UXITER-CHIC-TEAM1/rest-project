@@ -1,106 +1,148 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>마이로그 등록</title>
-    <link rel="stylesheet" href="/src/layout/log_registration.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/d0ef824827.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>오늘의 쉬엄 기록</title>
+    <link rel="stylesheet" href="log_registration.css" />
   </head>
   <body>
-    <div class="div">
-      <!--앱 로고-->
-      <header>
-        <!--TODO: 로고 추가-->
-        <h1>쉬엄쉬엄</h1>
+    <div class="container">
+      <!-- 상단바 -->
+      <header class="header">
+        <button class="back-btn"></button>
+        <h1 class="title">오늘의 쉬엄 기록</h1>
+        <button class="submit-btn">등록</button>
       </header>
 
-      <div class="container">
-        <!-- 마이로그 타이틀 -->
-        <div class="record-title">
-          <h3>오늘의 쉬엄 기록</h3>
-          <img src="/src/assets/icon_surprise.png" alt="놀람 아이콘" />
-        </div>
-        <!-- 마이로그 장소 정보 -->
-        <div class="log-place">
-          <img
-            src="/src/assets/location.png"
-            alt="location-img"
-            class="location-img"
-          />
-          <div class="text-info">
-            <h4>서울 올림픽 공원</h4>
-            <p>서울 마포구 망원동</p>
-          </div>
-          <img
-            src="/src/assets/bookmark.png"
-            alt="bookmark"
-            class="bookmark-img"
-          />
-        </div>
-        <!-- 마이로그 예시 이미지 -->
-        <!--이미지 슬라이드-->
-        <div class="nav-tab__inner">
-          <div class="nav-tab__scroller">
-            <ul class="nav-tab__list">
-              <li class="nav-tab__item on">
-                <img src="/src/assets/post-img.jpg" alt="post-img" />
-              </li>
-              <li class="nav-tab__item">
-                <img src="/src/assets/post-img.jpg" alt="post-img" />
-              </li>
-              <!-- More items -->
-            </ul>
-          </div>
-        </div>
-
-        <!-- 마이로그 기록 -->
-        <div class="log-record">
-          <textarea
-            placeholder="오늘의 휴식 기록을 작성해요."
-            rows="16"
-          ></textarea>
-          <button type="button" class="submit-btn">등록</button>
-        </div>
-
-        <!-- 하단 네비게이션 바 -->
-        <footer>
-          <nav>
-            <a href="1.html"
-              ><img src="/src/assets/nav-recommend.png" alt="." /><span
-                >추천</span
-              ></a
-            >
-            <a href="2.html"
-              ><img src="/src/assets/nav-filled-community.png" alt="." /><span
-                >커뮤니티</span
-              ></a
-            >
-            <a href="3.html"
-              ><img src="/src/assets/nav-myplace.png" alt="." /><span
-                >내 쉼터</span
-              ></a
-            >
-            <a href="4.html"
-              ><img src="/src/assets/nav-mylog.png" alt="." /><span
-                >마이로그</span
-              ></a
-            >
-          </nav>
-          <div class="bottom-bar"></div>
-        </footer>
+      <!-- 감정 선택 모달 트리거 버튼 -->
+      <div class="log-header">
+        <img
+          id="openEmotionModal"
+          src="/src/assets/emotion-icon.png"
+          alt="감정 아이콘"
+          class="log-icon"
+        />
       </div>
+
+      <!-- 감정 선택 모달창 -->
+      <div id="emotionModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h4>오늘의 기분</h4>
+          <div class="emotion-grid">
+            <div class="emotion-item" data-emotion="calm">
+              <img src="/src/assets/icon_calm.png" alt="덤덤" />
+              <p>덤덤</p>
+            </div>
+            <div class="emotion-item" data-emotion="shy">
+              <img src="/src/assets/icon_shy.png" alt="부끄" />
+              <p>부끄</p>
+            </div>
+            <div class="emotion-item" data-emotion="happy">
+              <img src="/src/assets/icon_happy.png" alt="행복" />
+              <p>행복</p>
+            </div>
+            <div class="emotion-item" data-emotion="sensitive">
+              <img src="/src/assets/icon_sensitive.png" alt="예민" />
+              <p>예민</p>
+            </div>
+            <div class="emotion-item" data-emotion="annoy">
+              <img src="/src/assets/icon_annoy.png" alt="짜증" />
+              <p>짜증</p>
+            </div>
+            <div class="emotion-item" data-emotion="sad">
+              <img src="/src/assets/icon_sad.png" alt="슬픔" />
+              <p>슬픔</p>
+            </div>
+            <div class="emotion-item" data-emotion="love">
+              <img src="/src/assets/icon_love.png" alt="반함" />
+              <p>반함</p>
+            </div>
+            <div class="emotion-item" data-emotion="electrifying">
+              <img src="/src/assets/icon_electrifying.png" alt="짜릿" />
+              <p>짜릿</p>
+            </div>
+            <div class="emotion-item" data-emotion="surprise">
+              <img src="/src/assets/icon_surprise.png" alt="놀람" />
+              <p>놀람</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 음악 추가 버튼 -->
+      <div class="add-music-container">
+        <button class="add-music-btn">
+          <img
+            src="/src/assets/music-icon.png"
+            alt="음악 아이콘"
+            class="music-icon"
+          />
+          음악 추가하기
+        </button>
+      </div>
+
+      <!-- 장소 정보 -->
+      <div class="log-place">
+        <div class="text-info">
+          <h4>카페꼼마 합정점</h4>
+          <p>서울 마포구 망원동</p>
+        </div>
+        <img
+          src="/src/assets/bookmark.png"
+          alt="bookmark"
+          class="bookmark-img"
+        />
+      </div>
+
+      <!-- 사진 추가 -->
+      <div class="photo-section">
+        <div class="photo-box">
+          <div class="add-photo">
+            <p>사진을 추가해주세요</p>
+            <button class="add-photo-btn">+</button>
+          </div>
+        </div>
+        <div class="photo-box">
+          <div class="add-photo">
+            <p>사진을 추가해주세요</p>
+            <button class="add-photo-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 텍스트 입력 -->
+      <div class="log-record">
+        <textarea placeholder="내용을 입력하세요." rows="16"></textarea>
+      </div>
+
+      <!-- 하단 네비게이션 바 -->
+      <footer>
+        <nav>
+          <a href="home.html"
+            ><img src="/src/assets/nav-recommend.png" alt="." /><span
+              >추천</span
+            ></a
+          >
+          <a href="community.html"
+            ><img src="/src/assets/nav-community.png" alt="." /><span
+              >커뮤니티</span
+            ></a
+          >
+          <a href="folderpage.html"
+            ><img src="/src/assets/nav-myplace.png" alt="." /><span
+              >내 쉼터</span
+            ></a
+          >
+          <a href="4.html"
+            ><img src="/src/assets/nav-filled-mylog.svg" alt="." /><span
+              >마이로그</span
+            ></a
+          >
+        </nav>
+        <div class="bottom-bar"></div>
+      </footer>
     </div>
     <script src="/src/components/log_registration.js"></script>
   </body>

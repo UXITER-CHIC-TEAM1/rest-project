@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="/src/layout/signUp.css" />
   </head>
   <body>
+    <!-- 상단바 -->
+    <header class="header">
+      <button class="back-btn"></button>
+      <h1 class="title">회원가입</h1>
+    </header>
     <div class="signup-container">
-      <img src="/src/assets/text-logo.png" alt="text-logo" class="text-logo" />
-      <h2 class="signup-text">회원가입</h2>
       <h3 class="nickname-text">닉네임</h3>
       <input type="text" class="signup-input" />
       <h3 class="id-text">아이디</h3>
@@ -41,7 +44,7 @@
         />
         <button type="button" class="toggle-password">비밀번호 보기</button>
       </div>
-      <label>
+      <label class="terms-container">
         <input type="checkbox" class="terms-checkbox" />
         이용약관, 개인정보 수집 및 이용에 동의합니다.
       </label>
