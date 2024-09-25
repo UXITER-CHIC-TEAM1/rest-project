@@ -119,7 +119,7 @@ header img {
 /* 커뮤니티 게시물 스타일 */
 .community-post {
   background-color: white;
-  margin: 10px 0px 15px 0px;
+  margin: 10px 0px 15px 5px;
   padding: 0px 0px 10px 10px;
   width: 100%; /* 게시물 너비를 고정 */
 }
