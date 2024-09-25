@@ -23,10 +23,10 @@
     <h3>장소 정보 추가</h3>
     <div class="place-info">
       <button id="open-modal-btn"><img src="/src/assets/location.png"></button>
-      <button>
-        <p>장소를 추가해주세요</p>
+      <button class="open-modal-text-btn">
+          <p id="place-name">장소를 추가해주세요</p>
       </button>
-    </div>
+    </div>  
     <!-- 장소 추가 모달 -->
     <div id="place-modal" class="modal">
       <div class="modal-content">
@@ -42,14 +42,14 @@
 
     <!-- 필터링 버튼 (장소 / 분위기) -->
     <div class="filter-section">
-      <div class="filter-category">
+      <div class="place-filter-category">
         <h4>장소 카테고리</h4>
         <button class="filter-button">공원</button>
         <button class="filter-button">카페</button>
         <button class="filter-button">도서관</button>
         <button class="filter-button">문화</button>
       </div>
-      <div class="filter-category">
+      <div class="fill-filter-category">
         <h4>분위기 카테고리</h4>
         <button class="filter-button">차분한</button>
         <button class="filter-button">작업하기 좋은</button>
