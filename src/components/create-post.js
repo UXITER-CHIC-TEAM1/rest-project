@@ -47,23 +47,40 @@ document.querySelector('.add-image-button').addEventListener('click', function()
   setupImageUpload(newInput, document.querySelectorAll('.image-upload').length - 1);
 });
 
+
 // 게시글 등록 버튼 클릭 시 서버로 데이터를 전송
 document.querySelector('.create').addEventListener('click', async function() {
   const title = document.querySelector('.title').value;
   const content = document.querySelector('.post-content').value;
   const token = localStorage.getItem('jwt');
 
+  // FormData 객체 생성
+const formData = new FormData();
+formData.append('title', title);
+formData.append('content', content);
+
+// 이미지 파일들을 FormData에 추가
+const imageInputs = document.querySelectorAll('.image-upload');
+imageInputs.forEach(input => {
+    const files = input.files;
+    if (files.length > 0) {
+      for (let i = 0; i < files.length; i++) {
+          formData.append('images', files[i]); // 'images'는 서버에서 처리하는 필드명
+      }
+  }
+});
+ // FormData에 잘 추가되었는지 확인
+ for (let [key, value] of formData.entries()) {
+  console.log(key + ': ' + value); // 콘솔에 출력
+}
+
   try {
       const response = await fetch('/create-post', {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`
           },
-          body: JSON.stringify({
-              title: title,
-              content: content
-          })
+          body: formData
       });
 
       const result = await response.json();

@@ -8,7 +8,7 @@ const User = require('../models/user'); // 사용자 모델 임포트
 const Post = require('../models/post'); // 게시글 모델 임포트
 const jwt = require('jsonwebtoken'); // JWT 패키지 추가
 const session = require('express-session'); // 세션 관리 패키지 추가
-
+const multer = require('multer');
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -61,8 +61,7 @@ function authenticateToken(req, res, next) {
 
 // 회원가입 요청 처리
 app.post('/signup', async (req, res) => {
-    console.log(req.body) // 이게 콘솔창에 뜨는 json형태 데이터 정보인듯? 확인해보셈
-    const { nickname, email, password } = req.body; // → JS 문법 中 '구조 분해 할당' 구문
+    const { nickname, email, password } = req.body;
     try {
         const newUser = new User({ nickname, email, password });
         await newUser.save();
@@ -74,7 +73,6 @@ app.post('/signup', async (req, res) => {
 });
 
 // 로그인 요청 처리 수정
-// 사용자가 입력한 이메일과 비밀번호를 검증 -> 인증 성공 시 JWT 토큰을 생성하여 반환
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -97,51 +95,54 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// JWT 토큰을 검증하는 미들웨어 함수
-// 요청 헤더에 포함된 JWT 토큰을 확인, 유효할 경우 요청을 진행
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers.authorization;
-    const token = authHeader && authHeader.split(' ')[1];
+// Multer 설정
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // 업로드할 디렉토리 지정
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // 파일에 고유한 이름 부여
+    }
+});
 
-    if (token == null) return res.status(401).json({ success: false, message: '토큰이 필요합니다.' });
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ success: false, message: '유효하지 않은 토큰입니다.' });
-        req.user = user;
-        next();
-    });
-}
+const upload = multer({ storage: storage });
 
 // 게시글 등록 요청 처리 수정
-app.post('/create-post', async (req, res) => {
-    const { title, content } = req.body;  // 위치 정보를 제거
+app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
+    const { title, content } = req.body;
+    console.log(req.body); // req.body에서 title과 content 확인
+    console.log(req.files); // 업로드된 파일 확인
 
-    const token = req.headers.authorization?.split(' ')[1];
-  
+    // 이미지 경로가 없을 경우 빈 배열로 설정
+    const images = req.files ? req.files.map(file => file.path) : [];
+
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1]; // token을 이곳에서 정의
+
     if (!token) {
-      return res.status(401).json({ success: false, message: '토큰이 필요합니다.' });
+        return res.status(401).json({ success: false, message: '토큰이 필요합니다.' });
     }
-  
+
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const authorId = decoded._id;
-  
-      if (!mongoose.Types.ObjectId.isValid(authorId)) {
-        throw new Error('유효하지 않은 사용자 ID');
-      }
-  
-      const newPost = new Post({
-        title,
-        content,
-        author:new mongoose.Types.ObjectId(authorId)
-        // 위치 정보를 제거
-      });
-  
-      await newPost.save();
-      res.status(201).json({ success: true, message: '게시글 등록 성공' });
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const authorId = decoded._id;
+
+        if (!mongoose.Types.ObjectId.isValid(authorId)) {
+            throw new Error('유효하지 않은 사용자 ID');
+        }
+
+        const newPost = new Post({
+            title,
+            content,
+            author: new mongoose.Types.ObjectId(authorId),
+            images
+        });
+
+        await newPost.save();
+        res.status(201).json({ success: true, message: '게시글 등록 성공' });
     } catch (error) {
-      console.error('게시글 등록 중 오류:', error.message || error);
-      res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
+        console.error('게시글 등록 중 오류:', error.message || error);
+        res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
     }
 });
 
@@ -151,9 +152,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('서버에서 오류가 발생했습니다.');
 });
 
-
 app.listen(port, () => {
     console.log(`서버가 http://localhost:${port}에서 실행 중입니다.`);
 });
-
-
