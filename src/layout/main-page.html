@@ -22,7 +22,7 @@
         <!--앱 로고-->
         <!--TODO: 로고 추가-->
         <a href="home.html"><h1>쉬엄쉬엄</h1></a>
-        <img src="/src/assets/setting_icon.png" alt="Settings" class="settings-icon">
+        <a href="setting.html"><img src="/src/assets/setting_icon.png" alt="Settings" class="settings-icon"></a>
     </header>
 
     <section class="user-info">
@@ -31,20 +31,22 @@
         </div>
         <div class="user-details">
             <p>쉬어미 <img src="/src/assets/edit_icon.png" alt="Edit" class="edit-icon"></p>
-            <p>팔로워 10 팔로잉 10</p>
+            <a href="follow.html">팔로워 10 팔로잉 10</a>
         </div>
     </section>
 
     <section class="navigation">
-        <p id="log">쉬엄로그</p>
-        <p id="community">커뮤니티</p>
+        <div id="log">쉬엄로그</div>
+        <div id="community">커뮤니티</div>
     </section>
 
     <div id="content-area">
         <div id="log-content" style="display: none;">
-            <p id="date-display"><span id="selected-date" style="cursor: pointer;">
+            <p id="date-display">
+                <span id="selected-date" style="cursor: pointer;">
                     <2024년 7월>
-                </span></p>
+                </span>
+            </p>
 
             <div id="edit-fields" style="display: none;">
                 <label for="year">년도:</label>

@@ -50,10 +50,12 @@ log.addEventListener('click', () => {
                 </div>
             </div>
             <div id="add-button-container">
-                <img src="/src/assets/plus_button.png" alt="Add Button" id="add-button">
+            <a href="log_registration.html"><img src="/src/assets/plus_button.png" alt="Add Button" id="add-button"></a>
             </div>
         </div>
     `;
+    activateButton(log); // 로그 버튼 활성화
+    deactivateButton(community); // 커뮤니티 버튼 비활성화
 
     const selectedDate = document.getElementById('selected-date');
     const editFields = document.getElementById('edit-fields');
@@ -75,86 +77,91 @@ log.addEventListener('click', () => {
 
 community.addEventListener('click', () => {
     contentArea.innerHTML = `
-      <!-- 게시물 1 -->
-      <div class="community-post">
-        <a href="/src/layout/post.html" class="post-title">
-          <p>인테리어가 예쁜 합정 카페 추천</p>
-          <p class="post-placename">티노마드</p>
-        </a>
-        <!-- 사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수 -->
-        <div class="user-likes-div">
-          <div class="user-info-community">
-            <i class="fa-solid fa-circle-user"></i>
-            <p class="nickname">닉네임</p>
+      <div class="div">
+        <!-- 게시물 1 -->
+        <div class="community-post">
+          <a href="/src/layout/post.html" class="post-title">
+            <p>인테리어가 예쁜 합정 카페 추천</p>
+            <p class="post-placename">티노마드</p>
+          </a>
+          <!-- 사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수 -->
+          <div class="user-likes-div">
+            <div class="user-info-community">
+              <i class="fa-solid fa-circle-user"></i>
+              <p class="nickname">닉네임</p>
+            </div>
+            <!-- 좋아요 버튼 -->
+            <div class="likes-info">
+              <button class="likes-button" id="like-btn-1">
+                <img src="/src/assets/likes-button.png" id="like-img-1" />
+              </button>
+              <p class="likes-amount" id="like-count-1">0</p>
+            </div>
           </div>
-          <!-- 좋아요 버튼 -->
-          <div class="likes-info">
-            <button class="likes-button" id="like-btn-1">
-              <img src="/src/assets/likes-button.png" id="like-img-1" />
-            </button>
-            <p class="likes-amount" id="like-count-1">0</p>
+
+          <!-- 이미지 슬라이드 -->
+          <div class="nav-tab__inner">
+            <div class="nav-tab__scroller">
+              <ul class="nav-tab__list">
+                <li class="nav-tab__item on">
+                  <a href="/src/layout/post.html">
+                    <img src="/src/assets/post-img.jpg" alt="post-img" />
+                  </a>
+                </li>
+                <li class="nav-tab__item">
+                  <a href="/src/layout/post.html">
+                    <img src="/src/assets/post-img.jpg" alt="post-img" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- 이미지 슬라이드 -->
-        <div class="nav-tab__inner">
-          <div class="nav-tab__scroller">
-            <ul class="nav-tab__list">
-              <li class="nav-tab__item on">
-                <a href="/src/layout/post.html">
-                  <img src="/src/assets/post-img.jpg" alt="post-img" />
-                </a>
-              </li>
-              <li class="nav-tab__item">
-                <a href="/src/layout/post.html">
-                  <img src="/src/assets/post-img.jpg" alt="post-img" />
-                </a>
-              </li>
-            </ul>
+        <!-- 게시물 2 -->
+        <div class="community-post">
+          <a href="/src/layout/post.html" class="post-title">
+            <p>인테리어가 예쁜 합정 카페 추천</p>
+            <p class="post-placename">티노마드</p>
+          </a>
+          <!-- 사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수 -->
+          <div class="user-likes-div">
+            <div class="user-info-community">
+              <i class="fa-solid fa-circle-user"></i>
+              <p class="nickname">닉네임</p>
+            </div>
+            <!-- 좋아요 버튼 -->
+            <div class="likes-info">
+              <button class="likes-button" id="like-btn-2">
+                <img src="/src/assets/likes-button.png" id="like-img-2" />
+              </button>
+              <p class="likes-amount" id="like-count-2">0</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 게시물 2 -->
-      <div class="community-post">
-        <a href="/src/layout/post.html" class="post-title">
-          <p>인테리어가 예쁜 합정 카페 추천</p>
-          <p class="post-placename">티노마드</p>
-        </a>
-        <!-- 사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수 -->
-        <div class="user-likes-div">
-          <div class="user-info-community">
-            <i class="fa-solid fa-circle-user"></i>
-            <p class="nickname">닉네임</p>
-          </div>
-          <!-- 좋아요 버튼 -->
-          <div class="likes-info">
-            <button class="likes-button" id="like-btn-2">
-              <img src="/src/assets/likes-button.png" id="like-img-2" />
-            </button>
-            <p class="likes-amount" id="like-count-2">0</p>
-          </div>
-        </div>
-
-        <!-- 이미지 슬라이드 -->
-        <div class="nav-tab__inner">
-          <div class="nav-tab__scroller">
-            <ul class="nav-tab__list">
-              <li class="nav-tab__item on">
-                <a href="/src/layout/post.html">
-                  <img src="/src/assets/post-img.jpg" alt="post-img" />
-                </a>
-              </li>
-              <li class="nav-tab__item">
-                <a href="/src/layout/post.html">
-                  <img src="/src/assets/post-img.jpg" alt="post-img" />
-                </a>
-              </li>
-            </ul>
+          <!-- 이미지 슬라이드 -->
+          <div class="nav-tab__inner">
+            <div class="nav-tab__scroller">
+              <ul class="nav-tab__list">
+                <li class="nav-tab__item on">
+                  <a href="/src/layout/post.html">
+                    <img src="/src/assets/post-img.jpg" alt="post-img" />
+                  </a>
+                </li>
+                <li class="nav-tab__item">
+                  <a href="/src/layout/post.html">
+                    <img src="/src/assets/post-img.jpg" alt="post-img" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     `;
+
+    activateButton(community); // 커뮤니티 버튼 활성화
+    deactivateButton(log); // 로그 버튼 비활성화
 
     // 좋아요 버튼 기능 추가
     const likeButtons = document.querySelectorAll('.likes-button');
@@ -178,3 +185,13 @@ community.addEventListener('click', () => {
         });
     });
 });
+
+// 버튼 활성화 함수
+function activateButton(button) {
+  button.classList.add('active');
+}
+
+// 버튼 비활성화 함수
+function deactivateButton(button) {
+  button.classList.remove('active');
+}
