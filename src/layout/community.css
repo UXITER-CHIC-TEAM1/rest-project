@@ -12,12 +12,6 @@ body {
   min-height: 100vh;
 }
 
-/* 전체 페이지 높이 설정 */
-html,
-body {
-  height: 100%;
-}
-
 /* 모든 div 요소의 넓이를 100%로 설정하여 레이아웃이 꽉 차도록 함 */
 div {
   width: 100%;
@@ -122,6 +116,7 @@ header img {
   margin: 10px 0px 15px 5px;
   padding: 0px 0px 10px 10px;
   width: 100%; /* 게시물 너비를 고정 */
+  max-width: 374px;
 }
 
 /* 글 제목 스타일 */
