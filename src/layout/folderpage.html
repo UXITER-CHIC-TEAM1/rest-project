@@ -1,80 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>폴더 페이지</title>
-    <link rel="stylesheet" href="folderpage.css">
-    <script src="https://kit.fontawesome.com/de7b535995.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="folderpage.css" />
+    <script
+      src="https://kit.fontawesome.com/de7b535995.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <!--앱 로고-->
-        <a href="home.html"><h1>쉬엄쉬엄</h1></a>
-        <!--폴더 추가하기 버튼 -->
-        <button id="addfolder"><i class="fas fa-plus-circle"></i>쉼터 폴더 추가하기</button> 
+      <!--앱 로고-->
+      <img class="title-logo" src="/src/assets/title-logo.svg" />
+      <!--폴더 추가하기 버튼 -->
+      <button id="addfolder">
+        <i class="fas fa-plus-circle"></i>쉼터 폴더 추가하기
+      </button>
     </header>
 
     <main>
-        <div class="folder-container">
-            <!--폴더 추가시 생성-->
-            <a href="folderdetailspage.html"><div class="folder-item">예시1</div></a>
-            <!--폴더 이동 예시-->
-        </div>
-        <a href="map.html"><button class="map-button">지도에서 보기</button></a>
+      <div class="folder-container">
+        <!--폴더 추가시 생성-->
+        <a href="folderdetailspage.html"
+          ><div class="folder-item">예시1</div></a
+        >
+        <!--폴더 이동 예시-->
+      </div>
+      <a href="map.html"><button class="map-button">지도에서 보기</button></a>
     </main>
 
     <!-- 하단 네비게이션 바 -->
     <footer>
-        <nav>
-          <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
-          <a href="community.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
-          <a href="folderpage.html"><img src="/src/assets/nav-filled-myplace.png" alt="."><span>내 쉼터</span></a>
-          <a href="main-page.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
-        </nav>
-        <div class="bottom-bar"></div>
+      <nav>
+        <a href="home.html"
+          ><img src="/src/assets/nav-recommend.png" alt="." /><span
+            >추천</span
+          ></a
+        >
+        <a href="community.html"
+          ><img src="/src/assets/nav-community.png" alt="." /><span
+            >커뮤니티</span
+          ></a
+        >
+        <a href="folderpage.html"
+          ><img src="/src/assets/nav-filled-myplace.png" alt="." /><span
+            >내 쉼터</span
+          ></a
+        >
+        <a href="main-page.html"
+          ><img src="/src/assets/nav-mylog.png" alt="." /><span
+            >마이로그</span
+          ></a
+        >
+      </nav>
+      <div class="bottom-bar"></div>
     </footer>
 
     <div id="overlay"></div>
     <div id="modal">
-        <div id="modal-content">
-            <div id="modal-bar"></div>
-            <div id="modal-body">
-                <h2>새 폴더 추가</h2>
-            </div>
-
-            <div id="folder-preview" class="folder-preview">
-                <span id="folder-preview-name">폴더명</span>
-            </div>
-
-
-            <div class="color-options">
-                <div class="color-option" style="background-color: #f28b82;" data-color="#f28b82"></div>
-                <div class="color-option" style="background-color: #fdcfe8;" data-color="#fdcfe8"></div>
-                <div class="color-option" style="background-color: #fbbc04;" data-color="#fbbc04"></div>
-                <div class="color-option" style="background-color: #fff475;" data-color="#fff475"></div>
-                <div class="color-option" style="background-color: #ccff90;" data-color="#ccff90"></div>
-                <div class="color-option" style="background-color: #e0f7fa;" data-color="#e0f7fa"></div>
-                <div class="color-option" style="background-color: #cbf0f8;" data-color="#cbf0f8"></div>
-                <div class="color-option" style="background-color: #aecbfa;" data-color="#aecbfa"></div>
-                <div class="color-option" style="background-color: #d7aefb;" data-color="#d7aefb"></div>
-            </div>
-
-            <div id="modal-placeholder">
-                <input type="text" id="folderName" placeholder="폴더명을 입력해 주세요.">
-                <button id="createFolderButton">폴더 생성하기</button>
-            </div>
+      <div id="modal-content">
+        <div id="modal-bar"></div>
+        <div id="modal-body">
+          <h2>새 폴더 추가</h2>
         </div>
+
+        <div id="folder-preview" class="folder-preview">
+          <span id="folder-preview-name">폴더명</span>
+        </div>
+
+        <div class="color-options">
+          <div
+            class="color-option"
+            style="background-color: #f28b82"
+            data-color="#f28b82"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #fdcfe8"
+            data-color="#fdcfe8"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #fbbc04"
+            data-color="#fbbc04"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #fff475"
+            data-color="#fff475"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #ccff90"
+            data-color="#ccff90"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #e0f7fa"
+            data-color="#e0f7fa"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #cbf0f8"
+            data-color="#cbf0f8"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #aecbfa"
+            data-color="#aecbfa"
+          ></div>
+          <div
+            class="color-option"
+            style="background-color: #d7aefb"
+            data-color="#d7aefb"
+          ></div>
+        </div>
+
+        <div id="modal-placeholder">
+          <input
+            type="text"
+            id="folderName"
+            placeholder="폴더명을 입력해 주세요."
+          />
+          <button id="createFolderButton">폴더 생성하기</button>
+        </div>
+      </div>
     </div>
 
     <script src="../components/folderpage.js"></script>
-</body>
-
+  </body>
 </html>

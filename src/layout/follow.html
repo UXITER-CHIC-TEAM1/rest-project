@@ -21,8 +21,14 @@
 
       <!-- 팔로워/팔로잉 탭 -->
       <div class="tabs">
-        <button class="tab active" id="followerTab">팔로워 10명</button>
-        <button class="tab" id="followingTab">팔로잉 10명</button>
+        <button class="tab active" id="followerTab">
+          팔로워 <span id="followerCount">2</span>명
+        </button>
+        <button class="tab" id="followingTab">
+          팔로잉 <span id="followingCount">2</span>명
+        </button>
+        <!-- 빈 칸 -->
+        <button class="tab"></button>
       </div>
 
       <!-- 팔로워 목록 -->
@@ -35,7 +41,6 @@
               class="profile-img"
             />
             <span class="user-name">닉네임</span>
-            <!-- 맞팔로우 상태에 따라 버튼 다르게 표시 -->
             <button class="follow-btn" data-following="true">팔로잉</button>
           </li>
           <li class="user-item">
@@ -64,6 +69,15 @@
             <button class="follow-btn">팔로잉</button>
           </li>
           <li class="user-item">
+            <img
+              src="/src/assets/back-logo.png"
+              alt="Profile"
+              class="profile-img"
+            />
+            <span class="user-name">닉네임</span>
+            <button class="follow-btn">팔로잉</button>
+          </li>
+          <li class="user-item"></li>
             <img
               src="/src/assets/back-logo.png"
               alt="Profile"
