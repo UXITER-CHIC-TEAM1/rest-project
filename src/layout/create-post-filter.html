@@ -1,57 +1,75 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>게시글 작성</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
-    />
-    <link rel="stylesheet" href="/src/layout/create-post-filter.css" />
-  </head>
-  <body>
-    <header>
-        <a href="community.html" class="back-button"><img src="/src/assets/back-button.png" alt="<"></a>
-        <a href="create-post.html" class="next-button">다음</a>
-    </header>
 
-    <div class="div">
-      <!--장소 정보 추가-->
-      <h3>장소 정보 추가</h3>
-      <div class="place-info">
-        <button><img src="/src/assets/location.png"></button>
-        <button><p>장소를 추가해주세요</p></button>
-      </div>
-      <!-- 필터링 버튼 (장소 / 분위기) -->
-      <div class="filter-section">
-        <div class="filter-category">
-          <h4>장소 카테고리</h4>
-          <button class="filter-button">공원</button>
-          <button class="filter-button">카페</button>
-          <button class="filter-button">도서관</button>
-          <button class="filter-button">문화</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>게시글 작성</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css" />
+  <link rel="stylesheet" href="/src/layout/create-post-filter.css" />
+  <!--지도-->
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d0444e1e4b8c929517140df8e9c9a2b5"></script>
+
+</head>
+
+<body>
+  <header>
+    <a href="community.html" class="back-button"><img src="/src/assets/back-button.png" alt="<"></a>
+    <a href="create-post.html" class="next-button">다음</a>
+  </header>
+
+  <div class="div">
+    <!--장소 정보 추가-->
+    <h3>장소 정보 추가</h3>
+    <div class="place-info">
+      <button id="open-modal-btn"><img src="/src/assets/location.png"></button>
+      <button>
+        <p>장소를 추가해주세요</p>
+      </button>
+    </div>
+    <!-- 장소 추가 모달 -->
+    <div id="place-modal" class="modal">
+      <div class="modal-content">
+        <!-- 검색 버튼-->
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="장소를 검색하세요">
+          <button id="search-btn">검색</button>
         </div>
-        <div class="filter-category">
-          <h4>분위기 카테고리</h4>
-          <button class="filter-button">차분한</button>
-          <button class="filter-button">작업하기 좋은</button>
-          <button class="filter-button">자연</button>
-          <button class="filter-button">빈티지</button>
-        </div>
+
+        <div id="map" style="width: 100%; height: 100%;"></div> <!-- 지도 표시 영역 -->
       </div>
     </div>
 
-    <!-- 하단 네비게이션 바 -->
-    <footer>
-      <nav>
-        <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
-        <a href="community.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
-        <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
-        <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
-      </nav>
-      <div class="bottom-bar"></div>
-    </footer>
-  </body>
-  <script src="/src/components/create-post-filter.js"></script>
+    <!-- 필터링 버튼 (장소 / 분위기) -->
+    <div class="filter-section">
+      <div class="filter-category">
+        <h4>장소 카테고리</h4>
+        <button class="filter-button">공원</button>
+        <button class="filter-button">카페</button>
+        <button class="filter-button">도서관</button>
+        <button class="filter-button">문화</button>
+      </div>
+      <div class="filter-category">
+        <h4>분위기 카테고리</h4>
+        <button class="filter-button">차분한</button>
+        <button class="filter-button">작업하기 좋은</button>
+        <button class="filter-button">자연</button>
+        <button class="filter-button">빈티지</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 네비게이션 바 -->
+  <footer>
+    <nav>
+      <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
+      <a href="community.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
+      <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
+      <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
+    </nav>
+    <div class="bottom-bar"></div>
+  </footer>
+</body>
+<script src="/src/components/create-post-filter.js"></script>
+
 </html>

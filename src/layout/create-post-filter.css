@@ -149,5 +149,54 @@ header a {
       padding: 2px 0;
       z-index: 1000;
     }
-  
-  
+  /* 모달 배경 */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 모달 내용 */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; 
+  padding: 20px;
+  border-radius: 10px;
+  height: 480px;
+  width: 80%;
+  max-width: 360px; 
+  text-align: center;
+}
+/* 지도 안에 검색창 배치 */
+.search-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* 지도 위에 검색창 표시 */
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 8px;
+}
+
+/* 지도 스타일 */
+#map {
+  width: 100%;
+  height: 300px;
+  position: relative; 
+}
