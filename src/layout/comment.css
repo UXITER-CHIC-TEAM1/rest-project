@@ -107,25 +107,18 @@ body {
   font-weight: bold;
 }
 
-/* 댓글 전체 레이아웃 */
-.comment {
+/* 댓글 및 대댓글 스타일 */
+.comment, .reply-comment {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 15px;
-  padding-top: 10px;
-  padding-bottom: 50px; /* 댓글 입력창이 가리지 않도록 여백 추가 */
-  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  word-break: break-word; /* 긴 텍스트 줄바꿈 */
 }
 
-/* 대댓글 스타일 */
 .reply-comment {
-  display: flex;
-  align-items: flex-start;
-  padding-left: 60px; /* 대댓글 들여쓰기 */
-  padding-top: 10px;
-  padding-bottom: 50px; /* 댓글 입력창이 가리지 않도록 여백 추가 */
-  border-bottom: 1px solid #ddd;
+  padding-left: 40px; /* 대댓글 들여쓰기 */
 }
+
 
 /* 댓글 작성 버튼 */
 .create-div {
@@ -169,17 +162,16 @@ body {
   transform: translateX(-50%);
   background-color: white; 
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
 }
 
 
 .input-comment {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 4px;
   font-size: 14px;
   width: 70%;
-  background-color: #f2f2f2;
+  background-color: #EAEEF2;
   margin-left: 10px;
 }
 
@@ -191,7 +183,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
-  width: 25%;
+  width: 20%;
   margin-left: 15px;
   margin-right: 10px;
 }
