@@ -9,29 +9,27 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <!-- 마이로그 타이틀 -->
+      <!-- 상단바 -->
+      <header class="header">
+        <button class="back-btn"></button>
+        <h1 class="title">오늘의 쉬엄 기록</h1>
+      </header>
+
       <div class="record-title">
-        <h3>오늘의 쉬엄 기록</h3>
-        <div class="record-date">2024. 07. 28 화</div>
-        <img src="/src/assets/icon_surprise.png" alt="놀람 아이콘" />
+        <img src="/src/assets/icon_love.png" alt="반함 아이콘" />
       </div>
-      <!-- 마이로그 예시 이미지 -->
-      <div class="place">
-        <img src="/src/assets/post-img.jpg" alt="post-img" />
-      </div>
-      <!-- 마이로그 장소 정보 -->
+
+      <!-- 장소 정보 -->
       <div class="log-place">
-        <img
-          src="/src/assets/location.png"
-          alt="location-img"
-          class="location-img"
-        />
         <div class="text-info">
-          <h4>서울 올림픽 공원</h4>
+          <h4>카페꼼마 합정점</h4>
           <p>서울 마포구 망원동</p>
         </div>
         <img
@@ -40,27 +38,63 @@
           class="bookmark-img"
         />
       </div>
+
+      <!--이미지 슬라이드-->
+      <div class="nav-tab__inner">
+        <div class="nav-tab__scroller">
+          <ul class="nav-tab__list">
+            <li class="nav-tab__item on">
+              <a href="/src/layout/post.html"
+                ><img src="/src/assets/post-img.jpg" alt="post-img"
+              /></a>
+            </li>
+            <li class="nav-tab__item">
+              <a href="/src/layout/post.html"
+                ><img src="/src/assets/post-img.jpg" alt="post-img"
+              /></a>
+            </li>
+            <!-- More items -->
+          </ul>
+        </div>
+      </div>
+
       <!-- 마이로그 기록 -->
       <div class="log-record">
         <p class="text-p">
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
-          오늘은 주말에 서울 올림픽 공원에 갔다. 날씨가 좋아서 피크닉을 했다.
+          평일 낮에 여유있게 책 읽으려고 방문했다.</br>
+          평일 낮에 방문해서 사람이 없고 좋았다. 조용한 곳에서 책 읽고 달달한 흑임자 라떼를 마시니까 아주 행복한 하루가 되었다</br>
+          지하에는 소파에 파묻혀 책 읽을 수 있는 공간이 있떤데 다음에는 친구랑 같이 와바야지!</br>
+          집콕하는 것보다 알차고 힐링된다. 자주 나와야겠다</br>
+          평일 낮에 여유있게 책 읽으려고 방문했다.</br>
+          평일 낮에 방문해서 사람이 없고 좋았다. 조용한 곳에서 책 읽고 달달한 흑임자 라떼를 마시니까 아주 행복한 하루가 되었다</br>
+          지하에는 소파에 파묻혀 책 읽을 수 있는 공간이 있떤데 다음에는 친구랑 같이 와바야지!</br>
+          집콕하는 것보다 알차고 힐링된다. 자주 나와야겠다</br>
         </p>
       </div>
 
       <!-- 하단 네비게이션 바 -->
       <footer>
         <nav>
-          <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
-          <a href="community.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
-          <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
-          <a href="main-page.html"><img src="/src/assets/nav-filled-mylog.svg" alt="."><span>마이로그</span></a>
+          <a href="home.html"
+            ><img src="/src/assets/nav-recommend.png" alt="." /><span
+              >추천</span
+            ></a
+          >
+          <a href="community.html"
+            ><img src="/src/assets/nav-community.png" alt="." /><span
+              >커뮤니티</span
+            ></a
+          >
+          <a href="folderpage.html"
+            ><img src="/src/assets/nav-myplace.png" alt="." /><span
+              >내 쉼터</span
+            ></a
+          >
+          <a href="main-page.html"
+            ><img src="/src/assets/nav-filled-mylog.svg" alt="." /><span
+              >마이로그</span
+            ></a
+          >
         </nav>
         <div class="bottom-bar"></div>
       </footer>
