@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/d0ef824827.js"
       crossorigin="anonymous"
@@ -17,17 +18,17 @@
   <body>
     <div class="div">
       <!--글 제목-->
-      <h3 class="title"><!--동적으로 제목 추가될 곳--></h3>
+      <h3 class="title">인테리어가 예쁜 합정 카페 추천</h3>
 
       <!--게시물 내용-->
       <div class="community-post">
         <div class="placename-and-filter">
-          <h3 class="post-placename"><!--동적으로 장소명 추가될 곳--></h3>
+          <h3 class="post-placename">티노마드</h3>
           <div class="filter-and-bookmark">
             <!--필터링-->
             <div class="filter-div">
-              <button class="filter-button"></button><!--create-post-filter 페이지에서 선택한 필터링 버튼이 적용될 곳-->
-              <button class="filter-button"></button>
+              <button class="filter-button">자연</button>
+              <button class="filter-button">작업하기 좋은</button>
             </div>
             <!--북마크 버튼-->
             <button class="bookmark-button">
@@ -77,7 +78,10 @@
       </div>
       <div class="text-div">
         <p class="text-p">
-          <!--동적으로 글 내용이 추가될 곳-->
+          오늘 소개해 드릴 장소는 합정 티노마드 카페입니다! 식물이 많고 채광이
+          잘 들어와서 사진 찍기에도 좋은 예쁜 카페였습니다. 오늘 소개해 드릴
+          장소는 합정 티노마드 카페입니다! 식물이 많고 채광이 잘 들어와서 사진
+          찍기에도 좋은 예쁜 카페였습니다.
         </p>
         <p class="post-date">2024.08.03</p>
       </div>
@@ -85,26 +89,10 @@
     <!-- 하단 네비게이션 바 -->
     <footer>
       <nav>
-        <a href="home.html"
-          ><img src="/src/assets/nav-filled-recommend.png" alt="." /><span
-            >추천</span
-          ></a
-        >
-        <a href="community.html"
-          ><img src="/src/assets/nav-community.png" alt="." /><span
-            >커뮤니티</span
-          ></a
-        >
-        <a href="folderpage.html"
-          ><img src="/src/assets/nav-myplace.png" alt="." /><span
-            >내 쉼터</span
-          ></a
-        >
-        <a href="4.html"
-          ><img src="/src/assets/nav-mylog.png" alt="." /><span
-            >마이로그</span
-          ></a
-        >
+        <a href="1.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
+        <a href="2.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
+        <a href="3.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
+        <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
       </nav>
       <div class="bottom-bar"></div>
     </footer>
@@ -112,9 +100,12 @@
     <!-- 북마크 모달창 -->
     <div id="bookmarkModal" class="modal hidden">
       <div class="modal-content">
+        <div id="modal-bar"></div>
         <div class="modal-header">
           <h2>폴더 선택</h2>
-          <button class="save-button">선택하기</button>
+          <button class="save-button">
+            선택하기
+          </button>
         </div>
         <ul class="folder-list">
           <!--동적으로 폴더 추가 될 곳-->
@@ -129,6 +120,7 @@
     <!-- 폴더 생성 -->
     <div id="folderCreationModal" class="modal hidden">
       <div class="modal-content">
+        <div id="modal-bar"></div>
         <div class="folder-create-header">
           <h2>쉼터 폴더 추가</h2>
         </div>
@@ -177,7 +169,9 @@
         </div>
 
         <input type="text" id="folderName" placeholder="폴더 이름 입력" />
-        <button class="create-folder-button">폴더 생성하기</button>
+        <button class="create-folder-button">
+          폴더 생성하기
+        </button>
       </div>
     </div>
 

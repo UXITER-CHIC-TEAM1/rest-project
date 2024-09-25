@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 필터링 버튼 이벤트 js 코드
-  const filterButtons = document.querySelectorAll('.fileter-botton');
+  const filterButtons = document.querySelectorAll('.filter-button'); // 올바른 클래스 이름으로 수정
   const modalFilterButtons = document.querySelectorAll('.array-modal .button, .feel-modal .button'); // 모달 내 버튼 선택
 
   const toggleButtonState = (button) => {
@@ -52,9 +52,22 @@ document.addEventListener("DOMContentLoaded", function () {
       button.style.backgroundColor = ''; // 기본 배경색으로 초기화
       button.style.color = ''; // 기본 글자색으로 초기화
     } else {
-      button.style.backgroundColor = '#384B60';
-      button.style.color = 'white';
+      button.style.backgroundColor = '#384B60';    
+      button.style.color = 'white'; // 선택된 글자색
     }
+  };
+
+  // 정렬 모달의 버튼 클릭 시 하나만 선택되도록 하는 함수
+  const selectSingleButton = (button, buttonGroup) => {
+    // 같은 그룹의 모든 버튼의 선택 상태 초기화
+    buttonGroup.forEach(btn => {
+      btn.style.backgroundColor = ''; // 배경색 초기화
+      btn.style.color = ''; // 글자색 초기화
+    });
+    
+    // 클릭된 버튼만 선택된 상태로 변경
+    button.style.backgroundColor = '#384B60';
+    button.style.color = 'white';
   };
 
   // 필터링 버튼 클릭 이벤트
@@ -66,16 +79,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 모달 필터링 버튼 클릭 이벤트 추가
   modalFilterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      toggleButtonState(this);
-    });
+    const modalType = button.closest('.array-modal') ? 'array' : 'feel'; // 모달 타입 구분
+    if (modalType === 'array') {
+      button.addEventListener('click', function() {
+        const buttonsInGroup = document.querySelectorAll('.array-modal .button');
+        selectSingleButton(this, buttonsInGroup); // 정렬 모달 내에서는 하나의 버튼만 선택
+      });
+    } else {
+      button.addEventListener('click', function() {
+        toggleButtonState(this); // 다른 모달(분위기)은 다중 선택 가능
+      });
+    }
   });
 
   // 모달 창 js 코드
   const modal = document.querySelector('.modal');
   const overlay = document.querySelector('#overlay');
   const arrayButton = document.querySelector('.likes-toggle-button'); // 정렬 버튼
-  const feelButton = document.querySelector('.fileter-toggle-botton'); // 분위기 버튼
+  const feelButton = document.querySelector('.filter-toggle-button'); // 분위기 버튼
 
   // 모달 표시 함수
   const showModal = (modalType) => {
@@ -108,10 +129,8 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.style.display = 'none';
     });
   });
-});
 
-// 검색 기능 구현
-document.addEventListener('DOMContentLoaded', function() {
+  // 검색 기능 구현
   const searchInput = document.querySelector('.search-input');
   const searchButton = document.querySelector('.search-button');
 

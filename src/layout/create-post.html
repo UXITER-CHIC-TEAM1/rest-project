@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/layout/create-post.css" />
   </head>
   <body>
@@ -15,12 +16,12 @@
       <!-- 이전 페이지 버튼 / 글 등록 버튼 -->
       <header>
         <a href="create-post-filter.html" class="back-button"><img src="/src/assets/back-button.png" alt="<"></a>
-        <button class="create">등록</button>
+        <button id="create" class="create">등록</button>
       </header>
 
       <!-- 글 내용 작성 -->
       <div class="content">
-        <input class="title" type="text" placeholder="제목을 입력하세요. (40자 이내)" maxlength="40" />
+        <input id= "post-title" class="title" type="text" placeholder="제목을 입력하세요. (40자 이내)" maxlength="40" />
         <!--이미지 등록 슬라이드-->
         <div class="nav-tab__inner">
           <div class="nav-tab__scroller">
@@ -45,6 +46,7 @@
         </div>
         <textarea
           class="post-content"
+          id="post-content"
           placeholder="내용을 입력하세요. (1000자 이내)"
           maxlength="1000"
         ></textarea>
@@ -57,7 +59,7 @@
         <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
         <a href="community.html"><img src="/src/assets/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
         <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
-        <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
+        <a href="main-page.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
       </nav>
       <div class="bottom-bar"></div>
     </footer>

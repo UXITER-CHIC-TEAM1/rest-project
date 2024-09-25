@@ -48,12 +48,22 @@ header {
     margin-right: 10px;
 }
 
+/* 상단 로고 이미지 스타일 */
+
+header img {
+  height: 40px; 
+  margin-right: 10px; 
+}
+
 header h1 {
-    font-family: "Jua", sans-serif;
-    font-size: 22px;
-    font-weight: 550;
-    color: #38536d;
-    letter-spacing: 3px;
+  font-family: "Jua", sans-serif;
+  margin-bottom: 0px;
+  font-size: 20px;
+  height: 13px;
+  font-weight: 550;
+  color: #38536d;
+  padding-left: 5px;
+  letter-spacing: 7px;
 }
 
 .settings-icon {
