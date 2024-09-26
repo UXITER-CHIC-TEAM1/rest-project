@@ -109,7 +109,7 @@ const upload = multer({ storage: storage });
 
 //게시글등록
 app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
-    const { title, content, selectedLocation, categories } = req.body; // categories 추가
+    const { title, content, selectedLocation, categories, place } = req.body; // categories 추가
 
     // selectedLocation이 undefined일 경우 에러 응답
     if (!selectedLocation) {
@@ -150,7 +150,7 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
 
         // categories와 place가 정의되어 있는지 확인 후 JSON 파싱
         const parsedCategories = categories ? JSON.parse(categories) : []; // JSON 문자열 파싱
-        const parsedPlace = place ? JSON.parse(place) : null; // place 파싱
+        const parsedPlace = place  // place 파싱
 
         const newPost = new Post({
             title,

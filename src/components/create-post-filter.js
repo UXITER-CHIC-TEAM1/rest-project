@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // 선택된 장소를 로컬 스토리지에 저장
           const selectedPlace = document.querySelector('.place-filter-category .filter-button.active');
           localStorage.setItem('selectedPlace', selectedPlace ? selectedPlace.textContent : null);
-      });
+        });
   });
 
   // 분위기 필터 버튼 클릭 이벤트 (다중 선택 가능)
