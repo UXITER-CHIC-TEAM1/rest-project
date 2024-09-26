@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main-page.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main-page.css" />
     <title>MainPage</title>
     <script
       src="https://kit.fontawesome.com/d0ef824827.js"
@@ -14,66 +13,92 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <!--앱 로고-->
-        <!--TODO: 로고 추가-->
-        <a href="home.html"><h1>쉬엄쉬엄</h1></a>
-        <a href="setting.html"><img src="/src/assets/setting_icon.png" alt="Settings" class="settings-icon"></a>
+      <!--앱 로고-->
+      <!--TODO: 로고 추가-->
+      <a href="home.html"><h1>쉬엄쉬엄</h1></a>
+      <a href="setting.html"
+        ><img
+          src="/src/assets/setting_icon.png"
+          alt="Settings"
+          class="settings-icon"
+      /></a>
     </header>
 
     <section class="user-info">
-        <div class="user-icon-container">
-            <img src="/src/assets/profile_icon.png" alt="User Icon" class="user-icon">
-        </div>
-        <div class="user-details">
-            <p>쉬어미 <img src="/src/assets/edit_icon.png" alt="Edit" class="edit-icon"></p>
-            <a href="follow.html">팔로워 10 팔로잉 10</a>
-        </div>
+      <div class="user-icon-container">
+        <img
+          src="/src/assets/profile_icon.png"
+          alt="User Icon"
+          class="user-icon"
+        />
+      </div>
+      <div class="user-details">
+        <p>
+          쉬어미
+          <img src="/src/assets/edit_icon.png" alt="Edit" class="edit-icon" />
+        </p>
+        <a href="follow.html">팔로워 10 팔로잉 10</a>
+      </div>
     </section>
 
     <section class="navigation">
-        <div id="log">쉬엄로그</div>
-        <div id="community">커뮤니티</div>
+      <div id="log">쉬엄로그</div>
+      <div id="community">커뮤니티</div>
     </section>
 
     <div id="content-area">
-        <div id="log-content" style="display: none;">
-            <p id="date-display">
-                <span id="selected-date" style="cursor: pointer;">
-                    <2024년 7월>
-                </span>
-            </p>
+      <div id="log-content" style="display: none">
+        <p id="date-display">
+          <span id="selected-date" style="cursor: pointer"> <2024년 7월> </span>
+        </p>
 
-            <div id="edit-fields" style="display: none;">
-                <label for="year">년도:</label>
-                <input type="number" id="year" value="2024" min="2000" max="2099">
-                <label for="month">월:</label>
-                <input type="number" id="month" value="7" min="1" max="12">
-                <button id="save-button">저장</button>
-            </div>
+        <div id="edit-fields" style="display: none">
+          <label for="year">년도:</label>
+          <input type="number" id="year" value="2024" min="2000" max="2099" />
+          <label for="month">월:</label>
+          <input type="number" id="month" value="7" min="1" max="12" />
+          <button id="save-button">저장</button>
         </div>
+      </div>
     </div>
 
     <div id="content-area">
-        <!--쉬엄로그 클릭시 날짜 선택 장소시간 js에 구현-->
+      <!--쉬엄로그 클릭시 날짜 선택 장소시간 js에 구현-->
     </div>
 
-    
-
     <footer>
-        <nav>
-            <a href="home.html"><img src="/src/assets/nav-recommend.png" alt="."><span>추천</span></a>
-            <a href="community.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
-            <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
-            <a href="main-page.html"><img src="/src/assets/nav-filled-mylog.svg" alt="."><span>마이로그</span></a>
-        </nav>
+      <nav>
+        <a href="home.html"
+          ><img src="/src/assets/nav-recommend.png" alt="." /><span
+            >추천</span
+          ></a
+        >
+        <a href="community.html"
+          ><img src="/src/assets/nav-community.png" alt="." /><span
+            >커뮤니티</span
+          ></a
+        >
+        <a href="folderpage.html"
+          ><img src="/src/assets/nav-myplace.png" alt="." /><span
+            >내 쉼터</span
+          ></a
+        >
+        <a href="main-page.html"
+          ><img src="/src/assets/nav-filled-mylog.svg" alt="." /><span
+            >마이로그</span
+          ></a
+        >
+      </nav>
     </footer>
 
-    <script src="../components/main-page.js"></script>
-</body>
-
+    <script src="/src/components/main-page.js"></script>
+  </body>
 </html>

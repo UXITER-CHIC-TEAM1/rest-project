@@ -1,9 +1,13 @@
-const log = document.getElementById('log');
-const community = document.getElementById('community');
-const contentArea = document.getElementById('content-area');
+document.querySelector(".title-logo").addEventListener("click", function () {
+  window.location.href = "home.html";
+});
 
-log.addEventListener('click', () => {
-    contentArea.innerHTML = `
+const log = document.getElementById("log");
+const community = document.getElementById("community");
+const contentArea = document.getElementById("content-area");
+
+log.addEventListener("click", () => {
+  contentArea.innerHTML = `
         <div id="log-content">
             <p id="date-display">
                 <span id="selected-date" style="cursor: pointer;"><2024년 7월></span>
@@ -54,29 +58,29 @@ log.addEventListener('click', () => {
             </div>
         </div>
     `;
-    activateButton(log); // 로그 버튼 활성화
-    deactivateButton(community); // 커뮤니티 버튼 비활성화
+  activateButton(log); // 로그 버튼 활성화
+  deactivateButton(community); // 커뮤니티 버튼 비활성화
 
-    const selectedDate = document.getElementById('selected-date');
-    const editFields = document.getElementById('edit-fields');
-    const yearInput = document.getElementById('year');
-    const monthInput = document.getElementById('month');
-    const saveButton = document.getElementById('save-button');
+  const selectedDate = document.getElementById("selected-date");
+  const editFields = document.getElementById("edit-fields");
+  const yearInput = document.getElementById("year");
+  const monthInput = document.getElementById("month");
+  const saveButton = document.getElementById("save-button");
 
-    selectedDate.addEventListener('click', () => {
-        editFields.style.display = 'block';  // 입력 필드 표시
-    });
+  selectedDate.addEventListener("click", () => {
+    editFields.style.display = "block"; // 입력 필드 표시
+  });
 
-    saveButton.addEventListener('click', () => {
-        const year = yearInput.value;
-        const month = monthInput.value;
-        selectedDate.textContent = `${year}년 ${month}월`;  // 선택한 날짜 업데이트
-        editFields.style.display = 'none';  // 입력 필드 숨김
-    });
+  saveButton.addEventListener("click", () => {
+    const year = yearInput.value;
+    const month = monthInput.value;
+    selectedDate.textContent = `${year}년 ${month}월`; // 선택한 날짜 업데이트
+    editFields.style.display = "none"; // 입력 필드 숨김
+  });
 });
 
-community.addEventListener('click', () => {
-    contentArea.innerHTML = `
+community.addEventListener("click", () => {
+  contentArea.innerHTML = `
       <div class="div">
         <!-- 게시물 1 -->
         <div class="community-post">
@@ -160,38 +164,38 @@ community.addEventListener('click', () => {
       </div>
     `;
 
-    activateButton(community); // 커뮤니티 버튼 활성화
-    deactivateButton(log); // 로그 버튼 비활성화
+  activateButton(community); // 커뮤니티 버튼 활성화
+  deactivateButton(log); // 로그 버튼 비활성화
 
-    // 좋아요 버튼 기능 추가
-    const likeButtons = document.querySelectorAll('.likes-button');
-    likeButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-            const imgElement = this.querySelector('img');
-            const countElement = this.nextElementSibling;
-            let likesCount = parseInt(countElement.textContent, 10);
+  // 좋아요 버튼 기능 추가
+  const likeButtons = document.querySelectorAll(".likes-button");
+  likeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const imgElement = this.querySelector("img");
+      const countElement = this.nextElementSibling;
+      let likesCount = parseInt(countElement.textContent, 10);
 
-            if (!button.classList.contains('liked')) {
-                likesCount += 1;
-                button.classList.add('liked');
-                imgElement.src = '/src/assets/filled-likes.png'; // 채워진 하트 이미지로 변경
-            } else {
-                likesCount -= 1;
-                button.classList.remove('liked');
-                imgElement.src = '/src/assets/likes-button.png'; // 비어 있는 하트 이미지로 변경
-            }
+      if (!button.classList.contains("liked")) {
+        likesCount += 1;
+        button.classList.add("liked");
+        imgElement.src = "/src/assets/filled-likes.png"; // 채워진 하트 이미지로 변경
+      } else {
+        likesCount -= 1;
+        button.classList.remove("liked");
+        imgElement.src = "/src/assets/likes-button.png"; // 비어 있는 하트 이미지로 변경
+      }
 
-            countElement.textContent = likesCount;
-        });
+      countElement.textContent = likesCount;
     });
+  });
 });
 
 // 버튼 활성화 함수
 function activateButton(button) {
-  button.classList.add('active');
+  button.classList.add("active");
 }
 
 // 버튼 비활성화 함수
 function deactivateButton(button) {
-  button.classList.remove('active');
+  button.classList.remove("active");
 }

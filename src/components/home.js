@@ -1,3 +1,7 @@
+document.querySelector(".title-logo").addEventListener("click", function () {
+  window.location.href = "home.html";
+});
+
 // 페이지가 로드된 후 실행될 함수를 등록
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("jwt");
@@ -12,27 +16,27 @@ document.addEventListener("DOMContentLoaded", function () {
   validateToken(); // JWT 유효성 검사
 
   function validateToken() {
-    fetch('/api/validate-token', {
-      method: 'GET',
+    fetch("/api/validate-token", {
+      method: "GET",
       headers: {
-        'Authorization': `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     })
-    .then(response => {
-      if (!response.ok) throw new Error('인증 실패');
-      return response.json();
-    })
-    .then(data => {
-      console.log('토큰 유효성 검사 결과:', data);
-      // 토큰이 유효할 때 추가 로직
+      .then((response) => {
+        if (!response.ok) throw new Error("인증 실패");
+        return response.json();
+      })
+      .then((data) => {
+        console.log("토큰 유효성 검사 결과:", data);
+        // 토큰이 유효할 때 추가 로직
 
-      // 이미지 슬라이드와 필터링 버튼에 수평 스크롤 기능 추가
-      row_scroll();
-    })
-    .catch(error => {
-      console.error('오류 발생:', error);
-      window.location.href = "login.html"; // 인증 실패 시 리디렉션
-    });
+        // 이미지 슬라이드와 필터링 버튼에 수평 스크롤 기능 추가
+        row_scroll();
+      })
+      .catch((error) => {
+        console.error("오류 발생:", error);
+        window.location.href = "login.html"; // 인증 실패 시 리디렉션
+      });
   }
 
   // 이미지 슬라이드와 필터링 버튼에 수평 스크롤 기능
