@@ -106,6 +106,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+//게시글등록
 app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
     const { title, content, selectedLocation, categories } = req.body; // categories 추가
 
@@ -146,8 +148,9 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
         }
         console.log('Location before parsing:', location); // 추가한 콘솔 로그
 
-        // categories가 정의되어 있는지 확인 후 JSON 파싱
+        // categories와 place가 정의되어 있는지 확인 후 JSON 파싱
         const parsedCategories = categories ? JSON.parse(categories) : []; // JSON 문자열 파싱
+        const parsedPlace = place ? JSON.parse(place) : null; // place 파싱
 
         const newPost = new Post({
             title,
@@ -158,7 +161,9 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
                 type: "Point",
                 coordinates: [parseFloat(location.lng), parseFloat(location.lat)] // GeoJSON 형식: [경도, 위도]
             },
-            categories: parsedCategories // 카테고리 추가
+            categories: parsedCategories, // 카테고리 추가
+            place: parsedPlace // 장소 정보 추가
+     
         });
 
         await newPost.save();

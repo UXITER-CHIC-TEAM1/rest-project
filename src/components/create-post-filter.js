@@ -1,31 +1,46 @@
-// 필터링 버튼 클릭 이벤트 js 코드
+// 필터링 버튼 부분 js 코드
 document.addEventListener('DOMContentLoaded', () => {
-  const filterButtons = document.querySelectorAll('.filter-button');
-  let selectedCategories = []; // 선택된 카테고리를 저장할 배열
+  const placeFilterButtons = document.querySelectorAll('.place-filter-category .filter-button');
+  const fillFilterButtons = document.querySelectorAll('.fill-filter-category .filter-button');
 
-  filterButtons.forEach(button => {
-      button.addEventListener('click', function () {
-          // 버튼이 이미 선택된 경우
-          if (selectedCategories.includes(this.textContent)) {
-              // 선택 해제
-              this.style.backgroundColor = ''; // 기본 배경색으로 초기화
-              this.style.color = ''; // 기본 글자색으로 초기화
-              selectedCategories = selectedCategories.filter(category => category !== this.textContent); // 선택된 카테고리에서 제거
+  // 장소 필터 버튼 클릭 이벤트 (하나만 선택 가능)
+  placeFilterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          // 클릭된 버튼이 이미 활성화된 경우 비활성화
+          if (this.classList.contains('active')) {
+              this.classList.remove('active');
           } else {
-              // 선택된 경우
-              this.style.backgroundColor = '#384B60';
-              this.style.color = 'white';
-              selectedCategories.push(this.textContent); // 선택된 카테고리 추가
+              // 다른 버튼들의 active 클래스 제거
+              placeFilterButtons.forEach(btn => btn.classList.remove('active'));
+              // 클릭된 버튼에 active 클래스 추가
+              this.classList.add('active');
           }
 
-          // 선택된 카테고리를 로컬 스토리지에 저장
+          // 선택된 장소를 로컬 스토리지에 저장
+          const selectedPlace = document.querySelector('.place-filter-category .filter-button.active');
+          localStorage.setItem('selectedPlace', selectedPlace ? selectedPlace.textContent : null);
+      });
+  });
+
+  // 분위기 필터 버튼 클릭 이벤트 (다중 선택 가능)
+  fillFilterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          // 클릭 시 active 클래스 토글
+          this.classList.toggle('active');
+
+          // 선택된 분위기를 로컬 스토리지에 저장
+          const selectedCategories = Array.from(fillFilterButtons)
+              .filter(btn => btn.classList.contains('active'))
+              .map(btn => btn.textContent);
           localStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
       });
   });
 });
 
+
   const modal = document.getElementById('place-modal');
   const openBtn = document.getElementById('open-modal-btn');
+  const openTextBtns = document.querySelectorAll('.open-modal-text-btn'); 
 
   // 모달이 열릴 때 지도를 생성하는 함수
   const initializeMap = () => {

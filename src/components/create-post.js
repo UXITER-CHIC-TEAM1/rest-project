@@ -87,6 +87,15 @@ document.querySelector('.create').addEventListener('click', async function() {
       return;
   }
 
+  // 선택된 장소 정보를 가져옵니다 (place)
+  const selectedPlace = localStorage.getItem('selectedPlace'); // 선택된 장소를 가져옴
+  if (selectedPlace) {
+      formData.append('place', selectedPlace); // 선택된 장소 정보를 추가
+  } else {
+      alert('장소를 선택해주세요.'); // 장소가 선택되지 않았을 경우 알림
+      return;
+  }
+
   // 이미지 파일들을 FormData에 추가
   const imageInputs = document.querySelectorAll('.image-upload');
   imageInputs.forEach(input => {
@@ -112,6 +121,7 @@ document.querySelector('.create').addEventListener('click', async function() {
           alert('게시글이 성공적으로 등록되었습니다!');
           localStorage.removeItem('selectedLocation'); // 게시글 등록 후 로컬 스토리지에서 정보 삭제
           localStorage.removeItem('selectedCategories'); // 선택된 카테고리도 삭제
+          localStorage.removeItem('selectedPlace'); // 선택된 장소도 삭제
       } else {
           alert('게시글 등록에 실패했습니다: ' + result.message); // 에러 메시지 표시
       }
@@ -120,6 +130,7 @@ document.querySelector('.create').addEventListener('click', async function() {
       alert('게시글 등록 중 오류가 발생했습니다.');
   }
 });
+
 
 
 // 커뮤니티 게시글 이미지 슬라이드

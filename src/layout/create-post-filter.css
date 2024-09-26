@@ -101,6 +101,12 @@ header a {
     padding-top: 20px;
 }
 
+.filter-button.active {
+  background-color: #384B60;
+  color: white;
+}
+
+
   /* 하단 네비게이션 바 스타일 */
   footer {
       position: fixed;

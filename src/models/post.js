@@ -17,7 +17,9 @@ const postSchema = new mongoose.Schema({
             required: true
         }
     },
-    categories: { type: [String], default: [] } 
+    categories: { type: [String], default: [] }, // 카테고리 추가
+    place: { type: String, default: null } // 장소 추가
+
 });
 
 const Post = mongoose.model('Post', postSchema);
