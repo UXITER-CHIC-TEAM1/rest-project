@@ -1,3 +1,7 @@
+document.querySelector(".back-btn").addEventListener("click", function () {
+  window.location.href = "main-page.html";
+});
+
 // 탭 전환 기능
 const followerTab = document.getElementById("followerTab");
 const followingTab = document.getElementById("followingTab");
