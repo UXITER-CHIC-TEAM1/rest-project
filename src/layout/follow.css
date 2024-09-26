@@ -53,14 +53,6 @@ body {
   margin-left: 10px;
 }
 
-/* 탭 스타일 */
-.tabs {
-  display: flex;
-  justify-content: flex-start; /* 왼쪽 정렬 */
-  background-color: #ffffff;
-  padding: 10px 0;
-}
-
 .tab {
   font-family: "Pretendard", Arial, sans-serif;
   flex-basis: auto; /* 각 탭의 너비를 자동으로 설정 */
