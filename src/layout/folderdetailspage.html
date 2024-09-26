@@ -1,87 +1,126 @@
 <!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>folderdetailspage</title>
-    <link rel="stylesheet" href="folderdetailspage.css">
-</head>
+    <link rel="stylesheet" href="folderdetailspage.css" />
+  </head>
 
-<body>
-    <header>
-        <div class="header-container">
-            <a href="folderpage.html"><button class="back-button" id="back-button">
-                    <</button></a> <h1>폴더1</h1>
-            <button class="edit-icon">
-                <img src="/src/assets/edit_icon.png" alt="edit">
-            </button>
-        </div>
+  <body>
+    <!-- 상단바 -->
+    <header class="header">
+      <button class="back-btn"></button>
+      <h1 class="title">폴더1</h1>
+      <button class="edit-icon">
+        <img src="/src/assets/edit-icon.svg" alt="edit" />
+      </button>
     </header>
 
     <section class="main-content">
-        <h1>전체 4</h1>
-        <ul class="folder-list">
-            <li class="folder-item">
-                <div class="top-row">
-                    <img src="/src/assets/location_icon.png" alt="Check" class="check-icon">
-                    <span>서울 올림픽 공원</span>
-                    <input type="checkbox" class="check-box">
-                </div>
-                <div class="comment-section">
-                    <textarea placeholder="나만의 장소 코멘트를 남겨 주세요." disabled></textarea>
-
-                </div>
-            </li>
-            <li class="folder-item">
-                <div class="top-row">
-                    <img src="/src/assets/location_icon.png" alt="Check" class="check-icon">
-                    <span>서울 한강 공원</span>
-                    <input type="checkbox" class="check-box">
-                </div>
-                <div class="comment-section">
-                    <textarea placeholder="나만의 장소 코멘트를 남겨 주세요." disabled></textarea>
-
-                </div>
-            </li>
-            <li class="folder-item">
-                <div class="top-row">
-                    <img src="/src/assets/location_icon.png" alt="Check" class="check-icon">
-                    <span>서울 남산 타워</span>
-                    <input type="checkbox" class="check-box">
-                </div>
-                <div class="comment-section">
-                    <textarea placeholder="나만의 장소 코멘트를 남겨 주세요." disabled></textarea>
-
-                </div>
-            </li>
-            <li class="folder-item">
-                <div class="top-row">
-                    <img src="/src/assets/location_icon.png" alt="Check" class="check-icon">
-                    <span>서울 북촌 한옥마을</span>
-                    <input type="checkbox" class="check-box">
-                </div>
-                <div class="comment-section">
-                    <textarea placeholder="나만의 장소 코멘트를 남겨 주세요." disabled></textarea>
-                </div>
-            </li>
-        </ul>
-        
+      <h1>전체 4</h1>
+      <ul class="folder-list">
+        <li class="folder-item">
+          <div class="top-row">
+            <img
+              src="/src/assets/location_icon.png"
+              alt="Check"
+              class="check-icon"
+            />
+            <span>서울 올림픽 공원</span>
+            <input type="checkbox" class="check-box" />
+          </div>
+          <div class="comment-section">
+            <textarea
+              placeholder="나만의 장소 코멘트를 남겨 주세요."
+              disabled
+            ></textarea>
+          </div>
+        </li>
+        <li class="folder-item">
+          <div class="top-row">
+            <img
+              src="/src/assets/location_icon.png"
+              alt="Check"
+              class="check-icon"
+            />
+            <span>서울 한강 공원</span>
+            <input type="checkbox" class="check-box" />
+          </div>
+          <div class="comment-section">
+            <textarea
+              placeholder="나만의 장소 코멘트를 남겨 주세요."
+              disabled
+            ></textarea>
+          </div>
+        </li>
+        <li class="folder-item">
+          <div class="top-row">
+            <img
+              src="/src/assets/location_icon.png"
+              alt="Check"
+              class="check-icon"
+            />
+            <span>서울 남산 타워</span>
+            <input type="checkbox" class="check-box" />
+          </div>
+          <div class="comment-section">
+            <textarea
+              placeholder="나만의 장소 코멘트를 남겨 주세요."
+              disabled
+            ></textarea>
+          </div>
+        </li>
+        <li class="folder-item">
+          <div class="top-row">
+            <img
+              src="/src/assets/location_icon.png"
+              alt="Check"
+              class="check-icon"
+            />
+            <span>서울 북촌 한옥마을</span>
+            <input type="checkbox" class="check-box" />
+          </div>
+          <div class="comment-section">
+            <textarea
+              placeholder="나만의 장소 코멘트를 남겨 주세요."
+              disabled
+            ></textarea>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section class="folder-actions">
-        <button class="move-button">폴더 이동</button>
-        <button class="delete-button">삭제</button>
+      <button class="move-button">폴더 이동</button>
+      <button class="delete-button">삭제</button>
     </section>
 
     <footer>
-        <nav>
-            <a href="1.html"><img src="/src/assets/nav-filled-recommend.png" alt="."><span>추천</span></a>
-            <a href="2.html"><img src="/src/assets/nav-community.png" alt="."><span>커뮤니티</span></a>
-            <a href="folderpage.html"><img src="/src/assets/nav-myplace.png" alt="."><span>내 쉼터</span></a>
-            <a href="4.html"><img src="/src/assets/nav-mylog.png" alt="."><span>마이로그</span></a>
-        </nav>
+      <nav>
+        <a href="1.html"
+          ><img src="/src/assets/nav-filled-recommend.png" alt="." /><span
+            >추천</span
+          ></a
+        >
+        <a href="2.html"
+          ><img src="/src/assets/nav-community.png" alt="." /><span
+            >커뮤니티</span
+          ></a
+        >
+        <a href="folderpage.html"
+          ><img src="/src/assets/nav-myplace.png" alt="." /><span
+            >내 쉼터</span
+          ></a
+        >
+        <a href="4.html"
+          ><img src="/src/assets/nav-mylog.png" alt="." /><span
+            >마이로그</span
+          ></a
+        >
+      </nav>
     </footer>
 
     <script src="../components/folderdetailpage.js"></script>
-</body>
+  </body>
 </html>
