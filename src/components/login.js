@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelector(".login-button").addEventListener("click", function () {
   const email = document.querySelector('.login-input[type="text"]').value;
   const password = document.querySelector(
-    '.login-input[type="password"]'
-  ).value;
+    '.password-input[type="password"]').value;
 
   if (email === "" || password === "") {
     alert("이메일과 비밀번호를 입력해주세요.");
@@ -56,5 +55,5 @@ document.querySelector(".login-button").addEventListener("click", function () {
 });
 
 document.querySelector(".signup-button").addEventListener("click", function () {
-  window.location.href = "/src/layout/signUp.html";
+  window.location.href = "/signUp.html";
 });

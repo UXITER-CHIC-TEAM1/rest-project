@@ -1,22 +1,28 @@
 // 필터링 버튼 클릭 이벤트 js 코드
 document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-button');
-  
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        // 이미 선택된 경우 초기화
-        if (this.style.backgroundColor === 'rgb(56, 75, 96)') {
-          this.style.backgroundColor = ''; // 기본 배경색으로 초기화
-          this.style.color = ''; // 기본 글자색으로 초기화
-        } else {
-          // 선택되지 않은 경우 배경색과 글자색 변경
-          this.style.backgroundColor = '#384B60';
-          this.style.color = 'white';
-        }
-      });
-    });
-  });
+  const filterButtons = document.querySelectorAll('.filter-button');
+  let selectedCategories = []; // 선택된 카테고리를 저장할 배열
 
+  filterButtons.forEach(button => {
+      button.addEventListener('click', function () {
+          // 버튼이 이미 선택된 경우
+          if (selectedCategories.includes(this.textContent)) {
+              // 선택 해제
+              this.style.backgroundColor = ''; // 기본 배경색으로 초기화
+              this.style.color = ''; // 기본 글자색으로 초기화
+              selectedCategories = selectedCategories.filter(category => category !== this.textContent); // 선택된 카테고리에서 제거
+          } else {
+              // 선택된 경우
+              this.style.backgroundColor = '#384B60';
+              this.style.color = 'white';
+              selectedCategories.push(this.textContent); // 선택된 카테고리 추가
+          }
+
+          // 선택된 카테고리를 로컬 스토리지에 저장
+          localStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
+      });
+  });
+});
 
   const modal = document.getElementById('place-modal');
   const openBtn = document.getElementById('open-modal-btn');
@@ -73,6 +79,7 @@ function displayMarker(place) {
   const placeInfoInput = document.getElementById('search-input');
 
   let clickCount = 0;
+  let selectedPlaceText = document.querySelector('.place-info p');
 
   kakao.maps.event.addListener(marker, 'click', () => {
       clickCount++;
@@ -92,10 +99,20 @@ function displayMarker(place) {
               lng: place.x,
           });
           localStorage.setItem('selectedLocation', selectedLocation); // 로컬 스토리지에 저장
+          // 선택한 장소 이름을 '장소를 추가해주세요' 부분에 표시
+      selectedPlaceText.textContent = place.place_name;
       }
   });
 }
 
+// 페이지 로드 시 로컬 스토리지에 저장된 장소 표시
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLocation = localStorage.getItem('selectedLocation');
+  if (savedLocation) {
+    const parsedLocation = JSON.parse(savedLocation);
+    selectedPlaceText.textContent = parsedLocation.name; // 저장된 장소 이름을 표시
+  }
+});
 
 
 // 장소 정보를 데이터베이스에 저장하는 함수

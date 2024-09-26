@@ -47,7 +47,6 @@ document.querySelector('.add-image-button').addEventListener('click', function()
   setupImageUpload(newInput, document.querySelectorAll('.image-upload').length - 1);
 });
 
-
 // 게시글 등록 버튼 클릭 시 서버로 데이터를 전송
 document.querySelector('.create').addEventListener('click', async function() {
   const title = document.querySelector('.title').value;
@@ -57,17 +56,35 @@ document.querySelector('.create').addEventListener('click', async function() {
   // selectedLocation을 가져옵니다
   const selectedLocation = localStorage.getItem('selectedLocation'); // 로컬 스토리지에서 가져오기
 
+  let locationData;
+  try {
+      locationData = selectedLocation ? JSON.parse(selectedLocation) : null;
+  } catch (error) {
+      console.error('위치 정보 파싱 오류:', error);
+      alert('위치 정보를 불러오는 중 문제가 발생했습니다.');
+      return;
+  }
+
   // FormData 객체 생성
   const formData = new FormData();
   formData.append('title', title);
   formData.append('content', content);
 
   // selectedLocation이 있는 경우 FormData에 추가
-  if (selectedLocation) {
-      formData.append('selectedLocation', selectedLocation); // 위치 정보를 추가
+  if (locationData) {
+      formData.append('selectedLocation', JSON.stringify(locationData)); // 위치 정보를 추가
   } else {
       alert('위치 정보가 필요합니다.'); // 위치 정보가 없을 경우 알림
       return; // 위치 정보가 없으면 요청을 보내지 않음
+  }
+
+  // 선택된 카테고리를 가져옵니다
+  const selectedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
+  if (selectedCategories && selectedCategories.length > 0) {
+      formData.append('categories', JSON.stringify(selectedCategories)); // 카테고리 배열을 추가
+  } else {
+      alert('하나 이상의 카테고리를 선택해주세요.'); // 카테고리가 선택되지 않았을 경우 알림
+      return;
   }
 
   // 이미지 파일들을 FormData에 추가
@@ -94,6 +111,7 @@ document.querySelector('.create').addEventListener('click', async function() {
       if (result.success) {
           alert('게시글이 성공적으로 등록되었습니다!');
           localStorage.removeItem('selectedLocation'); // 게시글 등록 후 로컬 스토리지에서 정보 삭제
+          localStorage.removeItem('selectedCategories'); // 선택된 카테고리도 삭제
       } else {
           alert('게시글 등록에 실패했습니다: ' + result.message); // 에러 메시지 표시
       }
@@ -102,7 +120,6 @@ document.querySelector('.create').addEventListener('click', async function() {
       alert('게시글 등록 중 오류가 발생했습니다.');
   }
 });
-
 
 
 // 커뮤니티 게시글 이미지 슬라이드
