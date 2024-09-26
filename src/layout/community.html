@@ -4,15 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Community</title>
-    <link rel="stylesheet" href="/src/layout/community.css" />
+    <link rel="stylesheet" href="/community.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/d0ef824827.js"
       crossorigin="anonymous"
@@ -22,158 +19,31 @@
     <div class="div">
       <!--앱 로고-->
       <header>
-        <img class="title-logo" src="/src/assets/title-logo.svg" />
+        <a href="home.html"><h1>쉬엄쉬엄</h1></a>
       </header>
 
       <!--검색창-->
       <div class="search-div">
-        <button class="search-button">
-          <img src="/src/assets/search-button.png" />
-        </button>
+        <button class="search-button"><img src="/search-button.png"></button>
         <input class="search-input" placeholder="장소명 검색" type="text" />
       </div>
 
       <!--필터링-->
       <div class="filter-div">
-        <button class="likes-toggle-button">
-          정렬 <img src="/src/assets/toggle.png" alt="toggle-bar" />
-        </button>
-        <button class="filter-toggle-button">
-          분위기 <img src="/src/assets/toggle.png" alt="toggle-bar" />
-        </button>
-        <button class="filter-button">카페</button>
-        <button class="filter-button">도서관</button>
-        <button class="filter-button">문화</button>
-        <button class="filter-button">공원</button>
+        <button class="likes-toggle-button">정렬 <img src="/toggle.png" alt="toggle-bar"></button>
+        <button class="fileter-toggle-botton">분위기 <img src="/toggle.png" alt="toggle-bar"></button>
+        <button class="fileter-botton">공원</button>
+        <button class="fileter-botton">카페</button>
+        <button class="fileter-botton">도서관</button>
+        <button class="fileter-botton">문화</button>
       </div>
 
-      <!--게시물-->
-      <div class="community-post">
-        <a href="/src/layout/post.html" class="post-title">
-          <p>인테리어가 예쁜 합정 카페 추천</p>
-          <p class="post-placename">티노마드</p>
-        </a>
-        <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
-        <div class="user-likes-div">
-          <div class="user-info">
-            <i class="fa-solid fa-circle-user"></i>
-            <p class="nickname">닉네임</p>
-          </div>
-          <!--좋아요 버튼-->
-          <div class="likes-info">
-            <button class="likes-button" id="like-btn-1">
-              <img src="/src/assets/likes-button.png" id="like-img-1" />
-            </button>
-            <p class="likes-amount" id="like-count-1">0</p>
-          </div>
-        </div>
-
-        <!--이미지 슬라이드-->
-        <div class="nav-tab__inner">
-          <div class="nav-tab__scroller">
-            <ul class="nav-tab__list">
-              <li class="nav-tab__item on">
-                <a href="/src/layout/post.html"
-                  ><img src="/src/assets/post-img.jpg" alt="post-img"
-                /></a>
-              </li>
-              <li class="nav-tab__item">
-                <a href="/src/layout/post.html"
-                  ><img src="/src/assets/post-img.jpg" alt="post-img"
-                /></a>
-              </li>
-              <!-- More items -->
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!--게시물-->
-      <div class="community-post">
-        <a href="/src/layout/post.html" class="post-title">
-          <p>인테리어가 예쁜 합정 카페 추천</p>
-          <p class="post-placename">한강</p>
-        </a>
-        <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
-        <div class="user-likes-div">
-          <div class="user-info">
-            <i class="fa-solid fa-circle-user"></i>
-            <p class="nickname">닉네임</p>
-          </div>
-          <!--좋아요 버튼-->
-          <div class="likes-info">
-            <button class="likes-button" id="like-btn-1">
-              <img src="/src/assets/likes-button.png" id="like-img-1" />
-            </button>
-            <p class="likes-amount" id="like-count-1">0</p>
-          </div>
-        </div>
-
-        <!--이미지 슬라이드-->
-        <div class="nav-tab__inner">
-          <div class="nav-tab__scroller">
-            <ul class="nav-tab__list">
-              <li class="nav-tab__item on">
-                <a href="/src/layout/post.html"
-                  ><img src="/src/assets/post-img.jpg" alt="post-img"
-                /></a>
-              </li>
-              <li class="nav-tab__item">
-                <a href="/src/layout/post.html"
-                  ><img src="/src/assets/post-img.jpg" alt="post-img"
-                /></a>
-              </li>
-              <!-- More items -->
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!--게시물-->
-      <div class="community-post">
-        <a href="/src/layout/post.html" class="post-title">
-          <p>인테리어가 예쁜 합정 카페 추천</p>
-          <p class="post-placename">광운대학교</p>
-        </a>
-        <!--사용자 프로필 / 닉네임 / 좋아요 버튼 / 좋아요 개수-->
-        <div class="user-likes-div">
-          <div class="user-info">
-            <i class="fa-solid fa-circle-user"></i>
-            <p class="nickname">닉네임</p>
-          </div>
-          <!--좋아요 버튼-->
-          <div class="likes-info">
-            <button class="likes-button" id="like-btn-1">
-              <img src="/src/assets/likes-button.png" id="like-img-1" />
-            </button>
-            <p class="likes-amount" id="like-count-1">0</p>
-          </div>
-        </div>
-
-        <!--이미지 슬라이드-->
-        <div class="nav-tab__inner">
-          <div class="nav-tab__scroller">
-            <ul class="nav-tab__list">
-              <li class="nav-tab__item on">
-                <a href="/src/layout/post.html"
-                  ><img src="/src/assets/post-img.jpg" alt="post-img"
-                /></a>
-              </li>
-              <li class="nav-tab__item">
-                <a href="/src/layout/post.html"
-                  ><img src="/src/assets/post-img.jpg" alt="post-img"
-                /></a>
-              </li>
-              <!-- More items -->
-            </ul>
-          </div>
-        </div>
-      </div>
+      <!--게시물 리스트-->
+      <div id="posts-container"></div>
 
       <!--글 쓰기 버튼-->
       <div class="create-div">
-        <a class="create-button" href="create-post-filter.html"
-          ><img src="/src/assets/create-button.png" alt="글쓰기"
-        /></a>
+        <a class="create-button" href="create-post-filter.html"><img src="/create-button.png" alt="글쓰기"></a>
       </div>
 
       <!-- 정렬 버튼 모달창 -->
@@ -205,31 +75,115 @@
       <!-- 하단 네비게이션 바 -->
       <footer>
         <nav>
-          <a href="home.html"
-            ><img src="/src/assets/nav-recommend.png" alt="." /><span
-              >추천</span
-            ></a
-          >
-          <a href="community.html"
-            ><img src="/src/assets/nav-filled-community.png" alt="." /><span
-              >커뮤니티</span
-            ></a
-          >
-          <a href="folderpage.html"
-            ><img src="/src/assets/nav-myplace.png" alt="." /><span
-              >내 쉼터</span
-            ></a
-          >
-          <a href="main-page.html"
-            ><img src="/src/assets/nav-mylog.png" alt="." /><span
-              >마이로그</span
-            ></a
-          >
+          <a href="home.html"><img src="/nav-recommend.png" alt="."><span>추천</span></a>
+          <a href="community.html"><img src="/nav-filled-community.png" alt="."><span>커뮤니티</span></a>
+          <a href="folderpage.html"><img src="/nav-myplace.png" alt="."><span>내 쉼터</span></a>
+          <a href="4.html"><img src="/nav-mylog.png" alt="."><span>마이로그</span></a>
         </nav>
         <div class="bottom-bar"></div>
       </footer>
     </div>
 
-    <script src="/src/components/community.js"></script>
+    <script src="/community.js"></script>
+    <script>
+      const postsContainer = document.getElementById('posts-container');
+      const token = localStorage.getItem('jwt');
+
+      // 페이지 로드 시 서버에서 게시물 데이터 가져오기
+      const loadPosts = () => {
+        fetch('/api/posts', { // 서버에서 게시물 가져오기
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}` // JWT 토큰 추가
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('게시물 로드 실패');
+          return response.json();
+        })
+        .then(posts => {
+          posts.forEach((post, index) => {
+            const postElement = document.createElement('div');
+            postElement.className = 'community-post';
+            postElement.dataset.postId = post.id; // 게시물 ID 저장
+            postElement.innerHTML = `
+              <a href="/post.html?id=${post.id}" class="post-title">
+                <p>${post.title}</p>
+                <p class="post-placename">${post.placename}</p>
+              </a>
+              <div class="user-likes-div">
+                <div class="user-info">
+                  <i class="fa-solid fa-circle-user"></i>
+                  <p class="nickname">닉네임</p>
+                </div>
+                <div class="likes-info">
+                  <button class="likes-button" id="like-btn-${post.id}">
+                    <img src="/likes-button.png" id="like-img-${post.id}" />
+                  </button>
+                  <p class="likes-amount" id="like-count-${post.id}">${post.likesCount}</p>
+                </div>
+              </div>
+              <div class="nav-tab__inner">
+                <div class="nav-tab__scroller">
+                  <ul class="nav-tab__list">
+                    <li class="nav-tab__item on">
+                      <a href="/post.html?id=${post.id}"><img src="/post-img.jpg" alt="post-img"/></a>
+                    </li>
+                    <li class="nav-tab__item">
+                      <a href="/post.html?id=${post.id}"><img src="/post-img.jpg" alt="post-img"/></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            `;
+            postsContainer.appendChild(postElement);
+
+            // 좋아요 버튼 클릭 이벤트
+            const likeButton = document.getElementById(`like-btn-${post.id}`);
+            const likeCount = document.getElementById(`like-count-${post.id}`);
+
+            likeButton.addEventListener('click', () => {
+              if (!likeButton.classList.contains('liked')) {
+                // 좋아요 추가 API 호출
+                fetch(`/api/posts/${post.id}/likes`, {
+                  method: 'POST',
+                  headers: {
+                    'Authorization': `Bearer ${token}`
+                  }
+                })
+                .then(response => {
+                  if (!response.ok) throw new Error('좋아요 추가 실패');
+                  post.likesCount++; // 서버에서 응답받은 새로운 좋아요 수
+                  likeCount.textContent = post.likesCount; // 좋아요 수 업데이트
+                  likeButton.classList.add('liked'); // 버튼 상태 변경
+                  likeButton.querySelector('img').src = '/filled-likes.png'; // 이미지 변경
+                })
+                .catch(error => console.error(error));
+              } else {
+                // 좋아요 제거 API 호출
+                fetch(`/api/posts/${post.id}/likes`, {
+                  method: 'DELETE',
+                  headers: {
+                    'Authorization': `Bearer ${token}`
+                  }
+                })
+                .then(response => {
+                  if (!response.ok) throw new Error('좋아요 제거 실패');
+                  post.likesCount--; // 서버에서 응답받은 새로운 좋아요 수
+                  likeCount.textContent = post.likesCount; // 좋아요 수 업데이트
+                  likeButton.classList.remove('liked'); // 버튼 상태 변경
+                  likeButton.querySelector('img').src = '/likes-button.png'; // 이미지 변경
+                })
+                .catch(error => console.error(error));
+              }
+            });
+          });
+        })
+        .catch(error => console.error(error));
+      };
+
+      // 페이지 로드 시 게시물 로드 함수 호출
+      document.addEventListener("DOMContentLoaded", loadPosts);
+    </script>
   </body>
 </html>
