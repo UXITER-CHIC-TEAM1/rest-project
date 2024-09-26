@@ -23,11 +23,12 @@
     <header>
       <!--앱 로고-->
       <img class="title-logo" src="/src/assets/title-logo.svg" />
-      <!--폴더 추가하기 버튼 -->
-      <button id="addfolder">
-        <i class="fas fa-plus-circle"></i>쉼터 폴더 추가하기
-      </button>
     </header>
+
+    <!--폴더 추가하기 버튼 -->
+    <button id="addfolder">
+      <i class="fas fa-plus-circle"></i>쉼터 폴더 추가하기
+    </button>
 
     <main>
       <div class="folder-container">
@@ -67,12 +68,12 @@
       <div class="bottom-bar"></div>
     </footer>
 
-    <div id="overlay"></div>
-    <div id="modal">
-      <div id="modal-content">
+    <!-- 폴더 생성 -->
+    <div id="folderCreationModal" class="modal hidden">
+      <div class="modal-content">
         <div id="modal-bar"></div>
-        <div id="modal-body">
-          <h2>새 폴더 추가</h2>
+        <div class="folder-create-header">
+          <h2>쉼터 폴더 추가</h2>
         </div>
 
         <div id="folder-preview" class="folder-preview">
@@ -80,64 +81,52 @@
         </div>
 
         <div class="color-options">
-          <div
-            class="color-option"
-            style="background-color: #f28b82"
-            data-color="#f28b82"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #fdcfe8"
-            data-color="#fdcfe8"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #fbbc04"
-            data-color="#fbbc04"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #fff475"
-            data-color="#fff475"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #ccff90"
-            data-color="#ccff90"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #e0f7fa"
-            data-color="#e0f7fa"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #cbf0f8"
-            data-color="#cbf0f8"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #aecbfa"
-            data-color="#aecbfa"
-          ></div>
-          <div
-            class="color-option"
-            style="background-color: #d7aefb"
-            data-color="#d7aefb"
-          ></div>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#FBB5B5" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#ECBAA6" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#C1EFA5" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#B3DEEC" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#8FC28A" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#FDEE96" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#EBC3EB" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#E18383" />
+            <span class="color-label"></span>
+          </label>
+          <label class="color-option">
+            <input type="radio" name="folderColor" value="#8E98F2" />
+            <span class="color-label"></span>
+          </label>
         </div>
 
-        <div id="modal-placeholder">
-          <input
-            type="text"
-            id="folderName"
-            placeholder="폴더명을 입력해 주세요."
-          />
-          <button id="createFolderButton">폴더 생성하기</button>
-        </div>
+          <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+
+        <button class="create-folder-button">
+          폴더 생성하기
+        </button>
       </div>
     </div>
 
-    <script src="../components/folderpage.js"></script>
+    <script src="/src/components/folderpage.js"></script>
   </body>
 </html>
