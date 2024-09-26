@@ -106,10 +106,25 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 // 게시글 등록 요청 처리 수정
 app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
-    const { title, content } = req.body;
+    const { title, content, selectedLocation } = req.body; // 클라이언트에서 전달받은 selectedLocation
+
+    // selectedLocation이 undefined일 경우 에러 응답
+    if (!selectedLocation) {
+        return res.status(400).json({ success: false, message: '위치 정보가 필요합니다.' });
+    }
+
+    let location;
+
+    // JSON 파싱 오류 처리
+    try {
+        location = JSON.parse(selectedLocation);
+    } catch (error) {
+        console.error('위치 정보 파싱 오류:', error);
+        return res.status(400).json({ success: false, message: '위치 정보가 유효하지 않습니다.' });
+    }
+
     console.log(req.body); // req.body에서 title과 content 확인
     console.log(req.files); // 업로드된 파일 확인
 
@@ -130,13 +145,17 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
         if (!mongoose.Types.ObjectId.isValid(authorId)) {
             throw new Error('유효하지 않은 사용자 ID');
         }
+        console.log('Location before parsing:', location); // 추가한 콘솔 로그
 
         const newPost = new Post({
             title,
             content,
             author: new mongoose.Types.ObjectId(authorId),
-            images
-        });
+            images,
+            location: {
+                type: "Point",
+                coordinates: [parseFloat(location.lng), parseFloat(location.lat)] // GeoJSON 형식: [경도, 위도]
+            },  });
 
         await newPost.save();
         res.status(201).json({ success: true, message: '게시글 등록 성공' });
@@ -145,6 +164,7 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
         res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
     }
 });
+
 
 // 에러 핸들링 미들웨어
 app.use((err, req, res, next) => {

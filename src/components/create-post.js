@@ -54,31 +54,38 @@ document.querySelector('.create').addEventListener('click', async function() {
   const content = document.querySelector('.post-content').value;
   const token = localStorage.getItem('jwt');
 
-  // FormData 객체 생성
-const formData = new FormData();
-formData.append('title', title);
-formData.append('content', content);
+  // selectedLocation을 가져옵니다
+  const selectedLocation = localStorage.getItem('selectedLocation'); // 로컬 스토리지에서 가져오기
 
-// 이미지 파일들을 FormData에 추가
-const imageInputs = document.querySelectorAll('.image-upload');
-imageInputs.forEach(input => {
-    const files = input.files;
-    if (files.length > 0) {
-      for (let i = 0; i < files.length; i++) {
-          formData.append('images', files[i]); // 'images'는 서버에서 처리하는 필드명
-      }
+  // FormData 객체 생성
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('content', content);
+
+  // selectedLocation이 있는 경우 FormData에 추가
+  if (selectedLocation) {
+      formData.append('selectedLocation', selectedLocation); // 위치 정보를 추가
+  } else {
+      alert('위치 정보가 필요합니다.'); // 위치 정보가 없을 경우 알림
+      return; // 위치 정보가 없으면 요청을 보내지 않음
   }
-});
- // FormData에 잘 추가되었는지 확인
- for (let [key, value] of formData.entries()) {
-  console.log(key + ': ' + value); // 콘솔에 출력
-}
+
+  // 이미지 파일들을 FormData에 추가
+  const imageInputs = document.querySelectorAll('.image-upload');
+  imageInputs.forEach(input => {
+      const files = input.files;
+      if (files.length > 0) {
+          for (let i = 0; i < files.length; i++) {
+              formData.append('images', files[i]); // 'images'는 서버에서 처리하는 필드명
+          }
+      }
+  });
 
   try {
       const response = await fetch('/create-post', {
           method: 'POST',
           headers: {
-              'Authorization': `Bearer ${token}`
+              'Authorization': `Bearer ${token}` // JWT 토큰 추가
           },
           body: formData
       });
@@ -86,14 +93,17 @@ imageInputs.forEach(input => {
       const result = await response.json();
       if (result.success) {
           alert('게시글이 성공적으로 등록되었습니다!');
+          localStorage.removeItem('selectedLocation'); // 게시글 등록 후 로컬 스토리지에서 정보 삭제
       } else {
-          alert('게시글 등록에 실패했습니다.');
+          alert('게시글 등록에 실패했습니다: ' + result.message); // 에러 메시지 표시
       }
   } catch (error) {
       console.error('게시글 등록 오류:', error);
       alert('게시글 등록 중 오류가 발생했습니다.');
   }
 });
+
+
 
 // 커뮤니티 게시글 이미지 슬라이드
 function row_scroll() {

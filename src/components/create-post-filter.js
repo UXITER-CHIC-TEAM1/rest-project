@@ -59,18 +59,76 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 마커 표시 및 클릭 이벤트
-    function displayMarker(place) {
-        const marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(place.y, place.x),
-        });
+   // 마커 표시 및 클릭 이벤트
 
-        kakao.maps.event.addListener(marker, 'click', () => {
-            infowindow.setContent(`<div style="padding:5px;font-size:12px;">${place.place_name}</div>`);
-            infowindow.open(map, marker);
-        });
-    }
+let selectedLocation; // 전역 변수로 location 정보 저장
+
+// 마커 표시 및 클릭 이벤트
+function displayMarker(place) {
+  const marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(place.y, place.x),
+  });
+
+  const placeInfoInput = document.getElementById('search-input');
+
+  let clickCount = 0;
+
+  kakao.maps.event.addListener(marker, 'click', () => {
+      clickCount++;
+
+      if (clickCount === 1) {
+          infowindow.setContent(`<div style="padding:5px;font-size:12px;">${place.place_name}</div>`);
+          infowindow.open(map, marker);
+      } else if (clickCount === 2) {
+          modal.style.display = 'none';
+          placeInfoInput.value = place.place_name;
+          clickCount = 0;
+
+          // location 정보 설정 (위치 객체 생성 후 로컬 스토리지에 저장)
+          selectedLocation = JSON.stringify({
+              name: place.place_name,
+              lat: place.y,
+              lng: place.x,
+          });
+          localStorage.setItem('selectedLocation', selectedLocation); // 로컬 스토리지에 저장
+      }
+  });
+}
+
+
+
+// 장소 정보를 데이터베이스에 저장하는 함수
+async function saveLocation(locationData) {
+  try {
+      const response = await fetch('/create-post', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${yourToken}`, // JWT 토큰 추가
+          },
+          body: JSON.stringify(locationData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+          alert('장소 정보가 저장되었습니다.');
+      } else {
+          alert('장소 정보 저장에 실패했습니다.');
+      }
+  } catch (error) {
+      console.error('장소 정보 저장 중 오류:', error);
+      alert('장소 정보 저장 중 오류가 발생했습니다.');
+  }
+}
+
+// 'create-post' 라우트와 함께 장소 정보 전송
+document.querySelector('.place-info button').addEventListener('click', () => {
+  const locationData = JSON.parse(document.querySelector('.place-info').dataset.location);
+  saveLocation(locationData);
+});
+
+
 };
 
 // 이미지 버튼 클릭 시 모달 열기 및 지도 초기화
