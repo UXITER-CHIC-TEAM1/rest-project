@@ -6,9 +6,10 @@ const path = require('path');
 const bcrypt = require('bcrypt'); // 비밀번호 해시화 라이브러리
 const User = require('../models/user'); // 사용자 모델 임포트
 const Post = require('../models/post'); // 게시글 모델 임포트
+const Like = require('../models/like'); // 좋아요 모델 임포트
 const jwt = require('jsonwebtoken'); // JWT 패키지 추가
 const session = require('express-session'); // 세션 관리 패키지 추가
-
+const multer = require('multer');
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -42,7 +43,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'layout', 'start.html'));
 });
 
-// JWT 검증 미들웨어 수정
+// JWT 검증 미들웨어
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -61,8 +62,7 @@ function authenticateToken(req, res, next) {
 
 // 회원가입 요청 처리
 app.post('/signup', async (req, res) => {
-    console.log(req.body) // 이게 콘솔창에 뜨는 json형태 데이터 정보인듯? 확인해보셈
-    const { nickname, email, password } = req.body; // → JS 문법 中 '구조 분해 할당' 구문
+    const { nickname, email, password } = req.body;
     try {
         const newUser = new User({ nickname, email, password });
         await newUser.save();
@@ -73,8 +73,7 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-// 로그인 요청 처리 수정
-// 사용자가 입력한 이메일과 비밀번호를 검증 -> 인증 성공 시 JWT 토큰을 생성하여 반환
+// 로그인 요청 처리
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -90,6 +89,9 @@ app.post('/login', async (req, res) => {
 
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         console.log('Generated JWT:', token);
+        
+        req.session.user = { _id: user._id, email: user.email }; // 세션에 사용자 정보 저장
+
         res.json({ success: true, token });
     } catch (error) {
         console.error('로그인 오류:', error);
@@ -97,53 +99,142 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// JWT 토큰을 검증하는 미들웨어 함수
-// 요청 헤더에 포함된 JWT 토큰을 확인, 유효할 경우 요청을 진행
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers.authorization;
-    const token = authHeader && authHeader.split(' ')[1];
 
-    if (token == null) return res.status(401).json({ success: false, message: '토큰이 필요합니다.' });
+// JWT 유효성 검사를 위한 엔드포인트 추가
+app.get('/api/validate-token', authenticateToken, (req, res) => {
+    res.json({ success: true, message: '토큰이 유효합니다.', user: req.user });
+});
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ success: false, message: '유효하지 않은 토큰입니다.' });
-        req.user = user;
-        next();
-    });
-}
+// 인증이 필요한 페이지에 대한 라우트
+app.use(authenticateToken); // 모든 인증이 필요한 라우트에 대해 JWT 검증
 
-// 게시글 등록 요청 처리 수정
-app.post('/create-post', async (req, res) => {
-    const { title, content } = req.body;  // 위치 정보를 제거
+// 홈 페이지 라우트
+app.get('/home.html', (req, res) => {
+    console.log('사용자 인증 완료:', req.user);
+    res.sendFile(path.join(__dirname, '..', 'layout', 'home.html'));
+});
 
-    const token = req.headers.authorization?.split(' ')[1];
-  
-    if (!token) {
-      return res.status(401).json({ success: false, message: '토큰이 필요합니다.' });
-    }
-  
+// 커뮤니티 페이지 라우트
+app.get('/community.html', (req, res) => {
+    console.log('사용자 인증 완료:', req.user);
+    res.sendFile(path.join(__dirname, '..', 'layout', 'community.html'));
+});
+
+
+app.post('/api/posts/:postId/likes', authenticateToken, async (req, res) => {
+    const { postId } = req.params;
+    const userId = req.user._id; // JWT에서 사용자 ID 추출
+
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const authorId = decoded._id;
-  
-      if (!mongoose.Types.ObjectId.isValid(authorId)) {
-        throw new Error('유효하지 않은 사용자 ID');
-      }
-  
-      const newPost = new Post({
-        title,
-        content,
-        author:new mongoose.Types.ObjectId(authorId)
-        // 위치 정보를 제거
-      });
-  
-      await newPost.save();
-      res.status(201).json({ success: true, message: '게시글 등록 성공' });
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).json({ success: false, message: '게시글을 찾을 수 없습니다.' });
+        }
+
+        // 사용자가 게시글 작성자인지 확인
+        if (post.author.toString() === userId.toString()) {
+            return res.status(400).json({ success: false, message: '자신의 게시글에 좋아요를 추가할 수 없습니다.' });
+        }
+
+        // 좋아요 추가 로직
+        const existingLike = await Like.findOne({ user: userId, post: postId });
+        if (existingLike) {
+            // 이미 좋아요를 누른 경우, 좋아요 제거
+            await Like.findOneAndDelete({ user: userId, post: postId }); // 기존 좋아요 삭제
+            await Post.findByIdAndUpdate(postId, { $inc: { likesCount: -1 } }); // 좋아요 수 감소
+            return res.json({ success: true, message: '좋아요가 제거되었습니다.' });
+        }
+
+        // 좋아요가 없는 경우, 새로운 좋아요 추가
+        const like = new Like({ user: userId, post: postId }); // 여기서 user와 post 필드 설정
+        await like.save();
+        await Post.findByIdAndUpdate(postId, { $inc: { likesCount: 1 } });
+        res.json({ success: true, message: '좋아요가 추가되었습니다.', like });
     } catch (error) {
-      console.error('게시글 등록 중 오류:', error.message || error);
-      res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
+        console.error('좋아요 추가 실패:', error);
+        res.status(500).json({ success: false, message: '좋아요 추가 실패' });
     }
 });
+
+// Multer 설정
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // 업로드할 디렉토리 지정
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // 파일에 고유한 이름 부여
+    }
+});
+
+const upload = multer({ storage: storage });
+
+//게시글등록
+app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
+    const { title, content, selectedLocation, categories, place } = req.body; // categories 추가
+
+    // selectedLocation이 undefined일 경우 에러 응답
+    if (!selectedLocation) {
+        return res.status(400).json({ success: false, message: '위치 정보가 필요합니다.' });
+    }
+
+    let location;
+
+    // JSON 파싱 오류 처리
+    try {
+        location = JSON.parse(selectedLocation);
+    } catch (error) {
+        console.error('위치 정보 파싱 오류:', error);
+        return res.status(400).json({ success: false, message: '위치 정보가 유효하지 않습니다.' });
+    }
+
+    console.log(req.body); // req.body에서 title과 content 확인
+    console.log(req.files); // 업로드된 파일 확인
+
+    // 이미지 경로가 없을 경우 빈 배열로 설정
+    const images = req.files ? req.files.map(file => file.path) : [];
+
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1]; // token을 이곳에서 정의
+
+    if (!token) {
+        return res.status(401).json({ success: false, message: '토큰이 필요합니다.' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const authorId = decoded._id;
+
+        if (!mongoose.Types.ObjectId.isValid(authorId)) {
+            throw new Error('유효하지 않은 사용자 ID');
+        }
+        console.log('Location before parsing:', location); // 추가한 콘솔 로그
+
+        // categories와 place가 정의되어 있는지 확인 후 JSON 파싱
+        const parsedCategories = categories ? JSON.parse(categories) : []; // JSON 문자열 파싱
+        const parsedPlace = place  // place 파싱
+
+        const newPost = new Post({
+            title,
+            content,
+            author: new mongoose.Types.ObjectId(authorId),
+            images,
+            location: {
+                type: "Point",
+                coordinates: [parseFloat(location.lng), parseFloat(location.lat)] // GeoJSON 형식: [경도, 위도]
+            },
+            categories: parsedCategories, // 카테고리 추가
+            place: parsedPlace // 장소 정보 추가
+     
+        });
+
+        await newPost.save();
+        res.status(201).json({ success: true, message: '게시글 등록 성공' });
+    } catch (error) {
+        console.error('게시글 등록 중 오류:', error.message || error);
+        res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
+    }
+});
+
 
 // 에러 핸들링 미들웨어
 app.use((err, req, res, next) => {
@@ -151,9 +242,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('서버에서 오류가 발생했습니다.');
 });
 
-
 app.listen(port, () => {
     console.log(`서버가 http://localhost:${port}에서 실행 중입니다.`);
 });
-
-

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비밀번호 변경</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/alt-fonts/pretendard/css/pretendard.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/layout/change-pw.css" />
+  </head>
+  <body>
+    <!-- 상단바 -->
+    <header class="header">
+      <button class="back-btn"></button>
+      <h1 class="title">비밀번호 변경</h1>
+    </header>
+    <div class="change-container">
+      <h3 class="nickname-text">닉네임</h3>
+      <input type="text" class="change-input" />
+      <h3 class="id-text">아이디</h3>
+      <input
+        type="text"
+        class="change-input"
+        placeholder="ex) sheum@naver.com"
+      />
+      <h3 class="password-text">비밀번호</h3>
+      <div class="password-wrapper">
+        <input type="password" class="change-input password-input" />
+        <button type="button" class="toggle-password">비밀번호 보기</button>
+      </div>
+      <h3 class="password-check-text">비밀번호 확인</h3>
+      <div class="password-wrapper">
+        <input type="password" class="change-input password-check-input" />
+        <button type="button" class="toggle-password">비밀번호 보기</button>
+      </div>
+      <button class="change-button">완료</button>
+    </div>
+    <script src="/src/components/change-pw.js"></script>
+  </body>
+</html>

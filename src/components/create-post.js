@@ -53,30 +53,85 @@ document.querySelector('.create').addEventListener('click', async function() {
   const content = document.querySelector('.post-content').value;
   const token = localStorage.getItem('jwt');
 
+  // selectedLocation을 가져옵니다
+  const selectedLocation = localStorage.getItem('selectedLocation'); // 로컬 스토리지에서 가져오기
+
+  let locationData;
+  try {
+      locationData = selectedLocation ? JSON.parse(selectedLocation) : null;
+  } catch (error) {
+      console.error('위치 정보 파싱 오류:', error);
+      alert('위치 정보를 불러오는 중 문제가 발생했습니다.');
+      return;
+  }
+
+  // FormData 객체 생성
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('content', content);
+
+  // selectedLocation이 있는 경우 FormData에 추가
+  if (locationData) {
+      formData.append('selectedLocation', JSON.stringify(locationData)); // 위치 정보를 추가
+  } else {
+      alert('위치 정보가 필요합니다.'); // 위치 정보가 없을 경우 알림
+      return; // 위치 정보가 없으면 요청을 보내지 않음
+  }
+
+  // 선택된 카테고리를 가져옵니다
+  const selectedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
+  if (selectedCategories && selectedCategories.length > 0) {
+      formData.append('categories', JSON.stringify(selectedCategories)); // 카테고리 배열을 추가
+  } else {
+      alert('하나 이상의 카테고리를 선택해주세요.'); // 카테고리가 선택되지 않았을 경우 알림
+      return;
+  }
+
+  // 선택된 장소 정보를 가져옵니다 (place)
+  const selectedPlace = localStorage.getItem('selectedPlace'); // 선택된 장소를 가져옴
+  if (selectedPlace) {
+      formData.append('place', selectedPlace); // 선택된 장소 정보를 추가
+  } else {
+      alert('장소를 선택해주세요.'); // 장소가 선택되지 않았을 경우 알림
+      return;
+  }
+
+  // 이미지 파일들을 FormData에 추가
+  const imageInputs = document.querySelectorAll('.image-upload');
+  imageInputs.forEach(input => {
+      const files = input.files;
+      if (files.length > 0) {
+          for (let i = 0; i < files.length; i++) {
+              formData.append('images', files[i]); // 'images'는 서버에서 처리하는 필드명
+          }
+      }
+  });
+
   try {
       const response = await fetch('/create-post', {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
+              'Authorization': `Bearer ${token}` // JWT 토큰 추가
           },
-          body: JSON.stringify({
-              title: title,
-              content: content
-          })
+          body: formData
       });
 
       const result = await response.json();
       if (result.success) {
           alert('게시글이 성공적으로 등록되었습니다!');
+          localStorage.removeItem('selectedLocation'); // 게시글 등록 후 로컬 스토리지에서 정보 삭제
+          localStorage.removeItem('selectedCategories'); // 선택된 카테고리도 삭제
+          localStorage.removeItem('selectedPlace'); // 선택된 장소도 삭제
       } else {
-          alert('게시글 등록에 실패했습니다.');
+          alert('게시글 등록에 실패했습니다: ' + result.message); // 에러 메시지 표시
       }
   } catch (error) {
       console.error('게시글 등록 오류:', error);
       alert('게시글 등록 중 오류가 발생했습니다.');
   }
 });
+
+
 
 // 커뮤니티 게시글 이미지 슬라이드
 function row_scroll() {

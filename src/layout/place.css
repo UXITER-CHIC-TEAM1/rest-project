@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
 /* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
@@ -13,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  padding-bottom: 65px;
 }
 
 /* 전체 컨테이너 */
@@ -126,7 +129,7 @@ body {
 
 .review-header .view-all {
   margin: 0;
-  color: #38536d; /* 원하는 색상으로 설정 */
+  color: #38536d;
   cursor: pointer;
 }
 
@@ -163,6 +166,7 @@ body {
 
 .nav-tab__inner {
   overflow: hidden;
+  margin-left: 20px;
 }
 
 .nav-tab__scroller {
@@ -181,19 +185,17 @@ body {
   height: 100%;
   z-index: 1000;
   display: flex;
-  justify-content: center; 
-  align-items: flex-end; 
-  background-color: rgba(0, 0, 0, 0.7); 
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
   background: white;
-  width: 100%;
-  max-width: 350px; 
-  border-radius: 10px 10px 0 0; 
+  width: 80%;
+  max-width: 350px;
+  border-radius: 10px 10px 0 0;
   padding: 20px;
-  overflow-y: auto; 
-  margin-bottom: 0;
 }
 
 .hidden {
@@ -206,6 +208,18 @@ body {
   align-items: center;
   margin-bottom: 16px;
 }
+.modal-header h2 {
+  margin-top: 20px;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #38536d;
+}
+
+#folder-preview h2 {
+  margin: 0; /* Remove any default margin */
+}
+
 
 .folder-select-text {
   font-weight: 500;
@@ -213,29 +227,18 @@ body {
 }
 
 .save-button {
-  background-color: white;
-  border: 1px solid #D8D8D8;
-  color: black; /* 텍스트 색상 */
-  padding: 7px 10px; /* 패딩 */
-  border-radius: 5px; /* 둥근 모서리 */
-  font-size: 16px; /* 글꼴 크기 */
-  font-weight: 500; /* 글꼴 두께 */
-  cursor: pointer; /* 마우스 커서 포인터로 변경 */
+  background-color: #38536d;
+  border: none;
+  color: white;
+  padding: 7px 10px; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  font-weight: 500; 
+  cursor: pointer; 
 }
 
 .save-button img {
   width: 19px;
-}
-
-.create-folder-button {
-  background-color: white;
-  border: 1px solid #D8D8D8;
-  color: black; /* 텍스트 색상 */
-  padding: 7px 10px; /* 패딩 */
-  border-radius: 5px; /* 둥근 모서리 */
-  font-size: 16px; /* 글꼴 크기 */
-  font-weight: 500; /* 글꼴 두께 */
-  cursor: pointer; /* 마우스 커서 포인터로 변경 */
 }
 
 .create-folder-button img {
@@ -312,10 +315,32 @@ body {
   border-color: #ccc;
 }
 
-
 /* 폴더 생성 모달 스타일 */
-.modal-content h3 {
+.folder-create-header h2 {
+  margin-top: 20px;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #38536d;
+}
+
+#folder-preview {
+  border-top: 9px solid #e08282;
+  background-color: #fdf6e3;
+  padding: 20px; /* 여백 크기 조정 */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 16px;
+  width: 80%; /* 가로 크기 조정 */
+  max-width: 250px; /* 폴더 크기 고정 */
+  margin: 30px auto 0 auto; /* 상단에 30px 추가 */
+  height: 150px; /* 세로 크기 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .modal-content input {
@@ -398,6 +423,18 @@ body {
   justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
   align-items: center;
   margin-bottom: 16px;
+}
+
+.create-folder-button {
+  margin-top: 3%;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #38536d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* 하단 네비게이션 바 스타일 */

@@ -1,3 +1,7 @@
+document.querySelector(".back-btn").addEventListener("click", function () {
+  window.location.href = "main-page.html";
+});
+
 // 모달 열기와 닫기
 const emotionModal = document.getElementById("emotionModal");
 const openEmotionModalBtn = document.getElementById("openEmotionModal");

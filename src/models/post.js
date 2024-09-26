@@ -5,8 +5,21 @@ const postSchema = new mongoose.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    images: [String]
-    // 위치 정보 필드를 제거
+    images: { type: [String], default: [] },
+    location: {
+        type: {
+            type: String, // 'Point' 타입 지정
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
+    categories: { type: [String], default: [] }, // 카테고리 추가
+    place: { type: String, default: null } // 장소 추가
+
 });
 
 const Post = mongoose.model('Post', postSchema);

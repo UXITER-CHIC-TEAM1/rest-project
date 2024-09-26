@@ -1,3 +1,7 @@
+document.querySelector(".back-btn").addEventListener("click", function () {
+  window.location.href = "main-page.html";
+});
+
 // 탭 전환 기능
 const followerTab = document.getElementById("followerTab");
 const followingTab = document.getElementById("followingTab");
@@ -54,3 +58,38 @@ document.querySelectorAll("#followingList .follow-btn").forEach((button) => {
     listItem.remove();
   });
 });
+
+// 초기 값 설정
+let followerCount = document.querySelectorAll(
+  "#followerList .user-item"
+).length; // 팔로워 수
+let followingCount = document.querySelectorAll(
+  "#followingList .user-item"
+).length; // 팔로잉 수
+
+// 수 업데이트 함수
+function updateCounts() {
+  document.getElementById("followerCount").textContent = followerCount;
+  document.getElementById("followingCount").textContent = followingCount;
+}
+
+// 초기 수 업데이트
+updateCounts();
+
+// 탭 클릭 이벤트
+document.getElementById("followerTab").addEventListener("click", function () {
+  document.getElementById("followerList").classList.add("active");
+  document.getElementById("followingList").classList.remove("active");
+  this.classList.add("active");
+  document.getElementById("followingTab").classList.remove("active");
+});
+
+document.getElementById("followingTab").addEventListener("click", function () {
+  document.getElementById("followerList").classList.remove("active");
+  document.getElementById("followingList").classList.add("active");
+  this.classList.add("active");
+  document.getElementById("followerTab").classList.remove("active");
+});
+
+// 페이지 로드 시 초기 상태 업데이트
+updateCounts();
