@@ -6,6 +6,7 @@ const path = require('path');
 const bcrypt = require('bcrypt'); // 비밀번호 해시화 라이브러리
 const User = require('../models/user'); // 사용자 모델 임포트
 const Post = require('../models/post'); // 게시글 모델 임포트
+const Like = require('../models/like'); // 좋아요 모델 임포트
 const jwt = require('jsonwebtoken'); // JWT 패키지 추가
 const session = require('express-session'); // 세션 관리 패키지 추가
 const multer = require('multer');
@@ -42,7 +43,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'layout', 'start.html'));
 });
 
-// JWT 검증 미들웨어 수정
+// JWT 검증 미들웨어
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -72,7 +73,7 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-// 로그인 요청 처리 수정
+// 로그인 요청 처리
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -88,10 +89,70 @@ app.post('/login', async (req, res) => {
 
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         console.log('Generated JWT:', token);
+        
+        req.session.user = { _id: user._id, email: user.email }; // 세션에 사용자 정보 저장
+
         res.json({ success: true, token });
     } catch (error) {
         console.error('로그인 오류:', error);
         res.status(500).json({ success: false, message: '서버 오류' });
+    }
+});
+
+
+// JWT 유효성 검사를 위한 엔드포인트 추가
+app.get('/api/validate-token', authenticateToken, (req, res) => {
+    res.json({ success: true, message: '토큰이 유효합니다.', user: req.user });
+});
+
+// 인증이 필요한 페이지에 대한 라우트
+app.use(authenticateToken); // 모든 인증이 필요한 라우트에 대해 JWT 검증
+
+// 홈 페이지 라우트
+app.get('/home.html', (req, res) => {
+    console.log('사용자 인증 완료:', req.user);
+    res.sendFile(path.join(__dirname, '..', 'layout', 'home.html'));
+});
+
+// 커뮤니티 페이지 라우트
+app.get('/community.html', (req, res) => {
+    console.log('사용자 인증 완료:', req.user);
+    res.sendFile(path.join(__dirname, '..', 'layout', 'community.html'));
+});
+
+
+app.post('/api/posts/:postId/likes', authenticateToken, async (req, res) => {
+    const { postId } = req.params;
+    const userId = req.user._id; // JWT에서 사용자 ID 추출
+
+    try {
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).json({ success: false, message: '게시글을 찾을 수 없습니다.' });
+        }
+
+        // 사용자가 게시글 작성자인지 확인
+        if (post.author.toString() === userId.toString()) {
+            return res.status(400).json({ success: false, message: '자신의 게시글에 좋아요를 추가할 수 없습니다.' });
+        }
+
+        // 좋아요 추가 로직
+        const existingLike = await Like.findOne({ user: userId, post: postId });
+        if (existingLike) {
+            // 이미 좋아요를 누른 경우, 좋아요 제거
+            await Like.findOneAndDelete({ user: userId, post: postId }); // 기존 좋아요 삭제
+            await Post.findByIdAndUpdate(postId, { $inc: { likesCount: -1 } }); // 좋아요 수 감소
+            return res.json({ success: true, message: '좋아요가 제거되었습니다.' });
+        }
+
+        // 좋아요가 없는 경우, 새로운 좋아요 추가
+        const like = new Like({ user: userId, post: postId }); // 여기서 user와 post 필드 설정
+        await like.save();
+        await Post.findByIdAndUpdate(postId, { $inc: { likesCount: 1 } });
+        res.json({ success: true, message: '좋아요가 추가되었습니다.', like });
+    } catch (error) {
+        console.error('좋아요 추가 실패:', error);
+        res.status(500).json({ success: false, message: '좋아요 추가 실패' });
     }
 });
 
