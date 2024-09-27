@@ -41,6 +41,7 @@ header {
 .title-logo {
   height: 50px;
   padding: 5px 0px;
+  cursor: pointer;
 }
 
 .settings-icon {

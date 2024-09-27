@@ -6,6 +6,10 @@ document.querySelector(".emoticon-item").addEventListener("click", function () {
   window.location.href = "log_record.html";
 });
 
+document.querySelector(".edit-icon").addEventListener("click", function () {
+  window.location.href = "change-profile.html";
+});
+
 // 마이로그 및 커뮤니티 탭 전환 기능
 const myLogTab = document.getElementById("myLogTab");
 const communityTab = document.getElementById("communityTab");
