@@ -189,17 +189,3 @@ footer nav a span {
   font-weight: 600;
   color: #38536d;
 }
-
-/* 하단 바 스타일 */
-.bottom-bar {
-  position: fixed;
-  bottom: 5px;
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  border-radius: 5%;
-  justify-content: space-around;
-  background-color: #38536d;
-  padding: 2px 0;
-  z-index: 1000;
-}

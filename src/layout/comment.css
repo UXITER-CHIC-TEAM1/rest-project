@@ -5,8 +5,8 @@ body {
   padding: 0;
   background-color: white;
   width: 100%;
-  max-width: 390px; 
-  margin: 0 auto; 
+  max-width: 390px;
+  margin: 0 auto;
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
@@ -108,7 +108,8 @@ body {
 }
 
 /* 댓글 및 대댓글 스타일 */
-.comment, .reply-comment {
+.comment,
+.reply-comment {
   display: flex;
   align-items: flex-start;
   padding: 10px 0;
@@ -118,7 +119,6 @@ body {
 .reply-comment {
   padding-left: 40px; /* 대댓글 들여쓰기 */
 }
-
 
 /* 댓글 작성 버튼 */
 .create-div {
@@ -142,11 +142,10 @@ body {
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
-  width: 40%; 
-  max-width: 300px; 
+  width: 40%;
+  max-width: 300px;
   text-align: center;
 }
-
 
 /* 댓글 입력창 */
 .comment-input {
@@ -155,15 +154,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px; 
+  height: 60px;
   position: fixed;
   bottom: 60px;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
-  background-color: white; 
+  background-color: white;
   z-index: 1000;
 }
-
 
 .input-comment {
   padding: 8px;
@@ -171,7 +169,7 @@ body {
   border-radius: 4px;
   font-size: 14px;
   width: 70%;
-  background-color: #EAEEF2;
+  background-color: #eaeef2;
   margin-left: 10px;
 }
 
@@ -187,7 +185,6 @@ body {
   margin-left: 15px;
   margin-right: 10px;
 }
-
 
 /* 어두운 배경 */
 .overlay {
@@ -234,18 +231,4 @@ footer nav a span {
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
-}
-
-/* 하단 바 스타일 */
-.bottom-bar {
-  position: fixed;
-  bottom: 5px;
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  border-radius: 5%;
-  justify-content: space-around;
-  background-color: #38536d;
-  padding: 2px 0;
-  z-index: 1000;
 }

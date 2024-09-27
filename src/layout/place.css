@@ -7,8 +7,8 @@ body {
   padding: 0;
   background-color: white;
   width: 100%;
-  max-width: 390px; 
-  margin: 0 auto; 
+  max-width: 390px;
+  margin: 0 auto;
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   height: 100vh; /* 전체 높이 설정 */
@@ -20,8 +20,8 @@ body {
 
 /* 전체 컨테이너 */
 .container {
-  flex-grow: 1; 
-  padding-bottom: 60px; 
+  flex-grow: 1;
+  padding-bottom: 60px;
 }
 
 /* 장소 정보 영역 */
@@ -220,7 +220,6 @@ body {
   margin: 0; /* Remove any default margin */
 }
 
-
 .folder-select-text {
   font-weight: 500;
   font-size: 18px;
@@ -230,11 +229,11 @@ body {
   background-color: #38536d;
   border: none;
   color: white;
-  padding: 7px 10px; 
-  border-radius: 5px; 
-  font-size: 16px; 
-  font-weight: 500; 
-  cursor: pointer; 
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .save-button img {
@@ -260,7 +259,7 @@ body {
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: 500;
-  border-bottom: 1px solid #D8D8D8;
+  border-bottom: 1px solid #d8d8d8;
 }
 
 /* 폴더 추가 버튼 스타일 */
@@ -270,7 +269,7 @@ body {
   align-items: center;
   margin-bottom: 10px;
   padding: 5px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   background-color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -278,7 +277,6 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
-
 
 /* 기본 라디오 버튼 숨기기 */
 .folder-list input[type="radio"] {
@@ -298,7 +296,7 @@ body {
 
 /* 라디오 버튼을 오른쪽에 위치시키기 */
 .folder-list label::before {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   top: 50%;
@@ -311,7 +309,7 @@ body {
 }
 
 .folder-list input[type="radio"]:checked + label::before {
-  background-color: #FFF7DC;
+  background-color: #fff7dc;
   border-color: #ccc;
 }
 
@@ -363,36 +361,38 @@ body {
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* 각각의 색상 버튼 기본 상태 */
 .color-option:nth-child(1) {
-  background-color: #FBB5B5;
+  background-color: #fbb5b5;
 }
 .color-option:nth-child(2) {
-  background-color: #ECBAA6;
+  background-color: #ecbaa6;
 }
 .color-option:nth-child(3) {
-  background-color: #C1EFA5;
+  background-color: #c1efa5;
 }
 .color-option:nth-child(4) {
-  background-color: #B3DEEC;
+  background-color: #b3deec;
 }
 .color-option:nth-child(5) {
-  background-color: #8FC28A;
+  background-color: #8fc28a;
 }
 .color-option:nth-child(6) {
-  background-color: #FDEE96;
+  background-color: #fdee96;
 }
 .color-option:nth-child(7) {
-  background-color: #EBC3EB;
+  background-color: #ebc3eb;
 }
 .color-option:nth-child(8) {
-  background-color: #E18383;
+  background-color: #e18383;
 }
 .color-option:nth-child(9) {
-  background-color: #8E98F2;
+  background-color: #8e98f2;
 }
 
 .color-option input[type="radio"] {
@@ -471,18 +471,4 @@ footer nav a span {
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
-}
-
-/* 하단 바 스타일 */
-.bottom-bar {
-  position: fixed;
-  bottom: 5px;
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  border-radius: 5%;
-  justify-content: space-around;
-  background-color: #38536d;
-  padding: 2px 0;
-  z-index: 1000;
 }
