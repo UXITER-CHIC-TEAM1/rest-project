@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 /* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
@@ -19,7 +12,6 @@ body {
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
-  padding-bottom: 120px;
 }
 
 /* 글 제목 스타일 */
@@ -102,7 +94,6 @@ body {
 /* 커뮤니티 게시물 스타일 */
 .community-post {
   background-color: white;
-  margin: 10px;
   padding: 10px;
 }
 
