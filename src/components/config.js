@@ -10,6 +10,7 @@ const Like = require('../models/like'); // 좋아요 모델 임포트
 const jwt = require('jsonwebtoken'); // JWT 패키지 추가
 const session = require('express-session'); // 세션 관리 패키지 추가
 const multer = require('multer');
+const MyLogPost = require('../models/mylogpost'); 
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -39,6 +40,16 @@ app.use(express.static(path.join(__dirname, '..', 'components')));
 app.use(express.static(path.join(__dirname, '..', 'assets')));
 
 app.use('/uploads', express.static(path.join(__dirname, '..','..', 'uploads')));
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, '..', '..', 'uploads')); // 파일 저장 경로 설정
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname)); // 파일 이름 설정
+    }
+});
+const upload = multer({ storage: storage });
 
 // 기본 라우트: start.html 파일 제공
 app.get('/', (req, res) => {
@@ -123,17 +134,6 @@ app.get('/community.html', (req, res) => {
 });
 
 
-// Multer 설정
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/'); // 업로드할 디렉토리 지정
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname); // 파일에 고유한 이름 부여
-    }
-});
-
-const upload = multer({ storage: storage });
 
 // 게시글 등록
 app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
@@ -210,6 +210,27 @@ app.get('/api/posts', async (req, res) => {
         res.status(500).json({ message: '게시글을 가져오는 데 실패했습니다.' });
     }
 });
+
+app.post('/api/log', async (req, res) => {
+    const { emotion, music, place, content, photos } = req.body;
+
+    try {
+        const newLogPost = new MyLogPost({
+            emotion,
+            music,
+            place,
+            content,
+            photos,
+        });
+
+        await newLogPost.save();
+        res.status(201).json({ success: true, message: '로그 저장 성공', logId: newLogPost._id });
+    } catch (error) {
+        console.error('로그 저장 중 오류:', error);
+        res.status(500).json({ success: false, message: '로그 저장 중 오류 발생' });
+    }
+});
+
 
 
 // 에러 핸들링 미들웨어
