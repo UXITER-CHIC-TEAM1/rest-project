@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${!isReply ? '<button class="reply">답글달기</button>' : ''}
                     <div class="likes-info">
                         <button class="likes-button">
-                            <img src="/src/assets/likes-button.png" />
+                            <img src="/likes-button.png" />
                         </button>
                         <p class="likes-amount">0</p>
                     </div>
@@ -86,11 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!button.classList.contains('liked')) {
                 likesCount += 1;
                 button.classList.add('liked');
-                imgElement.src = '/src/assets/filled-likes.png';
+                imgElement.src = '/filled-likes.png';
             } else {
                 likesCount -= 1;
                 button.classList.remove('liked');
-                imgElement.src = '/src/assets/likes-button.png';
+                imgElement.src = '/likes-button.png';
             }
 
             countElement.textContent = likesCount;

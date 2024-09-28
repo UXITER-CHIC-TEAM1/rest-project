@@ -222,14 +222,25 @@ header img {
 }
 
 /* 이미지 크기 조정 */
-.nav-tab__item img {
-  max-width: 250px;
-  max-height: 300px;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+.nav-tab__item img, .post-image {
+  max-width: 300px; /* 기존의 두 배로 증가 */
+  max-height: 360px; /* 기존의 두 배로 증가 */
+  width: 100%; /* 부모 요소에 맞춤 */
+  height: auto; /* 비율에 따라 자동 조정 */
+  object-fit: cover; /* 비율 유지하며 잘림 */
+  border-radius: 8px; /* 모서리를 둥글게 처리 */
+  margin: 5px; /* 여백 추가 */
 }
+
+/* 반응형 이미지 */
+@media (max-width: 600px) {
+  .nav-tab__item img, .post-image {
+    max-width: 200px; /* 작은 화면에서는 최대 너비를 200px로 증가 */
+    max-height: 240px; /* 작은 화면에서는 최대 높이를 240px로 증가 */
+  }
+}
+
+
 
 /* 글쓰기 버튼 스타일 */
 .create-div {

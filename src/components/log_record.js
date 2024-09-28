@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isBookmarked) {
       // 북마크가 이미 되어 있으면, 다시 북마크 해제 이미지로 변경하고, 모달을 띄우지 않음
-      img.src = "/src/assets/bookmark.png";
+      img.src = "/bookmark.png";
       isBookmarked = false;
 
       img.style.width = "60px";
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const img = bookmarkButton.querySelector("img");
 
       // 이미지 소스를 변경
-      img.src = "/src/assets/add-bookmark.png";
+      img.src = "/add-bookmark.png";
 
       // 이미지 크기 조절
       img.style.width = "38px";

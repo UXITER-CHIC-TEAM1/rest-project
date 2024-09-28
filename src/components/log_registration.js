@@ -12,15 +12,15 @@ const emotionDisplayImg = document.getElementById("selectedEmotionImg"); // 감�
 
 // 감정별 이미지 매핑
 const emotionImages = {
-  calm: "/src/assets/icon_calm.png",
-  shy: "/src/assets/icon_shy.png",
-  happy: "/src/assets/icon_happy.png",
-  sensitive: "/src/assets/icon_sensitive.png",
-  annoy: "/src/assets/icon_annoy.png",
-  sad: "/src/assets/icon_sad.png",
-  love: "/src/assets/icon_love.png",
-  electrifying: "/src/assets/icon_electrifying.png",
-  surprise: "/src/assets/icon_surprise.png",
+  calm: "/icon_calm.png",
+  shy: "/icon_shy.png",
+  happy: "/icon_happy.png",
+  sensitive: "/icon_sensitive.png",
+  annoy: "/icon_annoy.png",
+  sad: "/icon_sad.png",
+  love: "/icon_love.png",
+  electrifying: "/icon_electrifying.png",
+  surprise: "/icon_surprise.png",
 };
 
 // 감정 아이콘 클릭 시 모달 열기
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isBookmarked) {
       // 북마크가 이미 되어 있으면, 다시 북마크 해제 이미지로 변경하고, 모달을 띄우지 않음
-      img.src = "/src/assets/bookmark.png";
+      img.src = "/bookmark.png";
       isBookmarked = false;
 
       img.style.width = "60px";
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const img = bookmarkButton.querySelector("img");
 
       // 이미지 소스를 변경
-      img.src = "/src/assets/add-bookmark.png";
+      img.src = "/add-bookmark.png";
 
       // 이미지 크기 조절
       img.style.width = "38px";

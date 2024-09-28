@@ -1,3 +1,8 @@
+/* 
+커뮤니티 -> 제목 작성자 장소명 장소사진 (좋아요 수)  title, author, images, 
+포스트 -> 제목 작성자 장소명 장소사진 내용
+*/
+
 const mongoose = require('mongoose');
 
 // 데이터베이스 스키마 및 모델 추가 (게시글)

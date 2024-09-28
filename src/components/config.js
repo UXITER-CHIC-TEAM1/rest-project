@@ -38,6 +38,8 @@ app.use(express.static(path.join(__dirname, '..', 'layout')));
 app.use(express.static(path.join(__dirname, '..', 'components')));
 app.use(express.static(path.join(__dirname, '..', 'assets')));
 
+app.use('/uploads', express.static(path.join(__dirname, '..','..', 'uploads')));
+
 // 기본 라우트: start.html 파일 제공
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'layout', 'start.html'));
@@ -121,41 +123,6 @@ app.get('/community.html', (req, res) => {
 });
 
 
-app.post('/api/posts/:postId/likes', authenticateToken, async (req, res) => {
-    const { postId } = req.params;
-    const userId = req.user._id; // JWT에서 사용자 ID 추출
-
-    try {
-        const post = await Post.findById(postId);
-        if (!post) {
-            return res.status(404).json({ success: false, message: '게시글을 찾을 수 없습니다.' });
-        }
-
-        // 사용자가 게시글 작성자인지 확인
-        if (post.author.toString() === userId.toString()) {
-            return res.status(400).json({ success: false, message: '자신의 게시글에 좋아요를 추가할 수 없습니다.' });
-        }
-
-        // 좋아요 추가 로직
-        const existingLike = await Like.findOne({ user: userId, post: postId });
-        if (existingLike) {
-            // 이미 좋아요를 누른 경우, 좋아요 제거
-            await Like.findOneAndDelete({ user: userId, post: postId }); // 기존 좋아요 삭제
-            await Post.findByIdAndUpdate(postId, { $inc: { likesCount: -1 } }); // 좋아요 수 감소
-            return res.json({ success: true, message: '좋아요가 제거되었습니다.' });
-        }
-
-        // 좋아요가 없는 경우, 새로운 좋아요 추가
-        const like = new Like({ user: userId, post: postId }); // 여기서 user와 post 필드 설정
-        await like.save();
-        await Post.findByIdAndUpdate(postId, { $inc: { likesCount: 1 } });
-        res.json({ success: true, message: '좋아요가 추가되었습니다.', like });
-    } catch (error) {
-        console.error('좋아요 추가 실패:', error);
-        res.status(500).json({ success: false, message: '좋아요 추가 실패' });
-    }
-});
-
 // Multer 설정
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -168,9 +135,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-//게시글등록
+// 게시글 등록
 app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최대 5개의 이미지 업로드
-    const { title, content, selectedLocation, categories, place } = req.body; // categories 추가
+    const { title, content, selectedLocation, categories, place } = req.body;
 
     // selectedLocation이 undefined일 경우 에러 응답
     if (!selectedLocation) {
@@ -207,11 +174,10 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
         if (!mongoose.Types.ObjectId.isValid(authorId)) {
             throw new Error('유효하지 않은 사용자 ID');
         }
-        console.log('Location before parsing:', location); // 추가한 콘솔 로그
 
         // categories와 place가 정의되어 있는지 확인 후 JSON 파싱
-        const parsedCategories = categories ? JSON.parse(categories) : []; // JSON 문자열 파싱
-        const parsedPlace = place  // place 파싱
+        const parsedCategories = categories ? JSON.parse(categories) : [];
+        const parsedPlace = place;
 
         const newPost = new Post({
             title,
@@ -222,16 +188,26 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
                 type: "Point",
                 coordinates: [parseFloat(location.lng), parseFloat(location.lat)] // GeoJSON 형식: [경도, 위도]
             },
-            categories: parsedCategories, // 카테고리 추가
-            place: parsedPlace // 장소 정보 추가
-     
+            categories: parsedCategories,
+            place: parsedPlace
         });
 
         await newPost.save();
-        res.status(201).json({ success: true, message: '게시글 등록 성공' });
+        res.status(201).json({ success: true, message: '게시글 등록 성공', postId: newPost._id }); // ID 반환
     } catch (error) {
         console.error('게시글 등록 중 오류:', error.message || error);
         res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
+    }
+});
+
+// 게시글 목록 가져오기 API 추가
+app.get('/api/posts', async (req, res) => {
+    try {
+        const posts = await Post.find().populate('author', 'nickname');  // 데이터베이스에서 모든 게시글을 가져옵니다.
+        res.json(posts); // JSON 형식으로 응답
+    } catch (error) {
+        console.error(error); // 서버에서 오류를 콘솔에 출력
+        res.status(500).json({ message: '게시글을 가져오는 데 실패했습니다.' });
     }
 });
 
