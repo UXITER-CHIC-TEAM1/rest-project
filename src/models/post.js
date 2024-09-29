@@ -13,6 +13,7 @@ const postSchema = new mongoose.Schema({
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     images: { type: [String], default: [] },
     location: {
+        
         type: {
             type: String, // Point 타입 지정
             enum: ['Point'],
@@ -22,7 +23,7 @@ const postSchema = new mongoose.Schema({
             type: [Number],
             required: true
         },
-       //  name: { type: String, required: true } // 장소명 추가
+       name: { type: String, required: true } // 장소명 추가
     },
      // 카테고리 추가
     categories: { type: [String], default: [] },

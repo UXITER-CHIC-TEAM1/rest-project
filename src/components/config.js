@@ -186,6 +186,7 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
             author: new mongoose.Types.ObjectId(authorId),
             images,
             location: {
+                name:location.name,
                 type: "Point",
                 coordinates: [parseFloat(location.lng), parseFloat(location.lat)] // GeoJSON 형식: [경도, 위도]
             },

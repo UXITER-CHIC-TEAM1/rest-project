@@ -156,10 +156,17 @@ async function saveLocation(locationData) {
 
 // 'create-post' 라우트와 함께 장소 정보 전송
 document.querySelector('.place-info button').addEventListener('click', () => {
-  const locationData = JSON.parse(document.querySelector('.place-info').dataset.location);
-  saveLocation(locationData);
+    const locationData = {
+        name: 
+        JSON.parse(localStorage.getItem('selectedLocation')).name,
+        coordinates: [
+            JSON.parse(localStorage.getItem('selectedLocation')).lng,
+            JSON.parse(localStorage.getItem('selectedLocation')).lat
+        ], // 위도 경도
+        type: 'Point' // 타입 추가
+    };
+    saveLocation(locationData);
 });
-
 
 };
 

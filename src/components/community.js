@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
           postElement.innerHTML = `
               <h3>${post.title}</h3>
               <p>작성자: ${post.author.nickname}</p> <!-- 작성자 닉네임 출력 -->
-              <p>장소명: ${post.place || '장소명 없음'}</p> <!-- 장소명 처리 -->
+              <p>장소명: ${post.location.name || '장소명 없음'}</p> <!-- 장소명 처리 -->
               ${post.images.length > 0 ? `<img src="${post.images[0]}" alt="${post.title}" class="post-image"/>` : ''} <!-- 첫 번째 이미지 표시 -->
           `;
 
