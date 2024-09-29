@@ -194,3 +194,7 @@ footer nav a span {
   font-weight: 600;
   color: #38536d;
 }
+
+h2.post-title {
+  color: #fcf0d9; /* header와 동일한 색상으로 설정 (240929 추가) */
+}

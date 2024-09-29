@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
+header {
+  display: flex;
+  background-color: #fcf0d9;
+}
+
+
 /* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 100%;
   max-width: 390px;
   margin: 0 auto;
@@ -17,6 +23,7 @@ body {
 /* 글 제목 스타일 */
 .title {
   font-size: 20px;
+  background-color: #fcf0d9;
   font-weight: bolder;
   margin-left: 20px;
 }
@@ -104,6 +111,7 @@ body {
 /* 장소명 스타일 */
 .post-placename {
   font-size: 20px;
+  background-color: #efdaa5;
   font-weight: bolder;
   color: black;
   margin: 0;
@@ -277,7 +285,7 @@ footer {
   width: 100%;
   max-width: 390px;
   background-color: #fff;
-  border-top: 2px solid #e9ecef;
+  border-top: 2px solid #dae5f0;
   padding: 10px 0;
   z-index: 1000;
   left: 50%;
