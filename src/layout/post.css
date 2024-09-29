@@ -249,11 +249,11 @@ body {
 
 /* 이미지 크기 조정 */
 .nav-tab__item img {
-  max-width: 250px;
-  max-height: 300px;
+  max-width: 500px;
+  max-height: 600px;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4; /* 이미지 비율 3:4 유지 */
+  
   object-fit: cover;
 }
 

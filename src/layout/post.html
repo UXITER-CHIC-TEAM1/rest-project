@@ -54,7 +54,13 @@
                 postContainer.innerHTML = `
                     <h2 class="post-title">${post.title}</h2>
                     <p class="post-location">${post.location.type}</p>
-                    <img src="${post.images[0]}" alt="${post.title}" class="post-image" />
+                    <div class="nav-tabs">
+                        ${post.images.map(image => `
+                            <div class="nav-tab__item">
+                                <img src="${image}" alt="${post.title}" />
+                            </div>
+                        `).join('')}
+                    </div>
                     <p class="post-author">게시자: ${post.author.nickname}</p>
                     <p class="post-content">${post.content}</p>
                 `;
