@@ -65,6 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .querySelector(".signup-button")
     .addEventListener("click", function () {
-      window.location.href = "/src/layout/signUp.html"; // signup.html로 리다이렉션
+      window.location.href = "/signUp.html"; // signup.html로 리다이렉션
     });
 });

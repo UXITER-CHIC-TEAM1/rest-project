@@ -58,12 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
         posts.forEach((post) => {
           const postElement = document.createElement("div");
           postElement.classList.add("community-post");
+
+          // 게시물 클릭 이벤트 추가
+          postElement.addEventListener('click', () => {
+            window.location.href = `/post.html?p=${post.shortId}`; // 클릭 시 세부 페이지로 이동
+          });
+
+          // 게시물 내용 설정
           postElement.innerHTML = `
               <h3>${post.title}</h3>
               <p>작성자: ${post.author.nickname}</p> <!-- 작성자 닉네임 출력 -->
               <p>장소명: ${post.place || '장소명 없음'}</p> <!-- 장소명 처리 -->
               ${post.images.length > 0 ? `<img src="${post.images[0]}" alt="${post.title}" class="post-image"/>` : ''} <!-- 첫 번째 이미지 표시 -->
           `;
+
           postsContainer.appendChild(postElement); // 게시물 추가
         });
       })
@@ -71,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error(error); // 오류 발생 시 콘솔 출력
         alert(`게시물 로드 중 오류 발생: ${error.message}`); // 오류 메시지 출력
       });
-  };
+  }; // loadPosts 함수 닫기
 
   // 페이지 초기화 함수 - 인증 후 호출
   function initializePage() {
@@ -126,4 +134,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-});
+}); 

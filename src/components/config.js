@@ -10,6 +10,7 @@ const Like = require('../models/like'); // 좋아요 모델 임포트
 const jwt = require('jsonwebtoken'); // JWT 패키지 추가
 const session = require('express-session'); // 세션 관리 패키지 추가
 const multer = require('multer');
+const shortid = require('shortid');
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -189,11 +190,11 @@ app.post('/create-post', upload.array('images', 5), async (req, res) => { // 최
                 coordinates: [parseFloat(location.lng), parseFloat(location.lat)] // GeoJSON 형식: [경도, 위도]
             },
             categories: parsedCategories,
-            place: parsedPlace
+            place: parsedPlace,
         });
 
         await newPost.save();
-        res.status(201).json({ success: true, message: '게시글 등록 성공', postId: newPost._id }); // ID 반환
+        res.status(201).json({ success: true, message: '게시글 등록 성공', postId: newPost._id, shortId: newPost.shortId }); // ID 반환
     } catch (error) {
         console.error('게시글 등록 중 오류:', error.message || error);
         res.status(500).json({ success: false, message: `게시글 등록 중 오류가 발생했습니다. 상세: ${error.message}` });
@@ -205,6 +206,38 @@ app.get('/api/posts', async (req, res) => {
     try {
         const posts = await Post.find().populate('author', 'nickname');  // 데이터베이스에서 모든 게시글을 가져옵니다.
         res.json(posts); // JSON 형식으로 응답
+    } catch (error) {
+        console.error(error); // 서버에서 오류를 콘솔에 출력
+        res.status(500).json({ message: '게시글을 가져오는 데 실패했습니다.' });
+    }
+});
+
+
+// // 특정 게시글 가져오기 API 추가
+// app.get('/api/posts/:shortId', async (req, res) => {
+//     const { shortId } = req.params; // URL 파라미터에서 shortId 추출
+//     try {
+//         const post = await Post.findOne({ shortId }).populate('author', 'nickname'); // shortId로 게시글 조회
+//         if (!post) {
+//             return res.status(404).json({ message: '게시글을 찾을 수 없습니다.' });
+//         }
+//         res.json(post); // 게시글 데이터 반환
+//     } catch (error) {
+//         console.error(error); // 서버에서 오류를 콘솔에 출력
+//         res.status(500).json({ message: '게시글을 가져오는 데 실패했습니다.' });
+//     }
+// });
+
+
+// 특정 게시글 가져오기 API 추가
+app.get('/api/posts/:shortId', async (req, res) => {
+    const { shortId } = req.params; // URL 파라미터에서 shortId 추출
+    try {
+        const post = await Post.findOne({ shortId }).populate('author', 'nickname'); // shortId로 게시글 조회
+        if (!post) {
+            return res.status(404).json({ message: '게시글을 찾을 수 없습니다.' });
+        }
+        res.json(post); // 게시글 데이터 반환
     } catch (error) {
         console.error(error); // 서버에서 오류를 콘솔에 출력
         res.status(500).json({ message: '게시글을 가져오는 데 실패했습니다.' });
