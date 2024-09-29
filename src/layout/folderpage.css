@@ -33,6 +33,7 @@ a {
 header img {
   height: 50px;
   padding: 5px 0px 0px 0px;
+  cursor: pointer;
 }
 
 #addfolder {
@@ -45,6 +46,7 @@ header img {
   border: none;
   font-size: 20px;
   color: #38536d;
+  cursor: pointer;
 }
 
 #addfolder i {
@@ -154,8 +156,8 @@ footer nav a span {
 
 .modal-content {
   background: white;
-  width: 80%;
-  max-width: 350px;
+  width: 100%;
+  max-width: 390px;
   border-radius: 10px 10px 0 0;
   padding: 20px;
 }
@@ -180,7 +182,7 @@ footer nav a span {
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-  width: 80%; /* 가로 크기 조정 */
+  width: 100%; /* 가로 크기 조정 */
   max-width: 250px; /* 폴더 크기 고정 */
   margin: 30px auto 0 auto; /* 상단에 30px 추가 */
   height: 150px; /* 세로 크기 */
@@ -218,36 +220,38 @@ footer nav a span {
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* 각각의 색상 버튼 기본 상태 */
 .color-option:nth-child(1) {
-  background-color: #FBB5B5;
+  background-color: #fbb5b5;
 }
 .color-option:nth-child(2) {
-  background-color: #ECBAA6;
+  background-color: #ecbaa6;
 }
 .color-option:nth-child(3) {
-  background-color: #C1EFA5;
+  background-color: #c1efa5;
 }
 .color-option:nth-child(4) {
-  background-color: #B3DEEC;
+  background-color: #b3deec;
 }
 .color-option:nth-child(5) {
-  background-color: #8FC28A;
+  background-color: #8fc28a;
 }
 .color-option:nth-child(6) {
-  background-color: #FDEE96;
+  background-color: #fdee96;
 }
 .color-option:nth-child(7) {
-  background-color: #EBC3EB;
+  background-color: #ebc3eb;
 }
 .color-option:nth-child(8) {
-  background-color: #E18383;
+  background-color: #e18383;
 }
 .color-option:nth-child(9) {
-  background-color: #8E98F2;
+  background-color: #8e98f2;
 }
 
 .color-option input[type="radio"] {

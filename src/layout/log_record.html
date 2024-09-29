@@ -32,11 +32,14 @@
           <h4>카페꼼마 합정점</h4>
           <p>서울 마포구 망원동</p>
         </div>
-        <img
-          src="/src/assets/bookmark.png"
-          alt="bookmark"
-          class="bookmark-img"
-        />
+        <!--북마크 버튼-->
+        <button class="bookmark-button">
+          <img
+            src="/src/assets/bookmark.png"
+            alt="bookmark"
+            class="bookmark-img"
+          />
+        </button>
       </div>
 
       <!--이미지 슬라이드-->
@@ -96,8 +99,81 @@
             ></a
           >
         </nav>
-        <div class="bottom-bar"></div>
       </footer>
+      
+      <!-- 북마크 모달창 -->
+      <div id="bookmarkModal" class="modal hidden">
+        <div class="modal-content">
+          <div id="modal-bar"></div>
+          <div class="modal-header">
+            <h2>폴더 선택</h2>
+            <button class="save-button">선택하기</button>
+          </div>
+          <ul class="folder-list">
+            <!--동적으로 폴더 추가 될 곳-->
+          </ul>
+          <button class="add-folder-button">
+            <img src="/src/assets/bookmark.png" />쉼터 폴더 추가
+          </button>
+          <div class="modal-actions"></div>
+        </div>
+      </div>
+
+      <!-- 폴더 생성 -->
+      <div id="folderCreationModal" class="modal hidden">
+        <div class="modal-content">
+          <div id="modal-bar"></div>
+          <div class="folder-create-header">
+            <h2>쉼터 폴더 추가</h2>
+          </div>
+
+          <div id="folder-preview" class="folder-preview">
+            <span id="folder-preview-name">폴더명</span>
+          </div>
+
+          <div class="color-options">
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#FBB5B5" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#ECBAA6" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#C1EFA5" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#B3DEEC" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#8FC28A" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#FDEE96" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#EBC3EB" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#E18383" />
+              <span class="color-label"></span>
+            </label>
+            <label class="color-option">
+              <input type="radio" name="folderColor" value="#8E98F2" />
+              <span class="color-label"></span>
+            </label>
+          </div>
+
+          <input type="text" id="folderName" placeholder="폴더 이름 입력" />
+          <button class="create-folder-button">폴더 생성하기</button>
+        </div>
+      </div>
     </div>
     <script src="/src/components/log_record.js"></script>
   </body>

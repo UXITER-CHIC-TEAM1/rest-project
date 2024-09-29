@@ -27,33 +27,35 @@ a {
   text-decoration: none;
 }
 
-/* 헤더 스타일 */
-.header-container {
+/* 상단바 스타일 */
+.header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
-  background-color: white;
-  position: relative;
-  transform: skewY(5deg);
-  z-index: 100;
+  padding: 15px;
+  background-color: #fff;
 }
 
-.header-container h1 {
-  transform: skewY(-5deg);
-  font-size: 18px;
-  margin: 0;
-}
-
-.back-button {
-  background-color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
+.back-btn {
   position: absolute;
   left: 15px;
-  top: 15px;
-  transform: skewY(-5deg);
+  background: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-image: url(/src/assets/left-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
 }
 
 .edit-icon {
@@ -91,10 +93,9 @@ a {
   flex-direction: column;
   margin-bottom: 20px;
   position: relative;
-  border-bottom: 1px solid #e9ecef; 
-  padding-bottom: 10px; 
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
 }
-
 
 .folder-item:last-child {
   border-bottom: none;
@@ -102,27 +103,27 @@ a {
 
 .folder-item .top-row {
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 
 .folder-item .check-icon {
   width: 20px;
   height: 20px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .folder-item > span {
-  flex-grow: 1; 
+  flex-grow: 1;
   margin-right: 10px;
 }
 
 .folder-item .check-box {
-  visibility: hidden; 
+  visibility: hidden;
   margin-left: auto;
   margin-right: 0;
-  position: relative; 
+  position: relative;
 }
 
 .comment-section {
@@ -138,7 +139,6 @@ a {
   font-size: 12px;
   resize: none;
 }
-
 
 /* 폴더 이동 및 삭제 버튼 스타일 */
 .folder-actions {

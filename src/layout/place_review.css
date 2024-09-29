@@ -5,8 +5,8 @@ body {
   padding: 0;
   background-color: white;
   width: 100%;
-  max-width: 390px; 
-  margin: 0 auto; 
+  max-width: 390px;
+  margin: 0 auto;
   overflow-x: hidden; /* 가로 스크롤 X */
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
@@ -27,7 +27,7 @@ body {
 
 /* 게시글 제목, 장소명 스타일 */
 .review-title {
-   height: 10px;
+  height: 10px;
 }
 
 .place-title {
@@ -117,7 +117,6 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
 }
 
 .follow-button:hover {
@@ -211,7 +210,7 @@ body {
 /* 댓글 */
 .comment-button {
   border: none;
-  background-color:transparent;
+  background-color: transparent;
 }
 
 .comment-button img {
@@ -260,18 +259,4 @@ footer nav a span {
   font-size: 12px;
   font-weight: 600;
   color: #38536d;
-}
-
-/* 하단 바 스타일 */
-.bottom-bar {
-  position: fixed;
-  bottom: 5px;
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  border-radius: 5%;
-  justify-content: space-around;
-  background-color: #38536d;
-  padding: 2px 0;
-  z-index: 1000;
 }

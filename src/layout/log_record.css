@@ -172,10 +172,21 @@ body {
   margin: 0;
 }
 
+/* 북마크 버튼 */
+.bookmark-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+}
+
 .bookmark-img {
   width: 40px;
   height: auto;
   margin-left: auto; /* 오른쪽 끝으로 밀어내기 */
+  cursor: pointer;
 }
 
 /* 마이로그 기록 영역 */
@@ -198,7 +209,7 @@ footer {
   background-color: #fff;
   border-top: 2px solid #e9ecef;
   padding: 10px 0;
-  z-index: 1000;
+  z-index: 1002;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -224,16 +235,264 @@ footer nav a span {
   color: #38536d;
 }
 
-/* 하단 바 스타일 */
-.bottom-bar {
+/* 폴더 선택 스타일 */
+.modal {
   position: fixed;
-  bottom: 5px;
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  border-radius: 5%;
-  justify-content: space-around;
-  background-color: #38536d;
-  padding: 2px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background: white;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  padding-bottom: 65px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
+  align-items: center;
+  margin-bottom: 16px;
+}
+.modal-header h2 {
+  margin-top: 20px;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #38536d;
+}
+
+#folder-preview h2 {
+  margin: 0; /* Remove any default margin */
+}
+
+.folder-select-text {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.save-button {
+  background-color: #38536d;
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.save-button img {
+  width: 19px;
+}
+
+.create-folder-button img {
+  width: 19px;
+}
+/* 기존 폴더 리스트 스타일 */
+.folder-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.folder-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+/* 폴더 추가 버튼 스타일 */
+.add-folder-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #d8d8d8;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 기본 라디오 버튼 숨기기 */
+.folder-list input[type="radio"] {
+  display: none;
+}
+
+/* 커스텀 라디오 버튼 스타일 */
+.folder-list label {
+  position: relative;
+  padding-right: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  flex-grow: 1; /* 라벨이 남은 공간을 차지 */
+  text-align: left;
+}
+
+/* 라디오 버튼을 오른쪽에 위치시키기 */
+.folder-list label::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%; /* 라디오 버튼 모양 */
+  background-color: white;
+}
+
+.folder-list input[type="radio"]:checked + label::before {
+  background-color: #fff7dc;
+  border-color: #ccc;
+}
+
+/* 폴더 생성 모달 스타일 */
+.folder-create-header h2 {
+  margin-top: 20px;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #38536d;
+}
+
+#folder-preview {
+  border-top: 9px solid #e08282;
+  background-color: #fdf6e3;
+  padding: 20px; /* 여백 크기 조정 */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  width: 80%; /* 가로 크기 조정 */
+  max-width: 250px; /* 폴더 크기 고정 */
+  margin: 30px auto 0 auto; /* 상단에 30px 추가 */
+  height: 150px; /* 세로 크기 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+}
+
+/* 색상 선택 버튼 */
+.color-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.color-option {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* 각각의 색상 버튼 기본 상태 */
+.color-option:nth-child(1) {
+  background-color: #fbb5b5;
+}
+.color-option:nth-child(2) {
+  background-color: #ecbaa6;
+}
+.color-option:nth-child(3) {
+  background-color: #c1efa5;
+}
+.color-option:nth-child(4) {
+  background-color: #b3deec;
+}
+.color-option:nth-child(5) {
+  background-color: #8fc28a;
+}
+.color-option:nth-child(6) {
+  background-color: #fdee96;
+}
+.color-option:nth-child(7) {
+  background-color: #ebc3eb;
+}
+.color-option:nth-child(8) {
+  background-color: #e18383;
+}
+.color-option:nth-child(9) {
+  background-color: #8e98f2;
+}
+
+.color-option input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* 체크된 상태에서는 색상을 어둡게 */
+.color-option input[type="radio"]:checked + .color-label {
+  background-color: rgba(0, 0, 0, 0.2); /* 어두운 오버레이 효과 */
+}
+
+.color-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: inherit; /* 부모의 배경색 상속 */
+  z-index: 1;
+}
+
+.folder-create-header {
+  display: flex;
+  justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.create-folder-button {
+  margin-top: 3%;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #38536d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }

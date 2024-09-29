@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 /* 기본 스타일 설정 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
@@ -13,12 +7,11 @@ body {
   padding: 0;
   background-color: white;
   width: 100%;
-  max-width: 390px; 
-  margin: 0 auto; 
+  max-width: 390px;
+  margin: 0 auto;
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(51, 51, 51, 0.2);
   min-height: 100vh;
-  padding-bottom: 120px;
 }
 
 /* 글 제목 스타일 */
@@ -32,7 +25,7 @@ body {
 .placename-and-filter {
   display: flex;
   flex-direction: column; /* 수직 배치 */
-  background-color: #fcf0D9;
+  background-color: #fcf0d9;
   padding: 10px 20px; /* 패딩 추가 */
   position: relative; /* 위치 조정을 위해 */
   border-radius: 25px;
@@ -101,7 +94,6 @@ body {
 /* 커뮤니티 게시물 스타일 */
 .community-post {
   background-color: white;
-  margin: 10px;
   padding: 10px;
 }
 
@@ -155,7 +147,7 @@ body {
 
 /* 좋아요 및 댓글 정보 */
 .likes-comment-info {
-  display: flex; 
+  display: flex;
   align-items: center;
   margin-left: 20px;
   height: 20px;
@@ -181,7 +173,7 @@ body {
 .likes-amount {
   font-size: 12px;
   color: #666;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
 
 .comment-button {
@@ -198,8 +190,8 @@ body {
 .comment-amount {
   font-size: 12px;
   color: #666;
-  margin-left: 10px; 
-  margin-right: 12px; 
+  margin-left: 10px;
+  margin-right: 12px;
 }
 
 /* 글쓰기 버튼 스타일 */
@@ -313,20 +305,6 @@ footer nav a span {
   color: #38536d;
 }
 
-/* 하단 바 스타일 */
-.bottom-bar {
-  position: fixed;
-  bottom: 5px;
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  border-radius: 5%;
-  justify-content: space-around;
-  background-color: #38536d;
-  padding: 2px 0;
-  z-index: 1000;
-}
-
 /* 폴더 선택 스타일 */
 .modal {
   position: fixed;
@@ -343,7 +321,7 @@ footer nav a span {
 
 .modal-content {
   background: white;
-  width: 80%;
+  width: 100%;
   max-width: 350px;
   border-radius: 10px 10px 0 0;
   padding: 20px;
@@ -371,7 +349,6 @@ footer nav a span {
   margin: 0; /* Remove any default margin */
 }
 
-
 .folder-select-text {
   font-weight: 500;
   font-size: 18px;
@@ -381,11 +358,11 @@ footer nav a span {
   background-color: #38536d;
   border: none;
   color: white;
-  padding: 7px 10px; 
-  border-radius: 5px; 
-  font-size: 16px; 
-  font-weight: 500; 
-  cursor: pointer; 
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .save-button img {
@@ -411,7 +388,7 @@ footer nav a span {
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: 500;
-  border-bottom: 1px solid #D8D8D8;
+  border-bottom: 1px solid #d8d8d8;
 }
 
 /* 폴더 추가 버튼 스타일 */
@@ -421,7 +398,7 @@ footer nav a span {
   align-items: center;
   margin-bottom: 10px;
   padding: 5px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   background-color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -429,7 +406,6 @@ footer nav a span {
   font-size: 16px;
   font-weight: 500;
 }
-
 
 /* 기본 라디오 버튼 숨기기 */
 .folder-list input[type="radio"] {
@@ -449,7 +425,7 @@ footer nav a span {
 
 /* 라디오 버튼을 오른쪽에 위치시키기 */
 .folder-list label::before {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   top: 50%;
@@ -462,7 +438,7 @@ footer nav a span {
 }
 
 .folder-list input[type="radio"]:checked + label::before {
-  background-color: #FFF7DC;
+  background-color: #fff7dc;
   border-color: #ccc;
 }
 
@@ -514,36 +490,38 @@ footer nav a span {
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* 각각의 색상 버튼 기본 상태 */
 .color-option:nth-child(1) {
-  background-color: #FBB5B5;
+  background-color: #fbb5b5;
 }
 .color-option:nth-child(2) {
-  background-color: #ECBAA6;
+  background-color: #ecbaa6;
 }
 .color-option:nth-child(3) {
-  background-color: #C1EFA5;
+  background-color: #c1efa5;
 }
 .color-option:nth-child(4) {
-  background-color: #B3DEEC;
+  background-color: #b3deec;
 }
 .color-option:nth-child(5) {
-  background-color: #8FC28A;
+  background-color: #8fc28a;
 }
 .color-option:nth-child(6) {
-  background-color: #FDEE96;
+  background-color: #fdee96;
 }
 .color-option:nth-child(7) {
-  background-color: #EBC3EB;
+  background-color: #ebc3eb;
 }
 .color-option:nth-child(8) {
-  background-color: #E18383;
+  background-color: #e18383;
 }
 .color-option:nth-child(9) {
-  background-color: #8E98F2;
+  background-color: #8e98f2;
 }
 
 .color-option input[type="radio"] {
